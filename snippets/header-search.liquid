@@ -1,0 +1,84 @@
+{% comment %}<div class="header__container_menu header-menu">
+    <div class="header-menu__search-container">
+        <input id="header-search" placeholder="Search..." type="search" class="header-menu__search-container_input">
+        <label for="header-search" class="header-menu__search-container_label"></label>
+    </div>
+    <div class="header-menu__profile"><a href="#">{{ 'profile.png' | asset_url | img_tag: 'profile' }}</a></div>
+    <div class="header-menu__basket"><a href="#">{{ 'basket.png' | asset_url | img_tag: 'basket' }}</a></div>
+    <select class="header-menu__language">
+        <option value="">DE</option>
+        <option value="">EN</option>
+    </select>
+</div>
+{% endcomment %}
+{%- assign locale_selector = false -%}
+{%- if section.settings.show_locale_selector and shop.published_locales.size > 1 -%}
+    {%- assign locale_selector = true -%}
+{%- endif -%}
+
+
+<div id="SearchDrawer" class="search-bar drawer drawer--top" role="dialog" aria-modal="true" aria-label="{{ 'general.search.placeholder' | t }}" data-predictive-search-drawer>
+    <div class="search-bar__interior">
+        <div class="search-form__container" data-search-form-container>
+            <form class="search-form search-bar__form" action="{{ routes.search_url }}" method="get" role="search">
+                {% comment %}<div class="search-form__input-wrapper">{% endcomment %}
+                    {% comment %}<input{% endcomment %}
+                            {% comment %}type="text"{% endcomment %}
+                            {% comment %}name="q"{% endcomment %}
+                            {% comment %}placeholder="{{ 'general.search.placeholder' | t }}"{% endcomment %}
+                            {% comment %}role="combobox"{% endcomment %}
+                            {% comment %}aria-autocomplete="list"{% endcomment %}
+                            {% comment %}aria-owns="predictive-search-results"{% endcomment %}
+                            {% comment %}aria-expanded="false"{% endcomment %}
+                            {% comment %}aria-label="{{ 'general.search.placeholder' | t }}"{% endcomment %}
+                            {% comment %}aria-haspopup="listbox"{% endcomment %}
+                            {% comment %}class="search-form__input search-bar__input"{% endcomment %}
+                            {% comment %}data-predictive-search-drawer-input{% endcomment %}
+                    {% comment %}/>{% endcomment %}
+                    {% comment %}<input type="hidden" name="options[prefix]" value="last" aria-hidden="true" />{% endcomment %}
+                    {% comment %}<div class="predictive-search-wrapper predictive-search-wrapper--drawer" data-predictive-search-mount="drawer"></div>{% endcomment %}
+                {% comment %}</div>{% endcomment %}
+                <div class="header__container_menu header-menu">
+                    <div class="header-menu__search-container">
+                        <label for="header-search" class="header-menu__search-container_label">
+                            <input id="header-search" placeholder="Search..." type="search" class="header-menu__search-container_input">
+                        </label>
+                    </div>
+                    <div class="header-menu__profile">
+                        {% if shop.customer_accounts_enabled %}
+                            <a href="{{ routes.account_url }}">{{ 'profile.png' | asset_url | img_tag: 'profile' }}</a>
+                        {% endif %}
+                    </div>
+                    <div class="header-menu__basket {% if cart.item_count > 0 %}active_item_count{% endif %}">
+                        <a href="{{ routes.cart_url }}">{{ 'basket.png' | asset_url | img_tag: 'basket' }}</a>
+                    </div>
+                </div>
+
+                {% comment %}<button class="search-bar__submit search-form__submit"{% endcomment %}
+                        {% comment %}type="submit"{% endcomment %}
+                        {% comment %}data-search-form-submit>{% endcomment %}
+{% comment %}{% endcomment %}
+                    {% comment %}<span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>{% endcomment %}
+                {% comment %}</button>{% endcomment %}
+            </form>
+            {% form 'localization' %}
+                <select name="language_code" id="language_code1" class="header-menu__language">
+                    {% for language in localization.available_languages %}
+                        <option value="{{ language.iso_code }}"
+                        {%- if language == localization.language %} selected="selected"{% endif %}>
+                            {{ language.endonym_name | upcase | truncate: 5 | remove: "." }}
+                        </option>
+                    {% endfor %}
+                </select>
+            {% endform %}
+
+            {% comment %}<div class="search-bar__actions">{% endcomment %}
+                {% comment %}<button type="button" class="btn--link search-bar__close js-drawer-close">{% endcomment %}
+{% comment %}{% endcomment %}
+{% comment %}{% endcomment %}
+                    {% comment %}<span class="icon__fallback-text">{{ 'general.search.close' | t }}</span>{% endcomment %}
+                {% comment %}</button>{% endcomment %}
+            {% comment %}</div>{% endcomment %}
+        </div>
+    </div>
+</div>

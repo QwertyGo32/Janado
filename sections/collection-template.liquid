@@ -1,0 +1,1550 @@
+<section class="catalogue">
+    <div class="mask">
+
+        <div class="loader"></div>
+    </div>
+    <div class="catalogue__wrapper">
+        <h2 class="catalogue__brand-name">Apple</h2>
+        <div class="catalogue__container">
+            <div class="catalogue__menu">
+
+            </div>
+            <div class="catalogue__cards">
+                <div class="catalogue__cards_btns-bar btns-bar">
+
+
+                    <div class="btns-bar__filter-btn">
+                        <p class="btns-bar__filter-btn_text">Filter</p>
+                        <div class="btns-bar__filter-btn_img">
+                            <img src="{{ 'filter_icon.png' | asset_img_url: 'master' }}" alt=""></div>
+                    </div>
+                    <div class="filter-menu">
+                        <div class="filter-menu__filters-head">
+                            <p class="filter-menu__filters-head_text">Filter</p>
+                            <div class="filter-menu__filters-head_clear-btn"><p
+                                        class="filter-menu__filters-head_text clear_all">
+                                    Clear All</p><img src="{{ 'clear_btn.png' | asset_img_url: 'master' }}" alt="">
+                            </div>
+                        </div>
+                        <div class="filter-menu__filters-container"></div>
+                        <div class="filter-menu__wrapper_new">
+
+                        </div>
+                        <div class="filter-menu__back-btn"><img src="{{ 'left-arrow.png' | asset_img_url: 'master' }}"
+                                                                alt=""
+                                                                class="filter-menu__back-btn_img">
+                            <p class="filter-menu__back-btn_text">Back</p>
+                        </div>
+                    </div>
+                    {%- if section.settings.show_sort_by -%}
+                        <div class="btns-bar__dropdown">
+                            <label for="sorting-dropdown" class="btns-bar__sorting btns-bar__btn-label btns-bar__btn">
+                                <p class="btns-bar__sorting_text">Sorting by</p>
+                                <img src="{{ 'arrow-down-drop-circle.png' | asset_img_url: 'master' }}" alt=""></label>
+                            <input type="checkbox" id="sorting-dropdown" class="btns-bar__dropdown-checkbox" hidden>
+                            <div class="btns-bar__dropdown-container" id="collection-sort-by">
+                                <p value="What’s New">What’s New</p>
+                                <p value="Price: Low to High">Price: Low to High</p>
+                                <p value="Price: High to Low">Price: High to Low</p>
+                            </div>
+                        </div>
+                    {%- endif -%}
+                    <div class="btns-bar__container">
+                    </div>
+                </div>
+                <div class="catalogue__cards_products">
+                </div>
+                <div class="paginate-bar__container">
+                    <ul class="paginate">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .paginate li {
+            margin: 10px;
+            float: left;
+        }
+    </style>
+</section>
+{% assign collection_id = collection.id %}
+{% assign collection_handle = collection.handle %}
+
+{% assign image_src = 'vector.png' | asset_img_url: 'master' %}
+{% assign imgView = 'clear_btn.png' | asset_img_url: 'master' %}
+
+<script>
+
+    let mask = document.querySelector('.mask');
+    window.addEventListener('load', () => {
+        mask.classList.add('hide');
+        setTimeout(() => {
+            mask.remove()
+        }, 1000)
+    })
+    const pathname = window.location.pathname;
+    const lang = pathname.split("/");
+    const defaultImage = '{{ image_src }}';
+    const collection_id = '{{ collection_id }}';
+    const collection_handle = '{{ collection_handle }}';
+
+    const productFrame = `<a href="${lang[1]}/products/$PRODUCTURL" class="catalogue__cards_product-card product-card">
+        <img src="$IMAGESRC" class="product-card__img">
+        <div class="product-card__content">
+            <div class="product-card__content_specs">
+                <p class="product-card__content_name">
+                    $TITLE
+                </p>
+                <p class="product-card__content_condition">
+                    Available in different grades
+                </p>
+                <div class="product-card__content_color"></div>
+            </div>
+            <div class="product-card__content_price">
+            <p class="product-card__content_current-price">
+                $CURRENTPRICE
+            </p>
+            <p class="product-card__content_previous-price">
+                $PREVIOUSPRICE
+            </p>
+            <img src="//cdn.shopify.com/s/files/1/0470/7719/5935/t/24/assets/product-card_btn.png?v=9066210273825928888" class="product-card__content_btn">
+            </div>
+        </div>
+        </a>`;
+    const productFrameVariant = `<a href="${lang[1]}/products/$PRODUCTURL/$VARIANTID" class="product-row__item swiper-slide">
+                            <picture>
+                                    <img src="$IMAGESRC" class="product-row__item_img" alt="">
+                            </picture>
+                            <div class="product-row__item_content">
+                                <div class="product-row__item_specs">
+                                <p class="product-row__item_name">$TITLE</p>
+                                <p class="product-row__item_text">$CONDITION</p>
+                                <p class="product-row__item_text">$CAPACITY</p>
+                                <p class="product-row__item_text">
+                                    <div class="color-picker-indicator">
+                                    </div>
+                                </p>
+                                </div>
+                                <div class="product-row__item_price"><p
+                                            class="product-row__item_current-price">$CURRENTPRICE</p>
+                                    <p class="product-row__item_previous-price">$PREVIOUSPRICE</p>
+                                </div>
+                            </div>
+                        </a>`;
+    const filterBlock = `<div class="catalogue__menu_container menu-container">
+                            <label for="menu-container__head_checkbox-Model" class="menu-container__head">
+                                <p class="menu-container__head_text">
+                                    $FILTERNAME
+                                </p>
+<!--                                <label>-->
+<!--                                        <div class="menu-container__head_btn">-->
+<!--                                        <div class="menu-container__head_btn-circle"></div>-->
+<!--                                    </div>-->
+<!--                                </label>-->
+                            </label>
+                            <div class="menu-container__variants">
+                                $FILTERBLOCKVARIANT
+                            </div>
+                            <p class="menu-container__btn">Show more</p>
+                        </div>`;
+    const filterBlockItem = `<div class="menu-container__variants_variant variant">
+                                <input type="checkbox" data-filter="$FILTERNAME" id="$FILTERVALUE" class="variant__input">
+                                <label for="$FILTERVALUE" class="variant__label">
+                                    <span class="variant__label_square"></span>
+                                    <p class="variant__label_text">
+                                        $FILTERVALUE
+                                    </p>
+                                </label>
+                             </div>`;
+    const filterBlockItemBrand = `<div class="menu-container__variants_variant variant">
+                                    <input type="checkbox" data-filter="$FILTERNAME" id="$FILTERVALUE" class="variant__input">
+                                    <label for="$FILTERVALUE" class="variant__label_brand">
+                                        $FILTERVALUE
+                                    </label>
+                                    <div class="variant__model-container unvisible">
+                                        $FILTERMODEL
+                                    </div>
+                                </div>`;
+    const filterBlockItemModel = `<label class="variant__model-container_item">
+                                    <input type="checkbox" data-filter="$FILTERNAME" id="$FILTERVALUE" class="variant__input">
+                                    $FILTERMODELNAME
+                                  </label>`;
+    const filterBlockMobile = `<div class="filter-menu__head">
+                                    <p class="filter-menu__head_text">$FILTERNAMEMOBILE</p>
+                                    <div class="filter-menu__head_btn">
+                                        <div class="filter-menu__head_btn-circle"></div>
+                                    </div>
+                                </div>
+                                <div class="filter-menu__container">$FILTERBLOCKVARIANTMOBILE</div> `;
+    const filterBlockItemMobile = `<div class="filter-menu__container_option">
+                                        <input type="checkbox" data-filter="$FILTERNAMEMOBILE" id="$FILTERVALUEMOBILE" class="variant__input">
+                                        <label class="filter-menu__container_label" for="$FILTERVALUEMOBILE">
+                                            <span class="filter-menu__container_square"> </span>
+                                            $FILTERVALUEMOBILE
+                                        </label>
+                                </div>`;
+    const filterBlockBrandMobile = `<div class="filter-menu__container_option">
+                                        <input type="checkbox" data-filter="$FILTERNAMEMOBILE" id="$FILTERVALUEMOBILE" class="variant__input">
+                                        <label class="filter-menu__container_label" for="$FILTERVALUEMOBILE">
+                                            $FILTERVALUEMOBILE
+                                        </label>
+                                        <div class="filter-menu__models-container unvisible">
+                                            $FILTERMODELBLOCK
+                                        </div>
+                                </div>`;
+    const filterBlockModelMobile = `<label class="filter-menu__models-container_model">
+                                        <input type="checkbox" data-filter="$FILTERNAME" id="$FILTERVALUE" class="variant__input">
+                                        $FILTERMODELVALUE
+                                    </label>`;
+
+    let imgFilterView = '{{ imgView }}';
+
+    const filterBlockItemView = `<label for="$checkboxID" class="btns-bar__btn" style="float:left;" id="$itemID">
+                                    <p class="btns-bar__btn_text">$PRODUCTFILTERNAME</p>
+                                    <img src="${imgFilterView}" class="btns-bar__btn_img" alt="">
+                                 </label>`;
+    const filterBlockItemMobileView = `<label for="$checkboxMobileID" class="btns-bar__btn" style="float:left;" id="$itemMobileID">
+                                    <p class="btns-bar__btn_text">$PRODUCTFILTERMOBILENAME</p>
+                                    <img src="${imgFilterView}" class="btns-bar__btn_img" alt="">
+                                 </label>`;
+    let checkedFilters = {
+        Brands: null,
+        Model: null,
+    };
+    let filteredProducts = [];
+
+    document.addEventListener('DOMContentLoaded', async (e) => {
+        // let data = await getProducts(url, collection_id);
+        let data = await apiCall(query);
+        let productsOptionObj = createProductsOptionObj(data);
+        createCheckedFilters(productsOptionObj);
+        data = createVariantsArray(data);
+        filtersMore();
+        // brandsDropDown();
+        // if (!checkedFiltersNotEmpty(checkedFilters)) {
+        //     drawProducts(data);
+        // }
+
+        if (checkedFiltersNotEmpty(checkedFilters)) {
+            productsFiltration(data);
+        }
+        drawFilterMenu(productsOptionObj, ".variant__input");
+        productsSort(data);
+        createPaggination(data);
+        paginateProducts(data);
+        // filterMenuDropdowns();
+        filterDropdownAction();
+    })
+    const createProductsOptionObj = (obj) => {
+        let productOptionsObj = {
+            Brands: {},
+        };
+
+        obj.edges.forEach((item) => {
+            productOptionsObj.Brands[item.node.vendor] = [];
+        });
+
+        obj.edges.forEach((element) => {
+            element.node.variants.edges.forEach((item) => {
+                item.node.metafields.edges.forEach((item) => {
+                    if (item.node.key === "Mobilfunkstandards") {
+                        let value = item.node.value.split(",");
+                        let arr = value.map((item) => {
+                            return item.trim();
+                        })
+                        let a = 1;
+                        arr.sort();
+                        a++;
+                        let _arr = arr.toString();
+                        item.node.value = _arr;
+                    }
+                    item.node.value = item.node.value.replace(/\+/gm, "&");
+                    item.node.value = item.node.value.replace(/\//gm, "&");
+                    item.node.value = item.node.value.replace(/\./gm, ",");
+
+                    if (element.node.productType === 'Smartphones') {
+                        if (item.node.key === 'Zustand' ||
+                            item.node.key === 'Kameraauflösung' ||
+                            item.node.key === 'Akku + Akku-Kapazität' ||
+                            item.node.key === 'Mobilfunkstandards' ||
+                            item.node.key === 'Markteinführung' ||
+                            item.node.key === 'RAM / Arbeitsspeicher' ||
+                            item.node.key === 'Dual-SIM Technik' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Bildschirmgröße' ||
+                            item.node.key === 'Farbe' ||
+                            item.node.key === 'Speicher' ||
+                            item.node.key === 'Hersteller') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName] = [];
+                            checkedFilters[itemName] = [];
+                        }
+                    } else if (element.node.productType === 'Smartwatches') {
+                        if (item.node.key === 'Hersteller' ||
+                            item.node.key === 'Armbandfarbe' ||
+                            item.node.key === 'Armbandmaterial' ||
+                            item.node.key === 'Gehäusefarbe' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Mobilfunkstandard' ||
+                            item.node.key === 'GPS' ||
+                            item.node.key === 'Markteinführung' ||
+                            item.node.key === 'Gehäusematerial') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName] = [];
+                            checkedFilters[itemName] = [];
+                        }
+                    } else if (element.node.productType === 'Tablets') {
+                        if (item.node.key === 'Hersteller' ||
+                            item.node.key === 'Speicher' ||
+                            item.node.key === 'Farbe' ||
+                            item.node.key === 'Zustand' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Bildschirmgröße' ||
+                            item.node.key === 'Akku + Akku-Kapazität' ||
+                            item.node.key === 'Mobilfunkstandards' ||
+                            item.node.key === 'Markteinführung' ||
+                            item.node.key === 'RAM / Arbeitsspeicher') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName] = [];
+                            checkedFilters[itemName] = [];
+                        }
+                    } else if (element.node.productType === 'Notebooks') {
+                        if (item.node.key === 'Hersteller' ||
+                            item.node.key === 'Festplatten-Speicher' ||
+                            item.node.key === 'RAM / Arbeitsspeicher' ||
+                            item.node.key === 'Farbe' ||
+                            item.node.key === 'Zustand' ||
+                            item.node.key === 'Prozessortyp' ||
+                            item.node.key === 'Prozessorkern' ||
+                            item.node.key === 'Prozessor-Taktfrequenz' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Bildschirmgröße' ||
+                            item.node.key === 'Akku + Akku-Kapazität' ||
+                            item.node.key === 'Akku-Laufzeit' ||
+                            item.node.key === 'Gewicht' ||
+                            item.node.key === 'Markteinführung') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName] = [];
+                            checkedFilters[itemName] = [];
+                        }
+                    }
+                })
+            });
+            productOptionsObj.Brands[element.node.vendor].push(element.node.title);
+        })
+
+        obj.edges.forEach((element) => {
+            element.node.variants.edges.forEach((item) => {
+                item.node.metafields.edges.forEach((item) => {
+                    if (element.node.productType === 'Smartphones') {
+                        if (item.node.key === 'Zustand' ||
+                            item.node.key === 'Kameraauflösung' ||
+                            item.node.key === 'Akku + Akku-Kapazität' ||
+                            item.node.key === 'Mobilfunkstandards' ||
+                            item.node.key === 'Markteinführung' ||
+                            item.node.key === 'RAM / Arbeitsspeicher' ||
+                            item.node.key === 'Dual-SIM Technik' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Bildschirmgröße' ||
+                            item.node.key === 'Farbe' ||
+                            item.node.key === 'Speicher' ||
+                            item.node.key === 'Hersteller') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName].push(item.node.value);
+                        }
+                    } else if (element.node.productType === 'Smartwatches') {
+                        if (item.node.key === 'Hersteller' ||
+                            item.node.key === 'Armbandfarbe' ||
+                            item.node.key === 'Armbandmaterial' ||
+                            item.node.key === 'Gehäusefarbe' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Mobilfunkstandard' ||
+                            item.node.key === 'GPS' ||
+                            item.node.key === 'Markteinführung' ||
+                            item.node.key === 'Gehäusematerial') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName].push(item.node.value);
+                        }
+                    } else if (element.node.productType === 'Tablets') {
+                        if (item.node.key === 'Hersteller' ||
+                            item.node.key === 'Speicher' ||
+                            item.node.key === 'Farbe' ||
+                            item.node.key === 'Zustand' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Bildschirmgröße' ||
+                            item.node.key === 'Akku + Akku-Kapazität' ||
+                            item.node.key === 'Mobilfunkstandards' ||
+                            item.node.key === 'Markteinführung' ||
+                            item.node.key === 'RAM / Arbeitsspeicher') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName].push(item.node.value);
+                        }
+                    } else if (element.node.productType === 'Notebooks') {
+                        if (item.node.key === 'Hersteller' ||
+                            item.node.key === 'Festplatten-Speicher' ||
+                            item.node.key === 'RAM / Arbeitsspeicher' ||
+                            item.node.key === 'Farbe' ||
+                            item.node.key === 'Zustand' ||
+                            item.node.key === 'Prozessortyp' ||
+                            item.node.key === 'Prozessorkern' ||
+                            item.node.key === 'Prozessor-Taktfrequenz' ||
+                            item.node.key === 'Betriebssystem' ||
+                            item.node.key === 'Bildschirmgröße' ||
+                            item.node.key === 'Akku + Akku-Kapazität' ||
+                            item.node.key === 'Akku-Laufzeit' ||
+                            item.node.key === 'Gewicht' ||
+                            item.node.key === 'Markteinführung') {
+
+                            let itemName = item.node.key;
+                            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+                            productOptionsObj[itemName].push(item.node.value);
+                        }
+                    }
+                })
+
+            })
+        })
+
+        for (let key in productOptionsObj) {
+            if (key !== "Brands") {
+                productOptionsObj[key] = productOptionsObj[key].filter((item, index) => {
+                    return productOptionsObj[key].indexOf(item) === index;
+                })
+                productOptionsObj[key].sort();
+            } else {
+                for (const key in productOptionsObj.Brands) {
+                    productOptionsObj.Brands[key].sort();
+                }
+            }
+        }
+
+        return productOptionsObj;
+    }
+    let notesOnPage = Number('{{ section.settings.paginate_size }}');
+    let pageNum = 1;
+    const createVariantsArray = (data) => {
+        let _data = [];
+        data.edges.forEach((product) => {
+            product.node.variants.edges.forEach((variant) => {
+                // variant.node.metafields.edges.forEach((metafield) => {
+                //     metafield.node.value.replace(/\+/gm, "&");
+                //     metafield.node.value.replace(/\//gm, "&");
+                // })
+                variant.node.publishedAt = product.node.publishedAt;
+                variant.node.title = product.node.vendor + " " + product.node.title;
+                variant.node.handle = product.node.handle;
+                variant.node.vendor = product.node.vendor;
+                variant.node.model = product.node.title;
+                _data.push(variant);
+            })
+        })
+        return _data;
+    }
+    const paginateProducts = (obj) => {
+        if (filteredProducts.length === 0) {
+            filteredProducts = obj.edges;
+        }
+        let start = (pageNum - 1) * notesOnPage;
+        let end = start + notesOnPage;
+        let _filteredProducts = filteredProducts.slice(start, end);
+        drawProducts(_filteredProducts);
+        document.querySelectorAll(".paginate li").forEach((elem) => {
+            elem.addEventListener("click", (e) => {
+                document.querySelectorAll(".paginate li").forEach((elem) => {
+                    if (e.target === elem) {
+                        e.target.classList.add("current")
+                    } else {
+                        elem.classList.remove("current")
+                    }
+                })
+                pageNum = +e.target.innerHTML;
+
+                start = (pageNum - 1) * notesOnPage;
+
+                end = start + notesOnPage;
+
+
+                let notes = filteredProducts.slice(start, end);
+
+                drawProducts(notes);
+            })
+        });
+    }
+
+    const checkedFiltersNotEmpty = (obj) => {
+        let checkedFiltersFlag = false;
+        for (let key in obj) {
+            if (key === "Brands" && obj[key] !== null) {
+                checkedFiltersFlag = true
+            } else if (key === "Model" && obj[key] !== null) {
+                checkedFiltersFlag = true;
+            } else if (key !== "Brands" && key !== "Model" && obj[key].length > 0) {
+                checkedFiltersFlag = true;
+            }
+        }
+        return checkedFiltersFlag;
+    }
+
+    function toHigh(field) {
+        return (a, b) => a.node[field] > b.node[field] ? 1 : -1;
+    }
+
+    function toLow(field) {
+        return (a, b) => a.node[field] > b.node[field] ? -1 : 1;
+    }
+
+    const productsSort = (DATA) => {
+        document.querySelectorAll(".btns-bar__dropdown-container p").forEach((item) => {
+            let sortPrice;
+            item.addEventListener("click", (e) => {
+                if (filteredProducts.length === 0) {
+                    filteredProducts = DATA;
+                }
+
+                // filteredProducts.forEach((item) => {
+                //     console.log(item);
+                //     sortPrice = Math.min(...item.node.variants.edges.map((variant) => {
+                //         return Number(variant.node.price);
+                //     }))
+                //     item.node['price'] = sortPrice;
+                // })
+
+                if (e.target.innerHTML === 'Price: High to Low') {
+                    filteredProducts.sort(toLow('price'));
+                    paginateProducts(filteredProducts)
+                } else if (e.target.innerHTML === 'Price: Low to High') {
+                    filteredProducts.sort(toHigh('price'));
+                    paginateProducts(filteredProducts)
+                } else if (e.target.innerHTML === 'What’s New') {
+                    filteredProducts.sort(toLow('publishedAt'));
+                    paginateProducts(filteredProducts)
+                }
+            });
+        });
+        return filteredProducts;
+    }
+    // let timerId;
+    const redirectMakeUrl = (checkedFilters) => {
+        let location = window.location.href;
+        let URL = "/";
+        // let counter = 1;
+        let flag = false;
+        for (let key in checkedFilters) {
+            if (key === "Brands" && checkedFilters[key] !== null) {
+                URL += checkedFilters.Brands;
+                flag = true;
+            } else if (key === "Model" && checkedFilters[key] !== null) {
+                URL += "-" + checkedFilters.Model;
+                flag = true;
+            } else if (key !== "Brands" && key !== "Model" && checkedFilters[key].length > 0) {
+                // if (counter === 1) {
+                //     URL += "/" + `${key}` + "=";
+                // }
+                // else {
+                //     URL += "&" + `${key}` + "=";
+                // }
+                checkedFilters[key].forEach((item, index) => {
+                    if (index === 0 && flag) {
+                        URL += "-" + item;
+                    } else if (index === 0 && !flag) {
+                        URL += item;
+                    } else if (index !== 0 && flag) {
+                        URL += "+" + item;
+                    } else {
+                        URL += item;
+                    }
+                    flag = true;
+                })
+                // for (let i = 0; i < checkedFilters[key].length; i++) {
+                //     if (i === checkedFilters[key].length - 1) {
+                //
+                //         URL += "/" + `${checkedFilters[key][i]}`;
+                //     } else {
+                //         URL += `${checkedFilters[key][i]}` + "_";
+                //     }
+                // }
+            }
+            // if (flag) {
+            //     URL += "-";
+            // }
+        }
+        location = location.split(collection_handle)[0];
+        document.location.href = location + collection_handle + URL;
+        // if ((location.indexOf('-') === -1) || flag) {
+        //     location = location.split(collection_handle + "/");
+        //     // document.location.href = location + URL;
+        //     // if (history.pushState) {
+        //     //     let newUrl = location + URL;
+        //     //     history.pushState(null, null, newUrl);
+        //     // } else {
+        //     //     console.warn('History API не поддерживается');
+        //     // }
+        // } else if (location.indexOf("-") !== -1 && flag) {
+        //     location = location.split(collection_handle)[0] + "/" + collection_handle;
+        //     // document.location.href = location + URL;
+        // }
+    }
+
+    const createCheckedFilters = (compareObj) => {
+        let currentUrl = window.location.href;
+        currentUrl = decodeURI(currentUrl);
+        currentUrl = currentUrl.split(collection_handle + "/");
+        if (currentUrl.length > 1) {
+            // currentUrl = currentUrl.split(collection_handle + "/");
+            currentUrl = currentUrl.filter((item, index) => index !== 0);
+            // currentUrl = currentUrl.split("&");
+            if (currentUrl.length === 1) {
+                currentUrl = currentUrl[0].split("-");
+            }
+            currentUrl.forEach((item) => {
+                // item = item.split("+");
+                let flag = false;
+                if (item.indexOf("+") !== -1) {
+                    item = item.split("+");
+                    item.forEach((item) => {
+                        for (const key in compareObj) {
+                            if (key === "Brands") {
+                                Object.values(compareObj[key]).forEach((elem) => {
+                                    elem.includes(item) ? flag = true : null;
+                                })
+                            }
+                            if (key === "Brands" && Object.keys(compareObj).includes(item)) {
+                                checkedFilters.Brands = item;
+                            } else if (key === "Brands" && flag) {
+                                checkedFilters.Model = item;
+                            } else if (key !== "Brands" && compareObj[key].includes(item)) {
+                                checkedFilters[key].push(item);
+                            }
+                        }
+                    })
+                } else {
+                    for (const key in compareObj) {
+                        if (key === "Brands") {
+                            Object.values(compareObj[key]).forEach((elem) => {
+                                elem.includes(item) ? flag = true : null;
+                            })
+                        }
+
+                        if (key === "Brands" && Object.keys(compareObj[key]).includes(item)) {
+                            checkedFilters.Brands = item;
+                        } else if (key === "Brands" && flag) {
+                            checkedFilters.Model = item;
+                        } else if (key !== "Brands" && compareObj[key].includes(item)) {
+                            checkedFilters[key].push(item);
+                        }
+                    }
+                }
+                // let KEY = item[0];
+                // if (item[1].indexOf("_") !== -1) {
+                //     let _item = item[1].split("_");
+                //     _item.forEach((elem) => {
+                //         checkedFilters[KEY].push(elem);
+                //     })
+                // } else {
+                //     checkedFilters[KEY].push(item[1])
+                // }
+            })
+        }
+        // if (checkedFilters.Brands !== null) {
+        //     document.querySelectorAll(".variant__label_brand").forEach((item) => {
+        //         let brandName = item.innerHTML.trim();
+        //         if (brandName === checkedFilters.Brands) {
+        //             item.nextElementSibling.classList.remove("unvisible");
+        //         }
+        //     })
+        // }
+        //
+        // document.querySelectorAll(CLASS3).forEach((item) => {
+        //     item.addEventListener("click", (e) => {
+        //         checkedFilters.Model = e.target.innerHTML.trim();
+        //         redirectMakeUrl(checkedFilters);
+        //     })
+        // })
+        // document.querySelectorAll(CLASS2).forEach((item) => {
+        //     item.addEventListener("click", (e) => {
+        //         checkedFilters.Brand = e.target.innerHTML.trim();
+        //         checkedFilters.Model = null;
+        //         redirectMakeUrl(checkedFilters);
+        //     })
+        // })
+
+
+    }
+    const productsFiltration = (productsArray) => {
+        // timerId = setTimeout(redirectMakeUrl,5000);
+        if (document.body.clientWidth > 992) {
+            document.querySelector(".btns-bar__container").innerHTML = '';
+            for (let key in checkedFilters) {
+                if (key !== "Brands" && key !== "Model") {
+                    checkedFilters[key].forEach((item) => {
+                        let _filterBlockView = filterBlockItemView;
+                        _filterBlockView = _filterBlockView.replace("$PRODUCTFILTERNAME", item);
+                        _filterBlockView = _filterBlockView.replace(`$PRODUCTFILTERNAME`, "");
+                        _filterBlockView = _filterBlockView.replace(`$itemID`, key);
+                        _filterBlockView = _filterBlockView.replace(`$checkboxID`, item);
+                        document.querySelector(".btns-bar__container").innerHTML += _filterBlockView;
+                    })
+                } else {
+                    if (checkedFilters[key] !== null) {
+                        let _filterBlockView = filterBlockItemView;
+                        _filterBlockView = _filterBlockView.replace("$PRODUCTFILTERNAME", checkedFilters[key]);
+                        _filterBlockView = _filterBlockView.replace(`$PRODUCTFILTERNAME`, "");
+                        _filterBlockView = _filterBlockView.replace(`$itemID`, key);
+                        _filterBlockView = _filterBlockView.replace(`$checkboxID`, checkedFilters[key]);
+                        document.querySelector(".btns-bar__container").innerHTML += _filterBlockView;
+                    }
+                }
+            }
+        } else {
+            document.querySelector(".filter-menu__filters-container").innerHTML = '';
+            for (let key2 in checkedFilters) {
+                checkedFilters[key2].forEach((item2) => {
+                    let _filterBlockItemMobileView = filterBlockItemMobileView;
+                    _filterBlockItemMobileView = _filterBlockItemMobileView.replace("$PRODUCTFILTERMOBILENAME", item2);
+                    _filterBlockItemMobileView = _filterBlockItemMobileView.replace(`$PRODUCTFILTERMOBILENAME`, "");
+                    _filterBlockItemMobileView = _filterBlockItemMobileView.replace(`$itemMobileID`, key2);
+                    _filterBlockItemMobileView = _filterBlockItemMobileView.replace(`$checkboxMobileID`, item2);
+                    document.querySelector(".filter-menu__filters-container").innerHTML += _filterBlockItemMobileView;
+                })
+            }
+        }
+
+        productsArray.forEach((variant) => {
+            // let flag = [];
+            let flag = [];
+            for (let key in checkedFilters) {
+                if (key === "Brands" && checkedFilters[key] !== null) {
+                    let miniFlag = checkedFilters[key] === variant.node.vendor;
+                    flag.push(miniFlag);
+                    // if (checkedFilters[key] === product.node.vendor) {
+                    //     miniFlag = true;
+                    // }
+                    // filteredProducts.push(variant);
+                } else if (key === "Model" && checkedFilters[key] !== null) {
+                    // let miniFlag = false;
+                    // if (checkedFilters[key] === product.node.title) {
+                    //     miniFlag = true;
+                    // }
+                    // flag.push(miniFlag);
+                    let miniFlag = checkedFilters[key] === variant.node.model;
+                    flag.push(miniFlag);
+                    // filteredProducts.push(variant);
+                } else if (key !== "Brands" && key !== "Model" && checkedFilters[key].length > 0) {
+                    // let selectedOption = variant.node.metafields.edges.find((option) => {
+                    //     return option.node. === key;
+                    // });
+                    // console.log(selectedOption);
+                    // let miniFlag = false;
+                    variant.node.metafields.edges.forEach((option) => {
+                        if (key === option.node.key) {
+                            let miniFlag = checkedFilters[key].includes(option.node.value);
+                            flag.push(miniFlag);
+                        }
+                    })
+                    // variant.node.metafields.edges.forEach((option) => {
+                    //     checkedFilters[key].forEach((item) => {
+                    //         if (item === option.node.value) {
+                    //             filteredProducts.push(variant)
+                    //         }
+                    //     })
+                    // })
+
+                    // if (selectedOption === undefined) {
+                    //     // flag.push(true);
+                    // } else {
+                    //     checkedFilters[key].forEach((item) => {
+                    //         if (selectedOption.node.value.includes(item)) {
+                    //             // miniFlag = true;
+                    //         }
+                    //     });
+                    //     // flag.push(miniFlag);
+                    // }
+                    // } else {
+                    //     // flag.push(true);
+                    // }
+                }
+            }
+            (flag.length === 0) ? flag.push(false) : null;
+            (!flag.includes(false)) ? filteredProducts.push(variant) : null;
+        })
+        if (filteredProducts.length === 0) {
+            console.log(filteredProducts);
+            for (let key in checkedFilters) {
+                if (key !== "Brands") {
+                    delete checkedFilters[key];
+                }
+            }
+            redirectMakeUrl(checkedFilters);
+        }
+        // drawProducts(filteredProducts);
+    }
+
+    // let url = `https://janado.myshopify.com/admin/api/2021-04/products.json?collection_id=${collection_id}&status=active&fields=image,options,product_type,title,variants,vendor,handle,published_at&limit=250`;
+    const query = `
+   {
+  shop {
+    collectionByHandle(handle: "${collection_handle}") {
+      id
+      description
+      products(first: 250) {
+        edges {
+          node {
+            handle
+            title
+            id
+            images(first: 1) {
+              edges {
+                node {
+                  id
+                  originalSrc
+                }
+              }
+            }
+            options {
+                id
+                name
+                values
+            }
+            vendor
+            title
+            productType
+            publishedAt
+            variants(first: 100) {
+              edges {
+                node {
+                  id
+                  sku
+                  price
+                  compareAtPrice
+                  image {
+                    originalSrc
+                  }
+                  metafields(first: 40) {
+                    edges {
+                        node {
+                            key
+                            value
+                        }
+                    }
+                  }
+                  selectedOptions {
+                    name
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+        pageInfo {
+          hasNextPage
+        }
+      }
+    }
+  }
+}
+`;
+
+    function apiCall(query) {
+        return fetch('http://127.0.0.1:9292/api/graphql.json',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/graphql',
+                    "Access-Control-Origin": "*",
+                    'X-Shopify-Storefront-Access-Token': "c6f0ad3730c44be6b7183aa278679270"
+                },
+                "body": query
+            })
+            .then(response => response.json()).then(response => {
+                let data = response;
+                data = data.data.shop.collectionByHandle.products;
+                return data;
+            })
+    }
+
+    // apiCall(query).then(response => {
+    //     let data = response;
+    //     data = data.data.shop.collectionByHandle.products.edges;
+    //     return data;
+    // });
+
+    // async function getProducts(URL, PARAMS = {}) {
+    //     if (Object.keys(PARAMS).length > 0) {
+    //         for (const key in PARAMS) {
+    //             URL += "&" + key + "=" + PARAMS[key];
+    //         }
+    //     }
+    //     let response = await fetch(URL, {
+    //         headers: {
+    //             'base_url': 'janado.myshopify.com',
+    //             'api_version': 'unstable',
+    //             "X-Shopify-Storefront-Access-Token": "c6f0ad3730c44be6b7183aa278679270"
+    //         }
+    //     });
+    //     if (response.ok) {
+    //         let data = await response.json();
+    //
+    //         data.products.forEach((product) => {
+    //             product.options.forEach((item) => {
+    //                 if (item.name === 'Apple Farbe') {
+    //                     item.name = 'Farbe'
+    //                 }
+    //             })
+    //         })    //
+    //         return data;
+    //     } else {
+    //         console.log("error", response.status);
+    //     }
+    // }
+
+    const createPaggination = (array) => {
+        let blockPagination = document.querySelector(".paginate");
+        if (filteredProducts.length === 0) {
+            filteredProducts = array;
+        }
+        for (let i = 1; i <= Math.ceil(filteredProducts.length / notesOnPage); i++) {
+            let li = document.createElement('li');
+            li.innerHTML = i;
+            if (i === 1) {
+                li.classList.add("current")
+            }
+            blockPagination.appendChild(li);
+        }
+    }
+
+    const drawProducts = (array) => {
+        document.querySelector('.catalogue__cards_products').innerHTML = '';
+        // if (Array.isArray(obj)) {
+        array.forEach((elem) => {
+            let block = productFrameVariant;
+            if (elem.node.image.originalSrc !== null && elem.node.image.originalSrc !== undefined) {
+                block = block.replace('$IMAGESRC', elem.node.image.originalSrc);
+            } else {
+                block = block.replace('$IMAGESRC', defaultImage);
+            }
+
+            if (elem.node.title !== null && elem.node.title !== undefined) {
+                block = block.replace('$TITLE', elem.node.title);
+            } else {
+                block = block.replace('$TITLE', '');
+            }
+            if (elem.node.handle !== null && elem.node.handle !== undefined) {
+                block = block.replace('$PRODUCTURL', elem.node.handle);
+            } else {
+                block = block.replace('$PRODUCTURL', '');
+            }
+
+            if (elem.node.id !== null && elem.node.id !== undefined) {
+                let storefrontId = atob(elem.node.id);
+                storefrontId = storefrontId.split('/');
+                block = block.replace('$VARIANTID', '?variants=' + storefrontId[storefrontId.length - 1]);
+
+            } else {
+                block = block.replace('$VARIANTID', '');
+            }
+
+            if (elem.node.price !== null && elem.node.price !== undefined) {
+                let itemPrice = elem.node.price.replace(".", ",");
+                block = block.replace('$CURRENTPRICE', '€' + itemPrice);
+            } else {
+                block = block.replace('$CURRENTPRICE', '');
+            }
+
+            if (elem.node.compareAtPrice !== null && elem.node.compareAtPrice !== undefined) {
+                let itemComparePrice = elem.node.compareAtPrice.replace(".", ",");
+                block = block.replace('$PREVIOUSPRICE', '€' + itemComparePrice);
+            } else {
+                block = block.replace('$PREVIOUSPRICE', '');
+            }
+
+            elem.node.selectedOptions.forEach((option) => {
+                if (option.name === "Zustand") {
+                    block = block.replace("$CONDITION", option.value);
+                } else if (option.name === "Speicher") {
+                    block = block.replace("$CAPACITY", option.value);
+                }
+            })
+
+            if (document.querySelector('.catalogue__cards_products')) {
+                document.querySelector(
+                    '.catalogue__cards_products'
+                ).innerHTML += block;
+            }
+        })
+        // } else {
+        //     obj.edges.forEach((elem) => {
+        //         elem.node.variants.edges.forEach((item) => {
+        //             let block = productFrameVariant;
+        //
+        //             if (item.node.image.originalSrc !== null && item.node.image.originalSrc !== undefined) {
+        //                 block = block.replace('$IMAGESRC', item.node.image.originalSrc);
+        //             } else {
+        //                 block = block.replace('$IMAGESRC', defaultImage);
+        //             }
+        //
+        //             if (elem.node.title !== null && elem.node.title !== undefined) {
+        //                 block = block.replace('$TITLE', elem.node.title);
+        //             } else {
+        //                 block = block.replace('$TITLE', '');
+        //             }
+        //
+        //             if (elem.node.handle !== null && elem.node.handle !== undefined) {
+        //                 block = block.replace('$PRODUCTURL', elem.node.handle);
+        //             } else {
+        //                 block = block.replace('$PRODUCTURL', '');
+        //             }
+        //
+        //             if (item.node.id !== null && item.node.id !== undefined) {
+        //                 let storefrontId = atob(item.node.id);
+        //                 storefrontId = storefrontId.split('/');
+        //                 block = block.replace('$VARIANTID', '?variants=' + storefrontId[storefrontId.length - 1]);
+        //
+        //             } else {
+        //                 block = block.replace('$VARIANTID', '');
+        //             }
+        //
+        //             if (item.node.price !== null && item.node.price !== undefined) {
+        //                 let itemPrice = item.node.price.replace(".", ",");
+        //                 block = block.replace('$CURRENTPRICE', '€' + itemPrice);
+        //             } else {
+        //                 block = block.replace('$CURRENTPRICE', '');
+        //             }
+        //
+        //             if (item.node.compareAtPrice !== null && item.node.compareAtPrice !== undefined) {
+        //                 let itemComparePrice = item.node.compareAtPrice.replace(".", ",");
+        //                 block = block.replace('$PREVIOUSPRICE', '€' + itemComparePrice);
+        //             } else {
+        //                 block = block.replace('$PREVIOUSPRICE', '');
+        //             }
+        //
+        //             item.node.selectedOptions.forEach((option) => {
+        //                 if (option.name === "Zustand") {
+        //                     block = block.replace("$CONDITION", option.value);
+        //                 } else if (option.name === "Speicher") {
+        //                     block = block.replace("$CAPACITY", option.value);
+        //                 }
+        //             })
+        //
+        //             if (document.querySelector('.catalogue__cards_products')) {
+        //                 document.querySelector(
+        //                     '.catalogue__cards_products'
+        //                 ).innerHTML += block;
+        //             }
+        //         })
+        //
+        //     })
+
+        // obj.edges.forEach((item) => {
+        //     let block = productFrame;
+        //
+        //     if (item.node.images.edges[0].node.originalSrc !== null && item.node.images.edges[0].node.originalSrc !== undefined) {
+        //         block = block.replace('$IMAGESRC', item.node.images.edges[0].node.originalSrc);
+        //     } else {
+        //         block = block.replace('$IMAGESRC', defaultImage);
+        //     }
+        //
+        //     if (item.node.title !== null && item.node.title !== undefined) {
+        //         block = block.replace('$TITLE', item.node.title);
+        //     } else {
+        //         block = block.replace('$TITLE', '');
+        //     }
+        //
+        //     if (item.node.handle !== null && item.node.handle !== undefined) {
+        //         block = block.replace('$PRODUCTURL', item.node.handle);
+        //     } else {
+        //         block = block.replace('$PRODUCTURL', '');
+        //     }
+        //
+        //     let varialbles = item.node.variants.edges.map((variant) => {
+        //         return Number(variant.node.price);
+        //     })
+        //
+        //     let minPrice = Math.min(...varialbles);
+        //     minPrice = parseFloat(minPrice).toFixed(2);
+        //
+        //     if (!Number.isInteger(minPrice)) {
+        //         minPrice = String(minPrice);
+        //         minPrice = minPrice.replace('.', ',');
+        //     }
+        //
+        //     if (minPrice !== null && minPrice !== undefined) {
+        //         block = block.replace('$CURRENTPRICE', '€' + minPrice);
+        //     } else {
+        //         block = block.replace('$CURRENTPRICE', '');
+        //     }
+        //
+        //     let compare_price = item.node.variants.edges.map((variant) => {
+        //         if (variant.node.compareAtPrice !== null && variant.node.compareAtPrice !== undefined) {
+        //             return Number(variant.node.compareAtPrice)
+        //         }
+        //     });
+        //
+        //     compare_price = compare_price.filter((item) => {
+        //         return item !== null & item !== undefined;
+        //     })
+        //
+        //     let minComparePrice = Math.min(...compare_price);
+        //     minComparePrice = parseFloat(minComparePrice).toFixed(2);
+        //
+        //     if (!Number.isInteger(minComparePrice)) {
+        //         minComparePrice = String(minComparePrice);
+        //         minComparePrice = minComparePrice.replace('.', ',');
+        //     }
+        //
+        //     if (minComparePrice !== null && minComparePrice !== undefined) {
+        //         block = block.replace('$PREVIOUSPRICE', '€' + minComparePrice);
+        //     } else {
+        //         block = block.replace('$PREVIOUSPRICE', '');
+        //     }
+        //
+        //
+        //     if (document.querySelector('.catalogue__cards_products')) {
+        //         document.querySelector(
+        //             '.catalogue__cards_products'
+        //         ).innerHTML += block;
+        //     }
+        // })
+    }
+
+    const drawFilterMenu = (productOptionsObj, CLASS) => {
+        // let productOptionsObj = {
+        //     Brands: {},
+        // };
+        // obj.edges.forEach((item) => {
+        //     productOptionsObj.Brands[item.node.vendor] = [];
+        // })
+        // obj.edges.forEach((item) => {
+        //     item.node.options.forEach((item) => {
+        //         let itemName = item.name;
+        //         itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //         productOptionsObj[itemName] = [];
+        //         checkedFilters[itemName] = [];
+        //     });
+        //     productOptionsObj.Brands.push(item.node.vendor);
+        // })
+
+        // obj.edges.forEach((item) => {
+        //     item.node.options.forEach((item) => {
+        //
+        //         let itemName = item.name;
+        //         itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //
+        //         item.values.forEach((element) => {
+        //             productOptionsObj[itemName].push(element);
+        //         })
+        //     })
+        // })
+        // obj.edges.forEach((element) => {
+        //     element.node.variants.edges.forEach((item) => {
+        //         item.node.metafields.edges.forEach((item) => {
+        //             if (item.node.key === "Mobilfunkstandards") {
+        //                 let value = item.node.value.split(",");
+        //                 let arr = value.map((item) => {
+        //                     return item.trim();
+        //                 })
+        //                 let a = 1;
+        //                 arr.sort();
+        //                 a++;
+        //                 let _arr = arr.toString();
+        //                 item.node.value = _arr;
+        //             }
+        //             item.node.value = item.node.value.replace(/\+/gm, "&");
+        //             item.node.value = item.node.value.replace(/\//gm, "&");
+        //             item.node.value = item.node.value.replace(/\./gm, ",");
+        //
+        //             if (element.node.productType === 'Smartphones') {
+        //                 if (item.node.key === 'Zustand' ||
+        //                     item.node.key === 'Kameraauflösung' ||
+        //                     item.node.key === 'Akku + Akku-Kapazität' ||
+        //                     item.node.key === 'Mobilfunkstandards' ||
+        //                     item.node.key === 'Markteinführung' ||
+        //                     item.node.key === 'RAM / Arbeitsspeicher' ||
+        //                     item.node.key === 'Dual-SIM Technik' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Bildschirmgröße' ||
+        //                     item.node.key === 'Farbe' ||
+        //                     item.node.key === 'Speicher' ||
+        //                     item.node.key === 'Hersteller') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName] = [];
+        //                     checkedFilters[itemName] = [];
+        //                 }
+        //             } else if (element.node.productType === 'Smartwatches') {
+        //                 if (item.node.key === 'Hersteller' ||
+        //                     item.node.key === 'Armbandfarbe' ||
+        //                     item.node.key === 'Armbandmaterial' ||
+        //                     item.node.key === 'Gehäusefarbe' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Mobilfunkstandard' ||
+        //                     item.node.key === 'GPS' ||
+        //                     item.node.key === 'Markteinführung' ||
+        //                     item.node.key === 'Gehäusematerial') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName] = [];
+        //                     checkedFilters[itemName] = [];
+        //                 }
+        //             } else if (element.node.productType === 'Tablets') {
+        //                 if (item.node.key === 'Hersteller' ||
+        //                     item.node.key === 'Speicher' ||
+        //                     item.node.key === 'Farbe' ||
+        //                     item.node.key === 'Zustand' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Bildschirmgröße' ||
+        //                     item.node.key === 'Akku + Akku-Kapazität' ||
+        //                     item.node.key === 'Mobilfunkstandards' ||
+        //                     item.node.key === 'Markteinführung' ||
+        //                     item.node.key === 'RAM / Arbeitsspeicher') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName] = [];
+        //                     checkedFilters[itemName] = [];
+        //                 }
+        //             } else if (element.node.productType === 'Notebooks') {
+        //                 if (item.node.key === 'Hersteller' ||
+        //                     item.node.key === 'Festplatten-Speicher' ||
+        //                     item.node.key === 'RAM / Arbeitsspeicher' ||
+        //                     item.node.key === 'Farbe' ||
+        //                     item.node.key === 'Zustand' ||
+        //                     item.node.key === 'Prozessortyp' ||
+        //                     item.node.key === 'Prozessorkern' ||
+        //                     item.node.key === 'Prozessor-Taktfrequenz' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Bildschirmgröße' ||
+        //                     item.node.key === 'Akku + Akku-Kapazität' ||
+        //                     item.node.key === 'Akku-Laufzeit' ||
+        //                     item.node.key === 'Gewicht' ||
+        //                     item.node.key === 'Markteinführung') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName] = [];
+        //                     checkedFilters[itemName] = [];
+        //                 }
+        //             }
+        //         })
+        //     });
+        //     productOptionsObj.Brands[element.node.vendor].push(element.node.title);
+        // })
+        //
+        // obj.edges.forEach((element) => {
+        //     element.node.variants.edges.forEach((item) => {
+        //         item.node.metafields.edges.forEach((item) => {
+        //             if (element.node.productType === 'Smartphones') {
+        //                 if (item.node.key === 'Zustand' ||
+        //                     item.node.key === 'Kameraauflösung' ||
+        //                     item.node.key === 'Akku + Akku-Kapazität' ||
+        //                     item.node.key === 'Mobilfunkstandards' ||
+        //                     item.node.key === 'Markteinführung' ||
+        //                     item.node.key === 'RAM / Arbeitsspeicher' ||
+        //                     item.node.key === 'Dual-SIM Technik' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Bildschirmgröße' ||
+        //                     item.node.key === 'Farbe' ||
+        //                     item.node.key === 'Speicher' ||
+        //                     item.node.key === 'Hersteller') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName].push(item.node.value);
+        //                 }
+        //             } else if (element.node.productType === 'Smartwatches') {
+        //                 if (item.node.key === 'Hersteller' ||
+        //                     item.node.key === 'Armbandfarbe' ||
+        //                     item.node.key === 'Armbandmaterial' ||
+        //                     item.node.key === 'Gehäusefarbe' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Mobilfunkstandard' ||
+        //                     item.node.key === 'GPS' ||
+        //                     item.node.key === 'Markteinführung' ||
+        //                     item.node.key === 'Gehäusematerial') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName].push(item.node.value);
+        //                 }
+        //             } else if (element.node.productType === 'Tablets') {
+        //                 if (item.node.key === 'Hersteller' ||
+        //                     item.node.key === 'Speicher' ||
+        //                     item.node.key === 'Farbe' ||
+        //                     item.node.key === 'Zustand' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Bildschirmgröße' ||
+        //                     item.node.key === 'Akku + Akku-Kapazität' ||
+        //                     item.node.key === 'Mobilfunkstandards' ||
+        //                     item.node.key === 'Markteinführung' ||
+        //                     item.node.key === 'RAM / Arbeitsspeicher') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName].push(item.node.value);
+        //                 }
+        //             } else if (element.node.productType === 'Notebooks') {
+        //                 if (item.node.key === 'Hersteller' ||
+        //                     item.node.key === 'Festplatten-Speicher' ||
+        //                     item.node.key === 'RAM / Arbeitsspeicher' ||
+        //                     item.node.key === 'Farbe' ||
+        //                     item.node.key === 'Zustand' ||
+        //                     item.node.key === 'Prozessortyp' ||
+        //                     item.node.key === 'Prozessorkern' ||
+        //                     item.node.key === 'Prozessor-Taktfrequenz' ||
+        //                     item.node.key === 'Betriebssystem' ||
+        //                     item.node.key === 'Bildschirmgröße' ||
+        //                     item.node.key === 'Akku + Akku-Kapazität' ||
+        //                     item.node.key === 'Akku-Laufzeit' ||
+        //                     item.node.key === 'Gewicht' ||
+        //                     item.node.key === 'Markteinführung') {
+        //
+        //                     let itemName = item.node.key;
+        //                     itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+        //                     productOptionsObj[itemName].push(item.node.value);
+        //                 }
+        //             }
+        //         })
+        //
+        //     })
+        // })
+        //
+        // for (let key in productOptionsObj) {
+        //     if (key !== "Brands") {
+        //         productOptionsObj[key] = productOptionsObj[key].filter((item, index) => {
+        //             return productOptionsObj[key].indexOf(item) === index;
+        //         })
+        //         productOptionsObj[key].sort();
+        //     } else {
+        //         for (const key in productOptionsObj.Brands) {
+        //             productOptionsObj.Brands[key].sort();
+        //         }
+        //     }
+        // }
+
+
+        if (document.body.clientWidth > 992) {
+            document.querySelector(".catalogue__menu").innerHTML = "";
+            for (const key in productOptionsObj) {
+                let _filterBlock = filterBlock;
+                _filterBlock = _filterBlock.replace("$FILTERNAME", key);
+                if (key !== "Brands") {
+                    productOptionsObj[key].forEach((item) => {
+                        let _filterBlockItem = filterBlockItem;
+                        _filterBlockItem = _filterBlockItem.replace(/\$FILTERVALUE/g, item);
+                        _filterBlockItem = _filterBlockItem.replace(/\$FILTERNAME/g, key);
+                        _filterBlock = _filterBlock.replace(`$FILTERBLOCKVARIANT`, _filterBlockItem + "$FILTERBLOCKVARIANT");
+                    })
+                } else {
+                    for (const key in productOptionsObj.Brands) {
+                        let _filterBlockItemBrand = filterBlockItemBrand;
+                        _filterBlockItemBrand = _filterBlockItemBrand.replace(/\$FILTERNAME/g, "Brands");
+                        _filterBlockItemBrand = _filterBlockItemBrand.replace(/\$FILTERVALUE/g, key);
+                        productOptionsObj.Brands[key].forEach((item) => {
+                            let _filterBlockItemModel = filterBlockItemModel;
+                            _filterBlockItemModel = _filterBlockItemModel.replace(/\$FILTERNAME/g, "Model");
+                            _filterBlockItemModel = _filterBlockItemModel.replace(/\$FILTERVALUE/g, item);
+                            _filterBlockItemModel = _filterBlockItemModel.replace(/\$FILTERMODELNAME/g, item);
+                            _filterBlockItemBrand = _filterBlockItemBrand.replace(/\$FILTERMODEL/g, _filterBlockItemModel + "$FILTERMODEL");
+                        })
+                        _filterBlockItemBrand = _filterBlockItemBrand.replace(/\$FILTERMODEL/g, "");
+                        _filterBlock = _filterBlock.replace(/\$FILTERBLOCKVARIANT/, _filterBlockItemBrand + "$FILTERBLOCKVARIANT")
+                    }
+                }
+                _filterBlock = _filterBlock.replace(`$FILTERBLOCKVARIANT`, "");
+                document.querySelector(".catalogue__menu").innerHTML += _filterBlock;
+            }
+        } else {
+            document.querySelector(".filter-menu__wrapper_new").innerHTML = "";
+            console.log(productOptionsObj);
+            for (const key in productOptionsObj) {
+                let _filterBlockMobile = filterBlockMobile;
+                _filterBlockMobile = _filterBlockMobile.replace("$FILTERNAMEMOBILE", key);
+                if (key !== "Brands") {
+                    productOptionsObj[key].forEach((item) => {
+                        let _filterBlockItemMobile = filterBlockItemMobile;
+                        _filterBlockItemMobile = _filterBlockItemMobile.replace(/\$FILTERVALUEMOBILE/g, item);
+                        _filterBlockItemMobile = _filterBlockItemMobile.replace(/\$FILTERNAMEMOBILE/g, key);
+                        _filterBlockMobile = _filterBlockMobile.replace(`$FILTERBLOCKVARIANTMOBILE`, _filterBlockItemMobile + "$FILTERBLOCKVARIANTMOBILE");
+                    })
+                } else {
+                    for (const key in productOptionsObj.Brands) {
+
+                    }
+                }
+
+                _filterBlockMobile = _filterBlockMobile.replace(`$FILTERBLOCKVARIANTMOBILE`, "");
+                document.querySelector(".filter-menu__wrapper_new").innerHTML += _filterBlockMobile;
+            }
+        }
+
+        if (checkedFilters.Brands !== null) {
+            document.querySelectorAll(".variant__label_brand").forEach((item) => {
+                let brandName = item.innerHTML.trim();
+                if (brandName === checkedFilters.Brands) {
+                    item.nextElementSibling.classList.remove("unvisible");
+                }
+            });
+        }
+        let filteredOptions = [];
+        if (filteredProducts.length > 0) {
+            filteredProducts.forEach((item) => {
+                item.node.metafields.edges.forEach((elem) => {
+                    filteredOptions.push(elem.node.value);
+                });
+            });
+        }
+
+        document.querySelectorAll(CLASS).forEach((item) => {
+            if (filteredProducts.length > 0 && item.dataset.filter !== "Brands" && item.dataset.filter !== "Model" && !filteredOptions.includes(item.id)) {
+                item.disabled = true;
+                item.nextElementSibling.style.opacity = "0.3";
+            }
+
+            for (let key in checkedFilters) {
+                if (key !== "Brands" && key !== "Model") {
+                    checkedFilters[key].forEach((elem) => {
+                        if (item.id === elem) {
+                            item.checked = true;
+                        }
+                    })
+                } else {
+                    (item.id === checkedFilters[key]) ? item.checked = true : null;
+                }
+            }
+            item.addEventListener("click", (e) => {
+                // clearTimeout(timerId);
+                if (item.checked) {
+                    let KEY = e.target.dataset.filter;
+                    // if (KEY === "Brands") {
+                    //     checkedFilters[KEY]
+                    // }
+                    if (KEY === "Brands") {
+                        KEY.replace("s", "");
+                        checkedFilters[KEY] = e.target.id;
+                    } else if (KEY === "Model") {
+                        checkedFilters[KEY] = e.target.id;
+                    } else {
+                        checkedFilters[KEY].push(e.target.id);
+                    }
+                } else {
+                    let KEY = e.target.dataset.filter;
+                    if (KEY === "Brands") {
+                        KEY.replace("s", "");
+                        checkedFilters[KEY] = null;
+                    } else if (KEY === "Model") {
+                        checkedFilters[KEY] = null;
+                    } else {
+                        checkedFilters[KEY].splice(checkedFilters[KEY].indexOf(e.target.id), 1);
+                    }
+                }
+                // timerId = setTimeout(function () {
+                redirectMakeUrl(checkedFilters)
+                // }, 1000);
+            })
+        })
+    }
+    // let filterMenuDropdowns = () => {
+    //     const categoryButton = document.querySelectorAll('.menu-container__head');
+    //     categoryButton.forEach(function (item) {
+    //         item.addEventListener('click', function (e) {
+    //             e.target.closest(".menu-container__head").classList.toggle('unvisible');
+    //         });
+    //     });
+    // };
+    const brandsDropDown = () => {
+        document.querySelectorAll(".variant__label_brand").forEach((item) => {
+            item.addEventListener("click", (e) => {
+                document.querySelectorAll(".variant__label_brand").forEach((elem) => {
+                    if (e.target === elem) {
+                        e.target.nextElementSibling.classList.remove("unvisible");
+                    } else {
+                        elem.nextElementSibling.classList.add("unvisible");
+                    }
+                })
+            })
+        })
+    }
+
+    const filterDropdownAction = () => {
+        document.querySelectorAll('.filter-menu__head').forEach(function (item) {
+            item.addEventListener('click', function (e) {
+                e.target.closest('.filter-menu__head').classList.toggle('visible');
+            });
+        });
+    }
+
+    // document.querySelectorAll(".btns-bar__btn").forEach((elem) => {
+    //     elem.addEventListener("click", (e) => {
+    //         let KEY = e.target.closest(".btns-bar__btn").id;
+    //         checkedFilters[KEY].splice(checkedFilters[KEY].indexOf(e.target.closest(".btns-bar__btn").querySelector(".btns-bar__btn_text").innerHTML), 1);
+    //         e.target.closest(".btns-bar__btn").remove();
+    //     })
+    // });
+    document.querySelector(".filter-menu__filters-head_text.clear_all").addEventListener("click", () => {
+        document.querySelectorAll(".btns-bar__btn").forEach((elem) => {
+            elem.click();
+        });
+    })
+    const filtersMore = () => {
+        document.querySelectorAll(".menu-container__btn").forEach((item) => {
+            item.addEventListener("click", (e) => {
+                e.target.closest(".catalogue__menu_container").querySelector(".menu-container__variants").classList.toggle("more");
+                e.target.innerHTML === "Show more" ? e.target.innerHTML = "Show less" : e.target.innerHTML = "Show more";
+            })
+        })
+    }
+</script>
+{% schema %}
+{
+"name": "Collection page",
+"settings": [
+{
+"type": "checkbox",
+"id": "show_sort_by",
+"label": "Show sort by",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_color_swatch",
+"label": "Show product available colors",
+"default": true
+},
+{
+"type": "range",
+"id": "paginate_size",
+"label": "Count card on page",
+"default": 4,
+"min": 2,
+"max": 20,
+"step": 1
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+{% endjavascript %}

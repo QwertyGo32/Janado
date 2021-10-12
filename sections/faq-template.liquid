@@ -1,0 +1,33 @@
+<p class="FAQ-titles__title active" data-index="0">{{ section.settings.title1 }}</p>
+<p class="FAQ-titles__title" data-index="1">{{ section.settings.title2 }}</p>
+<p class="FAQ-titles__title" data-index="2">{{ section.settings.title3 }}</p>
+<p class="FAQ-titles__title" data-index="3">{{ section.settings.title4 }}</p>
+
+{% schema %}
+
+{
+"name": "Tab Names",
+"settings": [
+{
+"type": "text",
+"id": "title1",
+"label": "First Tab"
+},
+{
+"type": "text",
+"id": "title2",
+"label": "Second Tab"
+},
+{
+"type": "text",
+"id": "title3",
+"label": "Third Tab"
+},
+{
+"type": "text",
+"id": "title4",
+"label": "Four Tab"
+}
+]
+}
+{% endschema %}

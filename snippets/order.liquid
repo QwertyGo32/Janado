@@ -1,0 +1,38 @@
+<div class="delivery-details">
+    <div class="delivery-details__item">
+        <p class="delivery-details__item_title">
+            Delivery
+        </p>
+        <p class="delivery-details__item_text">
+            {%  for shipping_method in order.shipping_methods %}
+                {{ shipping_method.title }}
+            {% endfor %}<br>
+            {{ order.shipping_address.city }}, {{ order.shipping_address.address1  }}
+           <br>
+            {{ order.shipping_address.first_name }} {{ order.shipping_address.last_name }}
+        </p>
+    </div>
+    <div class="delivery-details__item">
+        <p class="delivery-details__item_title">
+            Delivery Price
+        </p>
+        <p class="delivery-details__item_text">
+            {{ order.shipping_price | money }}
+        </p>
+    </div>
+    <div class="delivery-details__item">
+        <p class="delivery-details__item_title">
+            Payment method
+        </p>
+        <img src="{{ 'payment.png' | asset_img_url: 'master' }}" class="delivery-details__item_payment">
+
+    </div>
+    <div class="delivery-details__item">
+        <p class="delivery-details__item_title">
+            Total
+        </p>
+        <p class="delivery-details__item_text">
+            {{ order.total_price | money_with_currency }}
+        </p>
+    </div>
+</div>

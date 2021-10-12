@@ -1,0 +1,288 @@
+/**
+ * -------------------------
+ * SORT BY AND SEARCH
+ * -------------------------
+ */
+{% comment %}
+(function () {
+     let filtersOptions = function() {
+
+
+        $.getJSON( "https://ddace1ab7f7a0604eaf649ab82af2e61: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@janado.myshopify.com/admin/api/2021-04/products.json?field=options", function( data ) {
+            let items = [];
+            $.each( data, function( key, val ) {
+                $.each( val, function( val2, key2  ) {
+                    console.log(key2.options)
+                });
+
+                items.push( "<li id='" + key + "'>" + val + "</li>" );
+            });
+
+            $( "<ul/>", {
+                "class": "my-new-list",
+                html: items.join( "" )
+            }).appendTo( "body" );
+        });
+    }
+    filtersOptions();
+
+    Shopify.queryParams = {};
+
+    let bindFilters = function () {
+        $('#collection-sort-by a').on('click', function () {
+            Shopify.queryParams.sort_by = $(this).attr('value');
+            location.search = $.param(Shopify.queryParams);
+        });
+
+        if (location.search.length) {
+            for (let aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
+                aKeyValue = aCouples[i].split('=');
+
+                if (aKeyValue.length > 1) {
+                    Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
+                }
+            }
+        }
+
+        $('#collection-tag-filter, #collection-type-filter').on('change', function (event) {
+            window.location.href = $(event.currentTarget).find(':selected').val();
+        });
+    };
+
+    bindFilters();
+
+    $(document).on('shopify:section:load', function (event) {
+        bindFilters();
+    });
+}());
+ {% endcomment %}
+{% comment %}const productFrame = `<a href="#" class="catalogue__cards_product-card product-card">
+        <img src="$IMAGESRC" class="product-card__img">
+        <div class="product-card__content">
+            <div class="product-card__content_specs">
+                <p class="product-card__content_name">
+                    $TITLE
+                </p>
+                <p class="product-card__content_condition">
+                    Available in different grades
+                </p>
+                <div class="product-card__content_color"></div>
+            </div>
+            <div class="product-card__content_price">
+            <p class="product-card__content_current-price">
+                $CURRENTPRICE
+            </p>
+            <p class="product-card__content_previous-price">
+                $PREVIOUSPRICE
+            </p>
+            <img src="//cdn.shopify.com/s/files/1/0470/7719/5935/t/24/assets/product-card_btn.png?v=9066210273825928888" class="product-card__content_btn">
+            </div>
+        </div>
+        </a>`;
+const filterBlock = `<div class="catalogue__menu_container menu-container">
+                            <label for="menu-container__head_checkbox-Model" class="menu-container__head">
+                                <p class="menu-container__head_text">$FILTERNAME</p>
+                                <label>
+                                    <input type="checkbox" class="menu-container__head_checkbox" id="menu-container__head_checkbox-Model">
+                                    <div class="menu-container__head_btn">
+                                        <div class="menu-container__head_btn-circle"></div>
+                                    </div>
+                                </label>
+                            </label>
+                            <div class="menu-container__variants">$FILTERBLOCKVARIANT</div>
+                        </div>`;
+const filterBlockItem = `<div class="menu-container__variants_variant variant">
+                                <input type="checkbox" id="$FILTERVALUE" class="variant__input">
+                                <label for="$FILTERVALUE" class="variant__label">
+                                    <span class="variant__label_square"></span>
+                                    <p class="variant__label_text">
+                                        $FILTERVALUE
+                                    </p>
+                                </label>
+                             </div>`
+let checkedFilters = {
+    Brands: []
+};
+
+document.addEventListener('DOMContentLoaded', async (e) => {
+    let data = await getProducts(url);
+    drawProducts(data);
+    drawFilterMenu(data);
+    productsFiltration(".variant__input", data);
+})
+
+let productsFiltration = (CLASS, productsObj) => {
+    document.querySelectorAll(CLASS).forEach((item) => {
+        item.addEventListener("click", (e) => {
+            if (item.checked) {
+                let KEY = e.target.closest(".catalogue__menu_container").querySelector(".menu-container__head_text").innerHTML;
+                checkedFilters[KEY].push(e.target.id);
+            } else {
+                let KEY = e.target.closest(".catalogue__menu_container").querySelector(".menu-container__head_text").innerHTML;
+                checkedFilters[KEY].splice(checkedFilters[KEY].indexOf(e.target.id), 1);
+            }
+            let filteredProducts = productsObj.products.filter((product) => {
+                let flag = [];
+                for (let key in checkedFilters) {
+                    if(checkedFilters[key].length > 0) {
+                        if (key === 'Brands') {
+                            let miniFlag = false;
+                            checkedFilters[key].forEach((item) => {
+                                if (item === product.vendor) {
+                                    miniFlag = true;
+                                }
+                            })
+                            flag.push(miniFlag);
+                        } else {
+                            let selectedOption = product.options.find((option) => {
+                                return option.name === key;
+                            });
+                            let miniFlag = false;
+
+                            if (selectedOption === undefined) {
+                                flag.push(true);
+                            } else {
+                                checkedFilters[key].forEach((item) => {
+                                    if (selectedOption.values.includes(item)) {
+                                        miniFlag = true;
+                                    }
+                                });
+                                flag.push(miniFlag);
+                            }
+                        }
+                    } else {
+                        flag.push(true);
+                    }
+                }
+                if (flag.includes(false)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+            drawProducts({products: filteredProducts});
+        })
+    })
+}
+
+let url = "https://janado.myshopify.com/admin/api/2021-04/products.json?status=active&fields=image,options,product_type,title,variants,vendor&limit=250";
+
+async function getProducts(URL, PARAMS = {}) {
+    if (Object.keys(PARAMS).length > 0) {
+        for (const key in PARAMS) {
+            URL += "&" + key + "=" + PARAMS[key];
+        }
+    }
+    let response = await fetch(URL, {
+        headers: {
+            'Content-Type': 'application/json',
+            "Authorization": "Basic ddace1ab7f7a0604eaf649ab82af2e61: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"
+        }
+    });
+    if (response.ok) {
+        let data = await response.json();
+        console.log(data);
+        return data;
+    } else {
+        console.log("error", response.status);
+    }
+}
+
+let drawProducts = (obj) => {
+    document.querySelector('.catalogue__cards_products').innerHTML = '';
+    obj.products.forEach((item) => {
+        let block = productFrame;
+
+        if (item.image !== null && item.image !== undefined) {
+            block = block.replace('$IMAGESRC', item.image.src);
+        } else {
+            block = block.replace('$IMAGESRC', '');
+        }
+
+        if (item.title !== null && item.title !== undefined) {
+            block = block.replace('$TITLE', item.title);
+        } else {
+            block = block.replace('$TITLE', '');
+        }
+
+        let varialbles = item.variants.map((variant) =>
+            Number(variant.price)
+        );
+
+        let minPrice = Math.min(...varialbles);
+
+        if (minPrice !== null && minPrice !== undefined) {
+            block = block.replace('$CURRENTPRICE', '€' + minPrice);
+        } else {
+            block = block.replace('$CURRENTPRICE', '');
+        }
+
+        if (document.querySelector('.catalogue__cards_products')) {
+            document.querySelector(
+                '.catalogue__cards_products'
+            ).innerHTML += block;
+        }
+    })
+}
+
+let drawFilterMenu = (obj) => {
+    let productOptionsObj = {
+        Brands: []
+    };
+
+    obj.products.forEach((item) => {
+        item.options.forEach((item) => {
+            let itemName = item.name;
+            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+            productOptionsObj[itemName] = [];
+            checkedFilters[itemName] = [];
+        });
+        productOptionsObj.Brands.push(item.vendor);
+    })
+
+    obj.products.forEach((item) => {
+        item.options.forEach((item) => {
+            let itemName = item.name;
+            itemName = itemName.charAt(0).toUpperCase() + itemName.slice(1);
+
+            item.values.forEach((element) => {
+                productOptionsObj[itemName].push(element);
+            })
+        })
+    })
+
+    for (let key in productOptionsObj) {
+        productOptionsObj[key] = productOptionsObj[key].filter((item, index) => productOptionsObj[key].indexOf(item) == index)
+    }
+
+    document.querySelector(".catalogue__menu").innerHTML = "";
+
+    for (const key in productOptionsObj) {
+        let _filterBlock = filterBlock;
+        _filterBlock = _filterBlock.replace("$FILTERNAME", key);
+        productOptionsObj[key].forEach((item) => {
+            let _filterBlockItem = filterBlockItem;
+            _filterBlockItem = _filterBlockItem.replace(/\$FILTERVALUE/g, item);
+            _filterBlock = _filterBlock.replace(`$FILTERBLOCKVARIANT`, _filterBlockItem + "$FILTERBLOCKVARIANT");
+        })
+        _filterBlock = _filterBlock.replace(`$FILTERBLOCKVARIANT`, "");
+        document.querySelector(".catalogue__menu").innerHTML += _filterBlock;
+    }
+} {% endcomment %}
+
+
+
+
+
+
+{% comment %}<div class="menu-container__variants_variant variant">{% endcomment %}
+{% comment %}<input type="checkbox" id="" class="variant__input">{% endcomment %}
+{% comment %}<label for="" class="variant__label">{% endcomment %}
+{% comment %}<span class="variant__label_square"></span>{% endcomment %}
+{% comment %}<p class="variant__label_text">{% endcomment %}
+{% comment %}$FILTERITEM{% endcomment %}
+{% comment %}<span></span>{% endcomment %}
+{% comment %}</p>{% endcomment %}
+{% comment %}</label>{% endcomment %}
+{% comment %}</div>{% endcomment %}
+

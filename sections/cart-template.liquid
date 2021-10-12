@@ -1,0 +1,133 @@
+{% if cart.item_count > 0 %}
+    {% comment %}<div class="cart-checkout__title">
+        <img src="{{ 'shopping-cart.png' | asset_img_url: 'master' }}" class="cart-checkout__title_img">
+        <p class="cart-checkout__title_text">
+            Order no. {{ cart.order | json }}
+        </p>
+    </div>
+    {% if additional_checkout_buttons %}
+        <div class="additional-checkout-buttons">
+            {{ content_for_additional_checkout_buttons }}
+        </div>
+    {% endif %}
+    {% endcomment %}
+
+
+    <form action="/cart" method="post" novalidate>
+        {% for item in cart.items %}
+            <div class="cart-checkout__order">
+                <div class="cart-checkout__order_name-block product-name">
+                    <div class="cart-checkout__order_name">
+                        <p class="cart-checkout__order_name-text">
+                            Product Name
+                        </p>
+                    </div>
+                    <div class="cart-checkout__order_product">
+                        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart-checkout__order_delete-btn">
+                            <img src="{{ 'x-circle.png' | asset_img_url: 'master' }}" class="cart-checkout__order_delete-btn-img">
+                        </a>
+                        <a href="{{ item.url | within: collections.all }}">
+                            <img class="cart-checkout__order_product-img" src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                        </a>
+                        <div class="cart-checkout__order_product-specs">
+                            <p class="cart-checkout__order_product-name">
+                                <a href="{{ item.url }}">{{ item.product.title }}</a>
+                            </p>
+                            {% for options in item.options_with_values %}
+                                <p class="cart-checkout__order_product-spec">
+                                    {{ options.name }}: {{ options.value }}
+                                </p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-checkout__order_name-block">
+                    <div class="cart-checkout__order_name">
+                        <p class="cart-checkout__order_name-text">
+                            Price
+                        </p>
+                    </div>
+                    <div class="cart-checkout__order_product">
+                        <p class="cart-checkout__order_price">
+                            {{ item.price | money }}
+                        </p>
+                    </div>
+                </div>
+                <div class="cart-checkout__order_name-block quantity">
+                    <div class="cart-checkout__order_name">
+                        <p class="cart-checkout__order_name-text">
+                            Quantity
+                        </p>
+                    </div>
+                    <div class="cart-checkout__order_product">
+                        <button class="cart-checkout__order_minus-btn"></button>
+                        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+                        <button class="cart-checkout__order_plus-btn"></button>
+                    </div>
+                </div>
+                <div class="cart-checkout__order_name-block">
+                    <div class="cart-checkout__order_name">
+                        <p class="cart-checkout__order_name-text">
+                            SubTotal
+                        </p>
+                    </div>
+                    <div class="cart-checkout__order_product">
+                        <p class="cart-checkout__order_price">
+                            {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                            {{ item.line_price | money }}
+                            {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{{ section.settings.btn_link }}" class="cart-checkout__accessoires-btn">
+            <p class="cart-checkout__accessoires-btn_text">
+                {{ section.settings.btn_text }}
+            </p>
+            <img src="{{ 'circle-plus.png' | asset_img_url: 'master' }}" class="cart-checkout__accessoires-btn_img">
+        </a>
+        <div class="cart-checkout__order_name-block">
+            <div class="cart-checkout__order_name">
+                <p class="cart-checkout__order_name-text">
+                    Total
+                </p>
+            </div>
+            <div class="cart-checkout__order_product">
+                <p class="cart-checkout__order_price">
+                    {{ cart.total_price | money }}
+                </p>
+            </div>
+        </div>
+        <div>
+            <div class="cart-checkout__btns">
+                <p class="cart-checkout__btns_alert-text">
+                    *If you choose more than one unit of a specific product - click the button “Update Price”
+                </p>                
+                <button class="cart-checkout__btns_item" type="submit" name="checkout">
+                    <p class="cart-checkout__btns_item-text">Checkout</p>
+                </button>
+            </div>
+        </div>
+    </form>
+{% else %}
+   <h1> Cart is empty</h1>   
+{% endif %}
+
+{% schema %}
+{
+"name": "Cart",
+"settings": [
+{
+"type": "text",
+"id": "btn_text",
+"label": "Button Text"
+},
+{
+"type": "url",
+"id": "btn_link",
+"label": "Button Link"
+}
+]
+}
+{% endschema %}

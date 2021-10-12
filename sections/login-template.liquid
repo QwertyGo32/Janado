@@ -1,0 +1,86 @@
+<section class="login">
+    <div class="login__wrapper">
+        {%- form 'customer_login', class: 'login__wrapper_container login-container' -%}
+            {{ form.errors | default_errors }}
+            <h1 class="login-container__title">Sign in</h1>
+            <fieldset class="login-container__email-wrapper">
+                <legend class="login-container__email-legend">Email</legend>
+                <input type="email"
+                       name="customer[email]"
+                       id="customerEmail"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       autocomplete="email"
+                       class="login-container__email-input">
+            </fieldset>
+            <fieldset class="login-container__password-wrapper">
+                <legend class="login-container__password-legend">Password</legend>
+                <input type="password"
+                       name="customer[password]"
+                       id="customerPassword"
+                       class="login-container__password-input">
+            </fieldset>
+            <div class="login-container__btns">
+                <div class="login-container__btns_left-side">
+                    <div class="login-container__btns_left-side_remember">
+                        <input id="login-container__btns_left-side_remember-input" type="checkbox" class="login-container__btns_left-side_remember-input">
+                        <label for="login-container__btns_left-side_remember-input" class="login-container__btns_left-side_remember-label">
+                            <div class="login-container__btns_left-side_remember-square"></div>
+                            <p class="login-container__btns_left-side_remember-text">Remember me</p>
+                        </label>
+                    </div>
+                    <div  class="login-container__btns_left-side_sign-up">
+                        <p class="login-container__btns_left-side_sign-up-text"> {{ 'Sign Up' | customer_register_link }}</p>
+                    </div>
+                </div>
+                <div class="login-container__btns_right-side">
+                    <a href="#recover" class="login-container__btns_right-side_forgot-pswrd">Forgott Pasword? </a>
+                    <button type="submit" class="login-container__btns_right-side_submit-btn">
+                        <p  class="login-container__btns_right-side_submit-btn-text">Enter</p>
+                        <svg width="36" height="35" viewBox="0 0 36 35" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                  d="M12.2891 16.7857C12.2891 16.5843 12.3691 16.3911 12.5115 16.2487C12.6539 16.1062 12.8471 16.0262 13.0485 16.0262L21.8477 16.0262L18.5865 12.7666C18.5159 12.696 18.4599 12.6122 18.4217 12.5199C18.3835 12.4276 18.3638 12.3288 18.3638 12.2289C18.3638 12.129 18.3835 12.0302 18.4217 11.9379C18.4599 11.8456 18.5159 11.7618 18.5865 11.6912C18.6572 11.6206 18.741 11.5646 18.8332 11.5264C18.9255 11.4882 19.0244 11.4685 19.1242 11.4685C19.2241 11.4685 19.323 11.4882 19.4152 11.5264C19.5075 11.5646 19.5913 11.6206 19.6619 11.6912L24.2187 16.248C24.2895 16.3185 24.3456 16.4023 24.3839 16.4946C24.4221 16.5869 24.4419 16.6858 24.4419 16.7857C24.4419 16.8856 24.4221 16.9845 24.3839 17.0768C24.3456 17.169 24.2895 17.2528 24.2187 17.3234L19.6619 21.8802C19.5913 21.9508 19.5075 22.0068 19.4152 22.045C19.323 22.0832 19.2241 22.1029 19.1242 22.1029C19.0244 22.1029 18.9255 22.0832 18.8332 22.045C18.741 22.0068 18.6572 21.9508 18.5865 21.8802C18.4439 21.7376 18.3638 21.5442 18.3638 21.3425C18.3638 21.2426 18.3835 21.1437 18.4217 21.0515C18.4599 20.9592 18.5159 20.8754 18.5865 20.8048L21.8477 17.5452L13.0485 17.5452C12.8471 17.5452 12.6539 17.4651 12.5115 17.3227C12.3691 17.1803 12.2891 16.9871 12.2891 16.7857Z"
+                                  fill="black"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        {%- endform -%}
+
+        <!-- If accounts are set as optional, the following will be shown as an option when coming from checkout, not on the default /login page. -->
+        {%- if shop.checkout.guest_login -%}
+            {%- form 'guest_login' -%}
+                <input type="submit" value="Continue as Guest" />
+            {%- endform -%}
+        {%- endif -%}
+
+        <!-- Use JavaScript to show/hide this form -->
+        {%- form 'recover_customer_password' -%}
+
+            {%- if form.posted_successfully? -%}
+                <div role="status">
+                    <p>We've sent you an email with a link to update your password.</p>
+                </div>
+            {%- endif -%}
+
+            <div id="recover"{% unless form.errors %} style="display: none;"{% endunless %}>
+                <p>We will send you an email to reset your password.</p>
+
+                {{ form.errors | default_errors }}
+
+                <label for="customerEmail">Email Address</label>
+                <input type="email"
+                       name="email"
+                       id="customerEmail"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       autocomplete="email">
+
+                <input type="submit" value="Submit">
+            </div>
+
+        {%- endform -%}
+
+    </div>
+</section>

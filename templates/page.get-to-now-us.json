@@ -1,0 +1,375 @@
+{
+  "sections": {
+    "banner": {
+      "type": "get-to-banner",
+      "settings": {
+        "title_text": "All About Janado",
+        "title": "GET TO NOW US",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio",
+        "text_btn": "Jetzt entdecken",
+        "btn_background": "rgba(0,0,0,0)",
+        "btn_hover": "#e6d50e",
+        "link": "",
+        "back_image": "shopify:\/\/shop_images\/know-us-banner.png",
+        "background": "#f9f519"
+      }
+    },
+    "about": {
+      "type": "about-us",
+      "blocks": {
+        "58ea7a23-ca91-4795-adc3-91c5ccdd17e5": {
+          "type": "Text",
+          "settings": {
+            "letter": "R",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+          }
+        },
+        "6e17f16e-209b-4a89-b7b7-b68146e5b20b": {
+          "type": "Text",
+          "settings": {
+            "letter": "E",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+          }
+        },
+        "a484fe8f-8d20-4bd5-a472-7981a116ec79": {
+          "type": "Text",
+          "settings": {
+            "letter": "A",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+          }
+        },
+        "7eb546d2-2b97-4535-a177-23a812d17ba2": {
+          "type": "Text",
+          "settings": {
+            "letter": "L",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+          }
+        }
+      },
+      "block_order": [
+        "58ea7a23-ca91-4795-adc3-91c5ccdd17e5",
+        "6e17f16e-209b-4a89-b7b7-b68146e5b20b",
+        "a484fe8f-8d20-4bd5-a472-7981a116ec79",
+        "7eb546d2-2b97-4535-a177-23a812d17ba2"
+      ],
+      "settings": {
+        "text_top": "",
+        "title": ""
+      }
+    },
+    "team": {
+      "type": "get-to-team",
+      "blocks": {
+        "90d37ea9-c7b7-4c33-a0e2-bd0deac2aee3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4uj3iZ5m084.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        },
+        "0bb6e7a0-b1dc-4948-81fc-c6b0ee75b3c3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GRyMXAQdtp8.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        },
+        "f63d0992-acde-4d69-8842-66d6462ab4ae": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DItYlc26zVI.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        },
+        "c4bf939b-8732-4348-8f5c-f441435ec289": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/KIPqvvTOC1s.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        },
+        "ccdad274-c67f-4066-bb51-0f979da5ee4f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DItYlc26zVI.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        },
+        "f4780a00-8dac-4f01-b4c1-f8f6fd48b13b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/4uj3iZ5m084.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        },
+        "1492346b-7cb6-461a-a30e-97cdf4b475b6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GRyMXAQdtp8.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        },
+        "57df81db-2b52-4375-b2e7-51a112347a29": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/KIPqvvTOC1s.png",
+            "name": "Only Professionals",
+            "position": "Our Team",
+            "link_twit": "",
+            "link_teleg": "",
+            "link_inst": "",
+            "link_linked": ""
+          }
+        }
+      },
+      "block_order": [
+        "90d37ea9-c7b7-4c33-a0e2-bd0deac2aee3",
+        "0bb6e7a0-b1dc-4948-81fc-c6b0ee75b3c3",
+        "f63d0992-acde-4d69-8842-66d6462ab4ae",
+        "c4bf939b-8732-4348-8f5c-f441435ec289",
+        "ccdad274-c67f-4066-bb51-0f979da5ee4f",
+        "f4780a00-8dac-4f01-b4c1-f8f6fd48b13b",
+        "1492346b-7cb6-461a-a30e-97cdf4b475b6",
+        "57df81db-2b52-4375-b2e7-51a112347a29"
+      ],
+      "settings": {
+        "text_top": "Only Professionals",
+        "title": "Our Team",
+        "btn_text": "Become a part of our team",
+        "link": "",
+        "btn_background": "rgba(0,0,0,0)",
+        "btn_hover": "#ffe300"
+      }
+    },
+    "facts": {
+      "type": "get-to-facts",
+      "blocks": {
+        "c6a8fdc3-25d6-42cb-b604-94a8e0fb62d3": {
+          "type": "Text",
+          "settings": {
+            "title_block": "Fact1",
+            "count": "1111"
+          }
+        },
+        "8546c287-04b3-433b-9439-4dcf43a221f5": {
+          "type": "Text",
+          "settings": {
+            "title_block": "Fact2",
+            "count": "800"
+          }
+        },
+        "8b9898a2-e1ad-4e8e-a682-a6520706c9d9": {
+          "type": "Text",
+          "settings": {
+            "title_block": "Fact3",
+            "count": "333"
+          }
+        },
+        "a3dbb0ec-8132-48ca-a78f-06c7e94cb18f": {
+          "type": "Text",
+          "settings": {
+            "title_block": "Fact4",
+            "count": "700"
+          }
+        }
+      },
+      "block_order": [
+        "c6a8fdc3-25d6-42cb-b604-94a8e0fb62d3",
+        "8546c287-04b3-433b-9439-4dcf43a221f5",
+        "8b9898a2-e1ad-4e8e-a682-a6520706c9d9",
+        "a3dbb0ec-8132-48ca-a78f-06c7e94cb18f"
+      ],
+      "settings": {
+        "text_top": "Lorem ipsun",
+        "title": "Facts"
+      }
+    },
+    "contact_us": {
+      "type": "contact-us",
+      "settings": {
+        "title": "Contact Us",
+        "back_image": "shopify:\/\/shop_images\/contact_bgr.jpg",
+        "text_btn": "Sent the message",
+        "btn_background": "rgba(0,0,0,0)",
+        "btn_hover": "#ffe300",
+        "mail": "Mailing address",
+        "adres": "Highlight Inc.\nAttn: Returns\/Exchanges\n123 Great Mill Rd.\nWashington, WW 12345\nUSA",
+        "question": "Have a question?",
+        "first_text": "Tems & Conditions",
+        "first_link": "",
+        "second_text": "Sizing & Fit",
+        "second_link": "",
+        "third_text": "FAQ",
+        "third_link": ""
+      }
+    },
+    "vision": {
+      "type": "get-to-vision",
+      "blocks": {
+        "64ace868-e7d9-4255-b16e-d240194f8a77": {
+          "type": "Text",
+          "settings": {
+            "number": "01",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+          }
+        },
+        "a0871f17-5345-4b3c-a95d-f416099002f8": {
+          "type": "Text",
+          "settings": {
+            "number": "02",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+          }
+        },
+        "d3187149-aa4a-43d6-b3c8-fc908ce601f2": {
+          "type": "Text",
+          "settings": {
+            "number": "03",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+          }
+        },
+        "694feb29-9bee-4f96-9dc9-3142674091d5": {
+          "type": "Text",
+          "settings": {
+            "number": "04",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+          }
+        },
+        "8bea0812-8d19-44c8-8c38-26e8fa0e3384": {
+          "type": "Text",
+          "settings": {
+            "number": "05",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+          }
+        },
+        "eb41df4e-72ec-4702-9cab-7354ab73f5f6": {
+          "type": "Text",
+          "settings": {
+            "number": "06",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+          }
+        }
+      },
+      "block_order": [
+        "64ace868-e7d9-4255-b16e-d240194f8a77",
+        "a0871f17-5345-4b3c-a95d-f416099002f8",
+        "d3187149-aa4a-43d6-b3c8-fc908ce601f2",
+        "694feb29-9bee-4f96-9dc9-3142674091d5",
+        "8bea0812-8d19-44c8-8c38-26e8fa0e3384",
+        "eb41df4e-72ec-4702-9cab-7354ab73f5f6"
+      ],
+      "settings": {
+        "text_top": "Lorem ipsun",
+        "title": "Our Vision"
+      }
+    },
+    "tree": {
+      "type": "get-to-tree",
+      "settings": {
+        "title": "OUR ENGAGEMENT FOR THE  FUTURE",
+        "image": "shopify:\/\/shop_images\/tree.png",
+        "background": "#9ed7ea",
+        "text_btn": "Jetzt entdecken",
+        "link": "",
+        "btn_background": "rgba(0,0,0,0)",
+        "btn_hover": "#ffe300"
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "blocks": {
+        "59c3e90f-4979-475e-90f7-74951ee83688": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-first-menu"
+          }
+        },
+        "c35270d8-405a-4149-a5b8-755029e5e289": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-second-menu"
+          }
+        },
+        "4975e4b8-acac-4bae-bccd-6788c3c98863": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-third-menu"
+          }
+        },
+        "8b7af6ba-a7c5-4a33-8596-dd755d0612ce": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-four-menu"
+          }
+        },
+        "2e53c40d-6afb-401a-b416-cb0e0605138b": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-five-menu"
+          }
+        },
+        "eef1a741-7f83-4363-b17b-d237f74da6ce": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-six-menu"
+          }
+        }
+      },
+      "block_order": [
+        "59c3e90f-4979-475e-90f7-74951ee83688",
+        "c35270d8-405a-4149-a5b8-755029e5e289",
+        "4975e4b8-acac-4bae-bccd-6788c3c98863",
+        "8b7af6ba-a7c5-4a33-8596-dd755d0612ce",
+        "2e53c40d-6afb-401a-b416-cb0e0605138b",
+        "eef1a741-7f83-4363-b17b-d237f74da6ce"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/janado_logo.png"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "about",
+    "team",
+    "facts",
+    "contact_us",
+    "vision",
+    "tree",
+    "subfooter"
+  ]
+}

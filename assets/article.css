@@ -1,0 +1,249 @@
+.articles {
+    background: #F7F3F2;
+    padding-bottom: 100px;
+}
+
+.articles__wrapper {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.articles__wrapper_btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.articles__wrapper_filters {
+    display: flex;
+}
+
+.articles__wrapper_filters_item {
+    padding: 10px 20px;
+    background: white;
+    border-radius: 50px;
+}
+
+.articles__wrapper_filters_item.active {
+    background: #F6DE0B;
+    box-shadow: 0px 4px 4px 0px #0000001A;
+}
+
+.articles__wrapper_filters_item:not(:last-child) {
+    margin-right: 50px;
+}
+
+.articles__wrapper_filters_item-text {
+    font-family: "Sohne-Buch", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: black;
+}
+
+.articles__wrapper_sorting-dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 36px;
+    position: relative;
+    background: white;
+    box-shadow: 0px 2px 4px 0px #0000001A;
+    border-radius: 4px;
+}
+
+.articles__wrapper_dropdown-head {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 15px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: 0px 2px 4px 0px #0000001A;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.articles__wrapper_dropdown-head.active .articles__wrapper_dropdown-img {
+    transform: rotate(360deg);
+}
+
+.articles__wrapper_dropdown-text {
+    font-family: "Sohne-Buch", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: black;
+}
+
+.articles__wrapper_dropdown-img {
+    transform: rotate(180deg);
+    transition: 0.3s;
+}
+
+.articles__wrapper_dropdown-container {
+    width: 100%;
+    box-shadow: 0px 2px 4px 0px #0000001A;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    background: white;
+    z-index: 100;
+    border-radius: 0 0 4px 4px;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.articles__wrapper_dropdown-container.active {
+    max-height: 100px;
+}
+
+.articles__wrapper_dropdown-item {
+    padding: 10px 0 10px 15px;
+    width: 100%;
+}
+
+.articles__wrapper_dropdown-item:not(:last-child) {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.articles__wrapper_item-text {
+    font-family: "Sohne-Buch", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: black;
+}
+
+.articles__wrapper_container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.articles__wrapper_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 167px;
+    padding: 10px 15px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0px 2px 4px 0px #0000001A;
+    cursor: pointer;
+}
+
+.articles__wrapper_btn-text {
+    font-family: "Sohne-Halbfett", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: #161616;
+}
+
+.articles__wrapper_btn-img {
+    width: 13px;
+    height: 9px;
+}
+
+.articles-container__item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    height: 380px;
+    width: calc((100% - 20px * 4) / 4);
+}
+
+.articles-container__item:not(:last-child) {
+    margin-right: 20px;
+}
+
+.articles-container__item_category {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 3px 12px;
+    border-radius: 27px;
+}
+
+.articles-container__item_category.janado {
+    background: #F6DE0B;
+}
+
+.articles-container__item_category.world {
+    background: #D72E2E;
+}
+
+.articles-container__item_category.technology {
+    background: #97CADB;
+}
+
+.articles-container__item_category.review {
+    background: #59BA9D;
+}
+
+.articles-container__item_category-text {
+    font-family: "Sohne-Halbfett", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FCFCFE;
+}
+
+.articles-container__item_img {
+    width: 100%;
+    height: 168px;
+    obj-fit:cover;
+    margin-bottom: 20px;
+}
+
+.articles-container__item_author-date {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+    margin-bottom: 10px;
+}
+
+.articles-container__item_date {
+    font-family: "Sohne-Buch", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: #A1A1A1;
+}
+
+.articles-container__item_author {
+    font-family: "Sohne-Buch", sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: #A1A1A1;
+}
+
+.articles-container__item_title {
+    font-family: "Sohne-Halbfett", sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    color: #161616;
+    margin-bottom: 10px;
+    padding: 0 25px;
+}
+
+.articles-container__item_text {
+    font-family: "Sohne-Buch", sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    color: #626262;
+    margin-bottom: 10px;
+    padding: 0 25px;
+}
+
+.articles-container__item_btn {
+    align-self: flex-end;
+    padding: 0 25px;
+    text-decoration: underline;
+    font-family: "Sohne-Buch", sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    color: black;
+}

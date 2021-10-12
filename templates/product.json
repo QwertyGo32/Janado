@@ -1,0 +1,431 @@
+{
+  "sections": {
+    "product": {
+      "type": "product-page",
+      "blocks": {
+        "75f7dfac-752a-4747-acb3-a76bd4ec79db": {
+          "type": "text",
+          "settings": {
+            "header": "NEU IN OVP",
+            "image": "shopify:\/\/shop_images\/zustand-iphone.png",
+            "technical": "Generalüberholte Geräte funktionieren wie Neue - sind jedoch besser für den Planeten und für deine Geldbörse. Jedes Gerät ist technisch einwandfrei und wurde von Experten geprüft, gereinigt, und getestet. Die Batterie hat mindestens 85 % Kapazität.",
+            "first_text": "Neuware",
+            "second_text": "Unbenutzt",
+            "third_text": "Originalverpackt"
+          }
+        },
+        "9ede8543-b888-4764-8de3-062285ca6bc2": {
+          "type": "text",
+          "settings": {
+            "header": "NEU",
+            "image": "shopify:\/\/shop_images\/zustand-iphone.png",
+            "technical": "Generalüberholte Geräte funktionieren wie Neue - sind jedoch besser für den Planeten und für deine Geldbörse. Jedes Gerät ist technisch einwandfrei und wurde von Experten geprüft, gereinigt, und getestet. Die Batterie hat mindestens 85 % Kapazität",
+            "first_text": "Neuware",
+            "second_text": "Unbenutzt",
+            "third_text": "Neutrale Verpackung"
+          }
+        },
+        "284b8a4c-ad01-4799-aa1b-47f805c5c987": {
+          "type": "text",
+          "settings": {
+            "header": "WIE NEU",
+            "image": "shopify:\/\/shop_images\/zustand-iphone.png",
+            "technical": "Generalüberholte Geräte funktionieren wie Neue - sind jedoch besser für den Planeten und für deine Geldbörse. Jedes Gerät ist technisch einwandfrei und wurde von Experten geprüft, gereinigt, und getestet. Die Batterie hat mindestens 85 % Kapazität.",
+            "first_text": "TOP Zustand",
+            "second_text": "Keine Macken an den Kanten",
+            "third_text": "Keine Kratzer am Gehäuse und Display"
+          }
+        },
+        "60a094cc-cfe0-47a8-b9f4-3216aa5fde34": {
+          "type": "text",
+          "settings": {
+            "header": "SEHR GUT",
+            "image": "shopify:\/\/shop_images\/zustand-iphone.png",
+            "technical": "Generalüberholte Geräte funktionieren wie Neue - sind jedoch besser für den Planeten und für deine Geldbörse. Jedes Gerät ist technisch einwandfrei und wurde von Experten geprüft, gereinigt, und getestet. Die Batterie hat mindestens 85 % Kapazität.",
+            "first_text": "Kaum erkennbare Gebrauchsspuren",
+            "second_text": "Keine Macken an den Kanten",
+            "third_text": "Evtl. minimale Kratzer am Gehäuse und Display"
+          }
+        },
+        "59ca0394-049e-46f6-9f9d-d36222d0aeb6": {
+          "type": "text",
+          "settings": {
+            "header": "GUT",
+            "image": "shopify:\/\/shop_images\/zustand-iphone.png",
+            "technical": "Generalüberholte Geräte funktionieren wie Neue - sind jedoch besser für den Planeten und für deine Geldbörse. Jedes Gerät ist technisch einwandfrei und wurde von Experten geprüft, gereinigt, und getestet. Die Batterie hat mindestens 85 % Kapazität.",
+            "first_text": "Leichte Gebrauchsspuren",
+            "second_text": "Evtl. minimale Macken an den Kanten",
+            "third_text": "Einige Kratzer am Gehäuse und Display"
+          }
+        },
+        "db61d353-f373-4d1b-a985-038d72f3344c": {
+          "type": "text",
+          "settings": {
+            "header": "AKZEPTABEL",
+            "image": "shopify:\/\/shop_images\/zustand-iphone.png",
+            "technical": "Generalüberholte Geräte funktionieren wie Neue - sind jedoch besser für den Planeten und für deine Geldbörse. Jedes Gerät ist technisch einwandfrei und wurde von Experten geprüft, gereinigt, und getestet. Die Batterie hat mindestens 85 % Kapazität.",
+            "first_text": "Deutliche Gebrauchsspuren",
+            "second_text": "Deutliche Farbabriebe und Macken an den Rändern und Kanten",
+            "third_text": "Mehrere, auch tiefe Kratzer am Gehäuse und Display"
+          }
+        }
+      },
+      "block_order": [
+        "75f7dfac-752a-4747-acb3-a76bd4ec79db",
+        "9ede8543-b888-4764-8de3-062285ca6bc2",
+        "284b8a4c-ad01-4799-aa1b-47f805c5c987",
+        "60a094cc-cfe0-47a8-b9f4-3216aa5fde34",
+        "59ca0394-049e-46f6-9f9d-d36222d0aeb6",
+        "db61d353-f373-4d1b-a985-038d72f3344c"
+      ],
+      "settings": {
+      }
+    },
+    "cart_top": {
+      "type": "product-cart-top",
+      "blocks": {
+        "5d0e6add-cdf3-4f41-828e-80a9ea7dbede": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-5s"
+          }
+        },
+        "5a2ae95b-92f8-4b4c-b4c7-132b4a945bd9": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "add1dae4-3a52-4b34-9ab0-f85645162404": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "2d249a7f-e5b0-4e61-8ed2-139dc1ffbd6f": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "83841e28-97eb-4df6-924c-b08d9e81d210": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "1364f07a-ea07-4254-9f09-1ec52ed9620b": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        }
+      },
+      "block_order": [
+        "5d0e6add-cdf3-4f41-828e-80a9ea7dbede",
+        "5a2ae95b-92f8-4b4c-b4c7-132b4a945bd9",
+        "add1dae4-3a52-4b34-9ab0-f85645162404",
+        "2d249a7f-e5b0-4e61-8ed2-139dc1ffbd6f",
+        "83841e28-97eb-4df6-924c-b08d9e81d210",
+        "1364f07a-ea07-4254-9f09-1ec52ed9620b"
+      ],
+      "settings": {
+        "heading": "Smarte Vergleiche",
+        "text": "Vergleichbare Produkte"
+      }
+    },
+    "dicription": {
+      "type": "product-discription",
+      "settings": {
+        "heading": "<p>Keiner kennt mich danach<br\/>so gut wie du…<\/p><p><\/p>",
+        "heading1": "Produktbeschreibung",
+        "subheading1": "Neu",
+        "btntext1": "Welche Zustände gibt es ?",
+        "link1": "",
+        "heading2": "Technische Daten",
+        "subheading2": "iPhone 11 mini 64 Gb - Weiß - Ohne Vertrag",
+        "btntext2": "Modell vergleichen ?",
+        "link2": "",
+        "heading3": "Checkliste Wiederaufbereitung",
+        "subheading3": "iPhone 11 mini 64 Gb - Weiß - Ohne Vertrag",
+        "textbot": "<p>Wir sind Experten für wiederaufbereitete Elektronik. Jedes Produkt wird getestet und zertifiziert bevor es die Fabrik verlässt. Alle Produkte werden auf alle Funktionalitäten geprüft bevor sie verkauft werden. Profitiere bei Janado von 36 Monaten Garantie auf dein refurbished Gerät. Der Umwelt und deinem Geldbeutel zur Liebe.<\/p>",
+        "btntitle1": "<p>Hast du noch eine Frage?<br\/><\/p>",
+        "btntitle2": "<p>Dann kontaktiere uns!<br\/><\/p>",
+        "btntext3": "Hilfe & Support",
+        "link3": ""
+      }
+    },
+    "cart": {
+      "type": "product-cart",
+      "blocks": {
+        "110ef089-35ca-4b3e-8d61-13729c9f72c6": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "3fb48ba1-8f17-4e99-a835-6492eb181f91": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "2978b37d-d2de-4461-88ec-fe2095855eb6": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "9e2d6f94-f1b3-4eff-9225-379141e7caeb": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "7bc890fe-4967-44a3-a4d8-ec3886917a02": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "c5a6a501-f4d0-4f6d-b606-c49008742453": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        }
+      },
+      "block_order": [
+        "110ef089-35ca-4b3e-8d61-13729c9f72c6",
+        "3fb48ba1-8f17-4e99-a835-6492eb181f91",
+        "2978b37d-d2de-4461-88ec-fe2095855eb6",
+        "9e2d6f94-f1b3-4eff-9225-379141e7caeb",
+        "7bc890fe-4967-44a3-a4d8-ec3886917a02",
+        "c5a6a501-f4d0-4f6d-b606-c49008742453"
+      ],
+      "settings": {
+        "heading": "Passt perfekt dazu",
+        "text": "Zubehör"
+      }
+    },
+    "page_slyder": {
+      "type": "collection-page-slyder",
+      "blocks": {
+        "2b7c5f69-d757-4a67-b940-9113ad14d016": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cube.png",
+            "heading": "Gratis Versand",
+            "text": "Gratis- und Expressversand innerhalb Deutschland",
+            "link": ""
+          }
+        },
+        "81450ea2-7acc-4763-8266-64ca7305a598": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/reverse_arrow.png",
+            "heading": "Wiederrufsrecht",
+            "text": "30 Tage testen und kostenlos an uns zurücksenden",
+            "link": ""
+          }
+        },
+        "9f8a607c-cbb0-46ce-9f4a-0024e6a78a34": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/card.png",
+            "heading": "Zahlung",
+            "text": "Sicher und einfach bezahlen mit dem Anbieter deiner Wahl",
+            "link": ""
+          }
+        },
+        "153d8427-67ff-4eec-bb1e-aee22f9b5fca": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/chat.png",
+            "heading": "WhatsApp Live Chat",
+            "text": "Schnelle Frage? Schreib uns. Mo—Fr: 10:00 Uhr — 16:00 Uhr",
+            "link": ""
+          }
+        },
+        "bfee9f35-db15-46d1-b0e0-5c726fe302d0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/info.png",
+            "heading": "Helpcenter",
+            "text": "Deine Hotline für alle Fragen. Mo—Fr: 10:00 Uhr — 16:00 Uhr",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "2b7c5f69-d757-4a67-b940-9113ad14d016",
+        "81450ea2-7acc-4763-8266-64ca7305a598",
+        "9f8a607c-cbb0-46ce-9f4a-0024e6a78a34",
+        "153d8427-67ff-4eec-bb1e-aee22f9b5fca",
+        "bfee9f35-db15-46d1-b0e0-5c726fe302d0"
+      ],
+      "settings": {
+        "title": "",
+        "title_text": ""
+      }
+    },
+    "cart_bottom": {
+      "type": "product-cart-bottom",
+      "blocks": {
+        "fc4fc1e0-1ee2-40ac-be9b-771b946b4048": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "ebb168b1-42a5-4466-8213-7f05729d6d85": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "0afb84cb-6853-4b04-8e67-2ffde9b0574d": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "e575a189-55d9-45f8-a9a3-cd21d4015d27": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "6ffcbc62-f98d-491c-a296-ad75cfe513e3": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "6ac42e01-d297-449a-a417-bb078ae6f7da": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        }
+      },
+      "block_order": [
+        "fc4fc1e0-1ee2-40ac-be9b-771b946b4048",
+        "ebb168b1-42a5-4466-8213-7f05729d6d85",
+        "0afb84cb-6853-4b04-8e67-2ffde9b0574d",
+        "e575a189-55d9-45f8-a9a3-cd21d4015d27",
+        "6ffcbc62-f98d-491c-a296-ad75cfe513e3",
+        "6ac42e01-d297-449a-a417-bb078ae6f7da"
+      ],
+      "settings": {
+        "heading": "Das könnte dirauch gefallen",
+        "text": "Weitere Produkte"
+      }
+    },
+    "insurance": {
+      "type": "home-insurance-rent",
+      "settings": {
+        "left_text_heading": "Janado Versicherung",
+        "left_heading": "Auch wir können nicht alles reparieren. Aber versichern",
+        "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0470\/7719\/5935\/files\/6080cda753239cade1d37ce7_pexels-tima-miroshnichenko-6754827-transcode.mp4?v=1626847544",
+        "left_text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n                beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n                versichert,\n                Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+        "left_text_btn": "Jetzt entdecken",
+        "left_link": "",
+        "btn_background_l": "",
+        "btn_hover_l": "#e6d50e",
+        "image": "shopify:\/\/shop_images\/circles.png",
+        "font_on_off": false,
+        "select_fonts": "",
+        "title_font": "work_sans_n6",
+        "title_color": "#ffe300",
+        "header_size": 54,
+        "header_line": 1.2,
+        "select_fonts_body": "Sohne-Fett",
+        "text_font": "work_sans_n6",
+        "text_color": "#ffffff",
+        "text_size": 24,
+        "text_line": 1.3,
+        "right_text_heading": "Janado Versicherung",
+        "right_heading": "Auch wir können nicht alles reparieren. Aber versichern",
+        "right_text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n                beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n                versichert,\n                Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+        "right_text_btn": "Jetzt entdecken",
+        "right_link": "",
+        "btn_background_r": "",
+        "btn_hover_r": "#ffe300",
+        "font_on_off_rent": false,
+        "select_fonts_rent": "",
+        "title_font_rent": "alegreya_i4",
+        "title_color_rent": "#ffe300",
+        "header_size_rent": 61,
+        "header_line_rent": 1,
+        "select_fonts_body_rent": "",
+        "text_font_rent": "work_sans_n6",
+        "text_color_rent": "#ffffff",
+        "text_size_rent": 24,
+        "text_line_rent": 1.3
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "blocks": {
+        "4af81a13-507c-44e3-8971-b4da69368611": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-first-menu"
+          }
+        },
+        "00a44f49-4340-4ba1-a12a-dfd6b388babe": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-second-menu"
+          }
+        },
+        "0c4c465f-acd7-479d-89ad-216b9bd150d5": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-third-menu"
+          }
+        },
+        "58a50426-c74f-44de-ab2a-29604937d733": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-four-menu"
+          }
+        },
+        "d95b8209-4666-4779-9324-259d7ed239aa": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-five-menu"
+          }
+        },
+        "8f688947-072c-4c75-8283-3f85a7de080a": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-six-menu"
+          }
+        }
+      },
+      "block_order": [
+        "4af81a13-507c-44e3-8971-b4da69368611",
+        "00a44f49-4340-4ba1-a12a-dfd6b388babe",
+        "0c4c465f-acd7-479d-89ad-216b9bd150d5",
+        "58a50426-c74f-44de-ab2a-29604937d733",
+        "d95b8209-4666-4779-9324-259d7ed239aa",
+        "8f688947-072c-4c75-8283-3f85a7de080a"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/janado_logo.png"
+      }
+    }
+  },
+  "order": [
+    "product",
+    "cart_top",
+    "dicription",
+    "cart",
+    "page_slyder",
+    "cart_bottom",
+    "insurance",
+    "subfooter"
+  ]
+}

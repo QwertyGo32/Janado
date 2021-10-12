@@ -1,0 +1,128 @@
+{
+  "sections": {
+    "article": {
+      "type": "article-template",
+      "blocks": {
+        "b3881b2c-5fa4-4c05-8bcd-5bd1fc08aa9e": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/last-post"
+          }
+        },
+        "e368433e-a360-4056-95bf-26a4509a6bc4": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio-1"
+          }
+        },
+        "e641361c-5f0e-4a14-b55c-d79227f97d66": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio"
+          }
+        },
+        "5a42bcd7-b734-4bfb-8c94-e7e30ca04d6a": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio-1"
+          }
+        },
+        "4c8dd5e3-7d29-42f8-b594-00a400ce5b9c": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio16"
+          }
+        },
+        "2864c018-90fc-43db-9217-f03d57300f53": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio15"
+          }
+        },
+        "07ef581c-764d-41c7-b344-b44c1ec34f85": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio14"
+          }
+        },
+        "3dae06d7-20c7-4502-9e85-3cbdec942364": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio13"
+          }
+        }
+      },
+      "block_order": [
+        "b3881b2c-5fa4-4c05-8bcd-5bd1fc08aa9e",
+        "e368433e-a360-4056-95bf-26a4509a6bc4",
+        "e641361c-5f0e-4a14-b55c-d79227f97d66",
+        "5a42bcd7-b734-4bfb-8c94-e7e30ca04d6a",
+        "4c8dd5e3-7d29-42f8-b594-00a400ce5b9c",
+        "2864c018-90fc-43db-9217-f03d57300f53",
+        "07ef581c-764d-41c7-b344-b44c1ec34f85",
+        "3dae06d7-20c7-4502-9e85-3cbdec942364"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/job.png",
+        "heading_top": "Thechnology",
+        "heading_bot": "World"
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "blocks": {
+        "3bb44da7-b811-400b-93e0-b111f944c39a": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-first-menu"
+          }
+        },
+        "d2799b02-6c39-48e1-be71-e4fcc7780c36": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-second-menu"
+          }
+        },
+        "239399d2-d8db-4211-a500-ef8fda6f9ba7": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-third-menu"
+          }
+        },
+        "2074523e-325c-4545-8fc4-d4ae422f266c": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-four-menu"
+          }
+        },
+        "e589f7f7-ab48-4a86-8a0a-5c59a3540e0c": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-five-menu"
+          }
+        },
+        "eba269f7-96c4-4ec9-a2b1-e8a531d3166c": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-six-menu"
+          }
+        }
+      },
+      "block_order": [
+        "3bb44da7-b811-400b-93e0-b111f944c39a",
+        "d2799b02-6c39-48e1-be71-e4fcc7780c36",
+        "239399d2-d8db-4211-a500-ef8fda6f9ba7",
+        "2074523e-325c-4545-8fc4-d4ae422f266c",
+        "e589f7f7-ab48-4a86-8a0a-5c59a3540e0c",
+        "eba269f7-96c4-4ec9-a2b1-e8a531d3166c"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/janado_logo.png"
+      }
+    }
+  },
+  "order": [
+    "article",
+    "subfooter"
+  ]
+}

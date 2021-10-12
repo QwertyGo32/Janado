@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "cart": {
+      "type": "cart-template",
+      "settings": {
+        "btn_text": "Add Accessories",
+        "btn_link": ""
+      }
+    }
+  },
+  "order": [
+    "cart"
+  ]
+}

@@ -1,0 +1,3 @@
+.orders-block__item_container.visible {
+    overflow-y: scroll;
+}

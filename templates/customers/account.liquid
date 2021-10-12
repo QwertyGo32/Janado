@@ -1,0 +1,766 @@
+{{ 'account.css' | asset_url | stylesheet_tag }}
+<section class="account">
+    <a href="{{ routes.account_logout_url }}">
+        Log Out
+    </a>
+    <a href="{{ routes.root_url }}" class="button button--primary">Start Shoping</a>
+
+    <div class="account__wrapper">
+        <h1 class="account__wrapper_title">
+            My Account
+        </h1>
+        <div class="account__wrapper_container account-container">
+            <div class="account-container__menu">
+                <div class="account-container__menu_item active" data-index="0">
+                    <img src="{{ 'profile.png' | asset_img_url: 'master' }}" class="account-container__menu_item-img">
+                    <p class="account-container__menu_item-text">
+                        {{ customer.first_name }}
+                    </p>
+                </div>
+                <div class="account-container__menu_item" data-index="1">
+                    <img src="{{ 'file-text.png' | asset_img_url: 'master' }}" class="account-container__menu_item-img">
+                    <p class="account-container__menu_item-text">
+                        Orders
+                    </p>
+                </div>
+                <div class="account-container__menu_item" data-index="2">
+                    <img src="{{ 'tag.png' | asset_img_url: 'master' }}" class="account-container__menu_item-img">
+                    <p class="account-container__menu_item-text">
+                        Sales
+                    </p>
+                </div>
+                <div class="account-container__menu_item" data-index="3">
+                    <img src="{{ 'home.png' | asset_img_url: 'master' }}" class="account-container__menu_item-img">
+                    <p class="account-container__menu_item-text">
+                        Adresses
+                    </p>
+                </div>
+                <div class="account-container__menu_item" data-index="4">
+                    <img src="{{ 'vrench.png' | asset_img_url: 'master' }}" class="account-container__menu_item-img">
+                    <p class="account-container__menu_item-text">
+                        Repairs
+                    </p>
+                </div>
+            </div>
+            <div class="account-container__content">
+                <div class="account-container__content_item active" data-index="0">
+                    <div class="account-container__content_item-head">
+                        <img src="{{ 'profile.png' | asset_img_url: 'master' }}"
+                             class="account-container__content_item-head_img">
+                        <p class="account-container__content_item-head_text">
+                            Account Details
+                        </p>
+                    </div>
+                    <div class="account-container__content_item-container">
+                        <p class="account-container__content_item-container_title">
+                            Name
+                        </p>
+                        <p class="account-container__content_item-container_text">
+                            {{ customer.first_name }}
+                        </p>
+                        <p class="account-container__content_item-container_title">
+                            Email
+                        </p>
+                        <p class="account-container__content_item-container_text">
+                            {{ customer.email }}
+                        </p>
+                    </div>
+                </div>
+                <div class="account-container__content_item" data-index="1">
+                    <div class="account-container__content_item-head">
+                        <img src="{{ 'file-text.png' | asset_img_url: 'master' }}"
+                             class="account-container__content_item-head_img">
+                        <p class="account-container__content_item-head_text">
+                            My Orders
+                        </p>
+                    </div>
+                    {% comment %}
+                    {% for order in customer.orders %}
+                        {% for line_item in order.line_items %}
+                            {{ line_item.image | img_url: '100x100' | img_tag }}
+                            {{ line_item | img_url: '100x100' | img_tag }}
+                        {% endfor %}
+                    {% endfor %}
+                    {% endcomment %}
+                    <div class="account-container__content_item-container orders-block">
+                        {% for order in customer.orders %}
+                            <div class="orders-block__item">
+                                <div class="orders-block__item_head">
+                                    <p class="orders-block__item_head_id">
+                                        {{ order.id }}
+                                    </p>
+                                    <p class="orders-block__item_head_date">
+                                        {{ order.created_at | date: "%H:%M %b %d,  20%y" }}
+                                    </p>
+                                    <p class="orders-block__item_head_status">
+                                        {{ order.fulfillment_status_label }}
+                                    </p>
+                                    <p class="orders-block__item_head_price">
+                                        {{ order.total_price | money_with_currency }}
+                                    </p>
+                                    <a href="#" class="orders-block__item_head_btn">
+                                        <p class="orders-block__item_head_btn-text">
+                                            Track Order
+                                        </p>
+                                    </a>
+                                    <img src="{{ 'arrow-down.png' | asset_img_url: 'master' }}"
+                                         class="orders-block__item_head_img">
+                                </div>
+                                <div class="orders-block__item_container">
+                                    {%- for line_item in order.line_items -%}
+                                        <div class="orders-block__item_product order-details">
+                                            <div class="order-details__item">
+                                                <p class="order-details__item_title">
+                                                    Product
+                                                </p>
+                                                <div class="cart-checkout__order_product">
+
+                                                    <img src="{{ line_item.image.src | img_url: 'master' }}"
+                                                         class="cart-checkout__order_product-img">
+                                                    <div class="cart-checkout__order_product-specs">
+                                                        <p class="cart-checkout__order_product-name">
+                                                            {{ line_item.product.title }}
+                                                        </p>
+                                                        {% unless line_item.product.has_only_default_variant %}
+                                                            <ul>
+                                                                {% for option in line_item.options_with_values %}
+                                                                    <p class="cart-checkout__order_product-spec">
+                                                                        {{ option.name }}: {{ option.value }}
+                                                                    </p>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        {% endunless %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="order-details__item">
+                                                <p class="order-details__item_title">
+                                                    Order Time
+                                                </p>
+                                                <p class="orders-block__item_head_date">
+                                                    {{ order.created_at | date: "%H:%M %b %d,  20%y" }}
+                                                </p>
+                                            </div>
+                                            <div class="order-details__item">
+                                                <p class="order-details__item_title">
+                                                    Order Status
+                                                </p>
+                                                <p class="orders-block__item_head_status">
+                                                    {{ order.fulfillment_status_label }}
+                                                </p>
+                                            </div>
+
+                                            <div class="order-details__item">
+                                                <p class="order-details__item_title">
+                                                    Price
+                                                </p>
+                                                <p class="order-details__item_text">
+                                                    {{ line_item.original_price | money }}
+                                                </p>
+                                            </div>
+                                            <div class="order-details__item">
+                                                <p class="order-details__item_title">
+                                                    Quantity
+                                                </p>
+                                                <p class="order-details__item_text">
+                                                    {{ line_item.quantity }}
+                                                </p>
+                                            </div>
+                                            <div class="order-details__item">
+                                                <p class="order-details__item_title">
+                                                    Subtotal
+                                                </p>
+                                                <p class="order-details__item_text">
+                                                    {{ line_item.original_line_price | money }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    {% render 'order', order: order %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="account-container__content_item" data-index="2">
+                    <div class="account-container__content_item-head">
+                        <img src="{{ 'tag.png' | asset_img_url: 'master' }}"
+                             class="account-container__content_item-head_img">
+                        <p class="account-container__content_item-head_text">
+                            My Sales
+                        </p>
+                    </div>
+                    <div class="account-container__content_item-container">
+                        <div class="orders-block__item">
+                            <div class="orders-block__item_head">
+                                <p class="orders-block__item_head_id">
+                                    8130167810300772
+                                </p>
+                                <p class="orders-block__item_head_title">
+                                    Samsung Galaxy S21 Ultra Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Saepe, voluptas!
+                                </p>
+                                <p class="orders-block__item_head_date">
+                                    16:28 Apr. 20 2021
+                                </p>
+                                <p class="orders-block__item_head_status">
+                                    Finished
+                                </p>
+                                <p class="orders-block__item_head_price">
+                                    2699.99€
+                                </p>
+                                <a href="#" class="orders-block__item_head_btn">
+                                    <p class="orders-block__item_head_btn-text">
+                                        Track Order
+                                    </p>
+                                </a>
+                                <img src="{{ 'arrow-down.png' | asset_img_url: 'master' }}"
+                                     class="orders-block__item_head_img">
+                            </div>
+                            <div class="orders-block__item_container">
+                                <div class="orders-block__item_product order-details">
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Product
+                                        </p>
+                                        <div class="cart-checkout__order_product">
+                                            <img src="./img/galaxys21_ultra-2048x1536-1%201%204.png"
+                                                 class="cart-checkout__order_product-img">
+                                            <div class="cart-checkout__order_product-specs">
+                                                <p class="cart-checkout__order_product-name">
+                                                    Samsung Galaxy S21 Ultra
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Zustand: Wie Neu
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Kapazitat: 64GB
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Farbe: Black
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Price
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            990.99€
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Time
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            16:28 Apr. 20 2021
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Action
+                                        </p>
+                                        <a class="order-details__item_text">
+                                            Track Order
+                                        </a>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Status
+                                        </p>
+                                        <p class="order-details__item_status">
+                                            Finished
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="delivery-details">
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            Delivery method name <br> City, Street, House <br> First Name Last Name
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery Price
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            9.99€
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Payment method
+                                        </p>
+                                        <img src="{{ 'payment.png' | asset_img_url: 'master' }}"
+                                             class="delivery-details__item_payment">
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Total
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            2699.99€
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orders-block__item">
+                            <div class="orders-block__item_head">
+                                <p class="orders-block__item_head_id">
+                                    8130167810300772
+                                </p>
+                                <p class="orders-block__item_head_title">
+                                    Samsung Galaxy S21 Ultra Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Saepe, voluptas!
+                                </p>
+                                <p class="orders-block__item_head_date">
+                                    16:28 Apr. 20 2021
+                                </p>
+                                <p class="orders-block__item_head_status">
+                                    Finished
+                                </p>
+                                <p class="orders-block__item_head_price">
+                                    2699.99€
+                                </p>
+                                <a href="#" class="orders-block__item_head_btn">
+                                    <p class="orders-block__item_head_btn-text">
+                                        Track Order
+                                    </p>
+                                </a>
+                                <img src="{{ 'arrow-down.png' | asset_img_url: 'master' }}"
+                                     class="orders-block__item_head_img">
+                            </div>
+                            <div class="orders-block__item_container">
+                                <div class="orders-block__item_product order-details">
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Product
+                                        </p>
+                                        <div class="cart-checkout__order_product">
+                                            <img src="./img/galaxys21_ultra-2048x1536-1%201%204.png"
+                                                 class="cart-checkout__order_product-img">
+                                            <div class="cart-checkout__order_product-specs">
+                                                <p class="cart-checkout__order_product-name">
+                                                    Samsung Galaxy S21 Ultra
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Zustand: Wie Neu
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Kapazitat: 64GB
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Farbe: Black
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Price
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            990.99€
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Time
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            16:28 Apr. 20 2021
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Action
+                                        </p>
+                                        <a class="order-details__item_text">
+                                            Track Order
+                                        </a>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Status
+                                        </p>
+                                        <p class="order-details__item_status">
+                                            Finished
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="delivery-details">
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            Delivery method name <br> City, Street, House <br> First Name Last Name
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery Price
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            9.99€
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Payment method
+                                        </p>
+                                        <img src="{{ 'payment.png' | asset_img_url: 'master' }}"
+                                             class="delivery-details__item_payment">
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Total
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            2699.99€
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-container__content_item" data-index="3">
+                    <div class="account-container__content_item-head">
+                        <img src="{{ 'home.png' | asset_img_url: 'master' }}"
+                             class="account-container__content_item-head_img">
+                        <p class="account-container__content_item-head_text">
+                            My Adresses
+                        </p>
+                    </div>
+                    <div class="account-container__content_item-container adresses-block">
+                        {% for address in customer.addresses %}
+                            <div class="adresses-block__item">
+                                <img src="{{ 'map-pin.png' | asset_img_url: 'master' }}"
+                                     class="adresses-block__item_img">
+                                {% if address.country != blank %}
+                                    <p class="adresses-block__item_bold-text">
+                                        Country<br>
+                                        <span class="adresses-block__item_text">
+                                        {{ address.country }}
+                                    </span>
+                                    </p>
+                                {% endif %}
+                                {% if address.city != blank %}
+                                    <p class="adresses-block__item_bold-text">
+                                        City<br>
+                                        <span class="adresses-block__item_text">
+                                        {{ address.city }}
+                                    </span>
+                                    </p>
+                                {% endif %}
+                                {% if address.company != blank %}
+                                    <p class="adresses-block__item_bold-text">
+                                        Company<br>
+                                        <span class="adresses-block__item_text">
+                                        {{ address.company }}
+                                    </span>
+                                    </p>
+                                {% endif %}
+                                {% if address.address1 != blank %}
+                                    <p class="adresses-block__item_bold-text">
+                                        Street
+                                        <br>
+                                        <span class="adresses-block__item_text">
+                                    {{ address.address1 }}
+                                </span>
+                                    </p>
+                                {% endif %}
+                                {% if address.address2 != blank %}
+                                    <p class="adresses-block__item_bold-text">
+                                        Flat
+                                        <br>
+                                        <span class="adresses-block__item_text">
+                                    {{ address.address2 }}
+                                </span>
+                                    </p>
+                                {% endif %}
+                                {% if address.phone != blank %}
+                                    <p class="adresses-block__item_bold-text">
+                                        Phone
+                                        <br>
+                                        <span class="adresses-block__item_text">
+                                    {{ address.phone }}
+                                </span>
+                                    </p>
+                                {% endif %}
+                                {% if address.zip != blank %}
+                                    <p class="adresses-block__item_bold-text">
+                                        Postal/Zip Code
+                                        <br>
+                                        <span class="adresses-block__item_text">
+                                    {{ address.zip }}
+                                </span>
+                                    </p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <a href="{{ routes.account_addresses_url }}"
+                       class="customer__addresses-link link link--primary text--uppercase">Add New Adress</a>
+                </div>
+                <div class="account-container__content_item" data-index="4">
+                    <div class="account-container__content_item-head">
+                        <img src="{{ 'vrench.png' | asset_img_url: 'master' }}"
+                             class="account-container__content_item-head_img">
+                        <p class="account-container__content_item-head_text">
+                            My Repairs
+                        </p>
+                    </div>
+                    <div class="account-container__content_item-container orders-block">
+                        <div class="orders-block__item">
+                            <div class="orders-block__item_head">
+                                <p class="orders-block__item_head_id">
+                                    8130167810300772
+                                </p>
+                                <p class="orders-block__item_head_title">
+                                    Samsung Galaxy S21 Ultra Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Saepe, voluptas!
+                                </p>
+                                <p class="orders-block__item_head_date">
+                                    16:28 Apr. 20 2021
+                                </p>
+                                <p class="orders-block__item_head_status">
+                                    Finished
+                                </p>
+                                <p class="orders-block__item_head_price">
+                                    2699.99€
+                                </p>
+                                <a href="#" class="orders-block__item_head_btn">
+                                    <p class="orders-block__item_head_btn-text">
+                                        Track Order
+                                    </p>
+                                </a>
+                                <img src="{{ 'arrow-down.png' | asset_img_url: 'master' }}"
+                                     class="orders-block__item_head_img">
+                            </div>
+                            <div class="orders-block__item_container">
+                                <div class="orders-block__item_product order-details">
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Product
+                                        </p>
+                                        <div class="cart-checkout__order_product">
+                                            <img src="./img/galaxys21_ultra-2048x1536-1%201%204.png"
+                                                 class="cart-checkout__order_product-img">
+                                            <div class="cart-checkout__order_product-specs">
+                                                <p class="cart-checkout__order_product-name">
+                                                    Samsung Galaxy S21 Ultra
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Zustand: Wie Neu
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Kapazitat: 64GB
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Farbe: Black
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Price
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            990.99€
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Time
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            16:28 Apr. 20 2021
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Action
+                                        </p>
+                                        <a class="order-details__item_text">
+                                            Track Order
+                                        </a>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Status
+                                        </p>
+                                        <p class="order-details__item_status">
+                                            Finished
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="delivery-details">
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            Delivery method name <br> City, Street, House <br> First Name Last Name
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery Price
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            9.99€
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Payment method
+                                        </p>
+                                        <img src="{{ 'payment.png' | asset_img_url: 'master' }}"
+                                             class="delivery-details__item_payment">
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Total
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            2699.99€
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orders-block__item">
+                            <div class="orders-block__item_head">
+                                <p class="orders-block__item_head_id">
+                                    8130167810300772
+                                </p>
+                                <p class="orders-block__item_head_title">
+                                    Samsung Galaxy S21 Ultra Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Saepe, voluptas!
+                                </p>
+                                <p class="orders-block__item_head_date">
+                                    16:28 Apr. 20 2021
+                                </p>
+                                <p class="orders-block__item_head_status">
+                                    Finished
+                                </p>
+                                <p class="orders-block__item_head_price">
+                                    2699.99€
+                                </p>
+                                <a href="#" class="orders-block__item_head_btn">
+                                    <p class="orders-block__item_head_btn-text">
+                                        Track Order
+                                    </p>
+                                </a>
+                                <img src="{{ 'arrow-down.png' | asset_img_url: 'master' }}"
+                                     class="orders-block__item_head_img">
+                            </div>
+                            <div class="orders-block__item_container">
+                                <div class="orders-block__item_product order-details">
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Product
+                                        </p>
+                                        <div class="cart-checkout__order_product">
+                                            <img src="./img/galaxys21_ultra-2048x1536-1%201%204.png"
+                                                 class="cart-checkout__order_product-img">
+                                            <div class="cart-checkout__order_product-specs">
+                                                <p class="cart-checkout__order_product-name">
+                                                    Samsung Galaxy S21 Ultra
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Zustand: Wie Neu
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Kapazitat: 64GB
+                                                </p>
+                                                <p class="cart-checkout__order_product-spec">
+                                                    Farbe: Black
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Price
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            990.99€
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Time
+                                        </p>
+                                        <p class="order-details__item_text">
+                                            16:28 Apr. 20 2021
+                                        </p>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Action
+                                        </p>
+                                        <a class="order-details__item_text">
+                                            Track Order
+                                        </a>
+                                    </div>
+                                    <div class="order-details__item">
+                                        <p class="order-details__item_title">
+                                            Order Status
+                                        </p>
+                                        <p class="order-details__item_status">
+                                            Finished
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="delivery-details">
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            Delivery method name <br> City, Street, House <br> First Name Last Name
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Delivery Price
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            9.99€
+                                        </p>
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Payment method
+                                        </p>
+                                        <img src="{{ 'payment.png' | asset_img_url: 'master' }}"
+                                             class="delivery-details__item_payment">
+                                    </div>
+                                    <div class="delivery-details__item">
+                                        <p class="delivery-details__item_title">
+                                            Total
+                                        </p>
+                                        <p class="delivery-details__item_text">
+                                            2699.99€
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

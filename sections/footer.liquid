@@ -1,0 +1,167 @@
+<footer class="footer">
+    <div class="footer__wrapper">
+        {%- assign main_menu_handle = section.settings.navigation_menu -%}
+        {%- assign main_menu = linklists[main_menu_handle] -%}
+
+        {%- for link in main_menu.links -%}
+
+        <p class="footer__wrapper_copyright">{{- link.title | escape -}}</p>
+        <div class="footer__wrapper_nav">
+            {%- for sub_link in link.links -%}
+                <a href="{{ sub_link.url }}" class="footer__wrapper_nav-btn">{{- sub_link.title | escape -}}</a>
+            {%- endfor -%}
+        </div>
+        {%- endfor -%}
+        {% comment %}
+        {% if section.settings.enable %}
+            <div class="module-wrapper style-{{ section.settings.style }}">
+                {% form 'customer' %}
+                    <div class="module newsletter-form">
+                        <div class="newsletter-form-container">
+
+                            {% if section.settings.title != blank or section.settings.subheading != blank %}
+                                <div class="module-header">
+                                    {% if section.settings.title != blank %}
+                                        <h3 class="module-title">
+                                            {{ section.settings.title | escape }}
+                                        </h3>
+                                    {% endif %}
+                                    {% if section.settings.text != blank %}
+                                        <div class="module-subtitle">
+                                            {{ section.settings.text }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+
+                            <div class="module-body">
+                                <div class="newsletter-form-container">
+                                    {% if form.posted_successfully? %}
+                                        <p class="module-subtitle">
+                                            {{ 'general.mailing_list.success' | t }}
+                                        </p>
+                                    {% else %}
+                                        {% if form.errors %}
+                                            <div class="newsletter-form-message">
+                                                {{ form.errors | default_errors }}
+                                            </div>
+                                        {% endif %}
+
+                                        <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect, newsletter">
+
+                                        <div class="newsletter-field-wrapper">
+                                            <div class="newsletter-form-field">
+                                                <input
+                                                        class="newsletter-form-email icon-arrow-right"
+                                                        name="contact[email]"
+                                                        type="email"
+                                                        placeholder="{{ 'general.general.email_placeholder' | t }}"
+                                                        aria-label="{{ 'general.general.email_placeholder' | t }}">
+                                                <div class="newsletter-form-field-icon icon icon-mail"></div>
+                                            </div>
+
+                                            <div class="newsletter-form-cta">
+                                                <input
+                                                        class="newsletter-form-submit"
+                                                        name="subscribe"
+                                                        type="submit"
+                                                        value="{{ 'general.general.subscribe' | t }}"
+                                                        aria-label="{{ 'general.general.subscribe' | t }}" />
+                                                <div class="newsletter-form-submit-icon icon icon-arrow-right"></div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endform %}
+            </div>
+        {% endif %}
+        {% endcomment %}
+
+        {% if section.settings.enable %}
+        <div class="footer__wrapper_input">
+             {% form 'customer' %}
+                <label for="email-input" class="footer__wrapper_text-label">{{ section.settings.title | escape }}</label>
+                {% if form.posted_successfully? %}
+                    <p class="module-subtitle">
+                    {{ 'general.mailing_list.success' | t }}
+                </p>
+                {% else %}
+                {% if form.errors %}
+                    <div class="newsletter-form-message">
+                        {{ form.errors | default_errors }}
+                    </div>
+                {% endif %}
+                    <input type="email" id="email-input" placeholder="Your Email adress...">
+                    <label for="email-input" class="footer__wrapper_img-label">
+                        {{ 'right-arrow.png' | asset_url | img_tag: 'right-arrow' }}
+                    </label>
+                {% endif %}
+             {% endform %}
+        </div>
+        {% endif %}
+    </div>
+</footer>
+{% schema %}
+{
+"name": "footer",
+"settings": [
+{
+"type": "header",
+"content": "Navigation"
+},
+{
+"type": "link_list",
+"id": "navigation_menu",
+"label": "Footer Menu"
+},
+{
+"type": "checkbox",
+"id": "enable",
+"label": "Enable",
+"default": true
+},
+{
+"type": "text",
+"id": "title",
+"label": "Heading Form",
+"default": "Newsletter2 Anmeldung"
+
+},
+{
+"type": "richtext",
+"id": "text",
+"label": {
+"da": "Tekst",
+"de": "Text",
+"en": "Text",
+"es": "Texto",
+"fi": "Teksti",
+"fr": "Texte",
+"hi": "टेक्स्ट",
+"it": "Testo",
+"ja": "テキスト",
+"ko": "텍스트",
+"nb": "Tekst",
+"nl": "Tekst",
+"pt-BR": "Texto",
+"pt-PT": "Texto",
+"sv": "Text",
+"th": "ข้อความ",
+"zh-CN": "文本",
+"zh-TW": "文字"
+},
+"default": "<p>Invite2 customers to join your mailing list.</p>"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

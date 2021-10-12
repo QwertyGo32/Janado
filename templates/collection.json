@@ -1,0 +1,214 @@
+{
+  "sections": {
+    "banner": {
+      "type": "collection-page-banner",
+      "settings": {
+        "back_image": "shopify:\/\/shop_images\/banner_bgr.jpg",
+        "font_on_off": false,
+        "select_fonts": "",
+        "title_font": "work_sans_n6",
+        "title_color": "#FFE300",
+        "header_size": 100,
+        "header_line": 1.2,
+        "select_fonts_body": "",
+        "text_font": "work_sans_n6",
+        "text_color": "#FFF",
+        "text_size": 24,
+        "text_line": 1.3
+      }
+    },
+    "collection": {
+      "type": "collection-template",
+      "settings": {
+        "show_sort_by": true,
+        "show_color_swatch": true,
+        "paginate_size": 4
+      }
+    },
+    "slyder": {
+      "type": "collection-slyder",
+      "blocks": {
+        "8a4dd28b-d0a8-49b7-90ec-9716d4680530": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iphone_banner.png",
+            "background": "#000000",
+            "heading1": "iPhone 12",
+            "heading2": "Pro Max Pacific",
+            "heading3": "Blue 128GB",
+            "text": "Mehr Kamera für deinen nächsten Urlaub. Das bisher schnellste und leistungsstärkste iPhone.",
+            "text_btn": "Jetzt entdecken",
+            "btn_color": "#000000",
+            "btn_background": "#ffe300",
+            "btn_hover": "#ffe300",
+            "link": "",
+            "font_on_off": false,
+            "select_fonts": "",
+            "title_font": "work_sans_n6",
+            "title_color": "#FFE300",
+            "header_size": 100,
+            "header_line": 1.2,
+            "select_fonts_body": "",
+            "text_font": "work_sans_n6",
+            "text_color": "#FFF",
+            "text_size": 24,
+            "text_line": 1.3
+          }
+        },
+        "64c7c3ed-5e8a-4137-9540-6d01156c28bc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/iphone_banner.png",
+            "background": "#33e5e9",
+            "heading1": "Samsung Galaxy",
+            "heading2": "S21 Ultra 12\/128Gb",
+            "heading3": "Blue 128GB",
+            "text": "Mehr Kamera für deinen nächsten Urlaub.",
+            "text_btn": "Jetzt entdecken",
+            "btn_color": "#000000",
+            "btn_background": "#ffffff",
+            "btn_hover": "#ffe300",
+            "link": "",
+            "font_on_off": false,
+            "select_fonts": "",
+            "title_font": "work_sans_n6",
+            "title_color": "#FFE300",
+            "header_size": 100,
+            "header_line": 1.2,
+            "select_fonts_body": "",
+            "text_font": "work_sans_n6",
+            "text_color": "#FFF",
+            "text_size": 24,
+            "text_line": 1.3
+          }
+        }
+      },
+      "block_order": [
+        "8a4dd28b-d0a8-49b7-90ec-9716d4680530",
+        "64c7c3ed-5e8a-4137-9540-6d01156c28bc"
+      ],
+      "settings": {
+      }
+    },
+    "page-slyder": {
+      "type": "collection-page-slyder",
+      "blocks": {
+        "9b00bc8c-755f-4497-9c36-4572535c83eb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cube.png",
+            "heading": "ratis Versand",
+            "text": "Gratis- und Expressversand innerhalb Deutschland",
+            "link": ""
+          }
+        },
+        "c126440c-3e0f-4353-89d4-ea8c66933acc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/reverse_arrow.png",
+            "heading": "Wiederrufsrecht",
+            "text": "30 Tage testen und kostenlos an uns zurücksenden",
+            "link": ""
+          }
+        },
+        "6b3c4f51-06f1-43dc-aa6f-000e57e32296": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/card.png",
+            "heading": "Zahlung",
+            "text": "Sicher und einfach bezahlen mit dem Anbieter deiner Wahl",
+            "link": ""
+          }
+        },
+        "f818f323-7bca-4f51-8ec4-13e649e535f4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/chat.png",
+            "heading": "WhatsApp Live Chat",
+            "text": "Schnelle Frage? Schreib uns. Mo—Fr: 10:00 Uhr — 16:00 Uhr",
+            "link": ""
+          }
+        },
+        "48c03990-cbb1-40e4-895e-6c02d14383f0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/info.png",
+            "heading": "Helpcenter",
+            "text": "Deine Hotline für alle Fragen. Mo—Fr: 10:00 Uhr — 16:00 Uhr",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "9b00bc8c-755f-4497-9c36-4572535c83eb",
+        "c126440c-3e0f-4353-89d4-ea8c66933acc",
+        "6b3c4f51-06f1-43dc-aa6f-000e57e32296",
+        "f818f323-7bca-4f51-8ec4-13e649e535f4",
+        "48c03990-cbb1-40e4-895e-6c02d14383f0"
+      ],
+      "settings": {
+        "title": "",
+        "title_text": ""
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "blocks": {
+        "a0d6adca-b466-47f3-b2b2-d98c1b3367ba": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-first-menu"
+          }
+        },
+        "3ed44359-49c5-4867-a004-32844d27cdb4": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-second-menu"
+          }
+        },
+        "23461509-7d86-4b4a-b099-e84ae9136b06": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-third-menu"
+          }
+        },
+        "34d42879-ead3-4c67-9d67-6fe79f16b506": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-four-menu"
+          }
+        },
+        "61d55e46-ee2f-4a76-9c9b-bb32586b0d58": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-five-menu"
+          }
+        },
+        "f77089fd-67f6-42a3-b69a-f47f5ab70f33": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-six-menu"
+          }
+        }
+      },
+      "block_order": [
+        "a0d6adca-b466-47f3-b2b2-d98c1b3367ba",
+        "3ed44359-49c5-4867-a004-32844d27cdb4",
+        "23461509-7d86-4b4a-b099-e84ae9136b06",
+        "34d42879-ead3-4c67-9d67-6fe79f16b506",
+        "61d55e46-ee2f-4a76-9c9b-bb32586b0d58",
+        "f77089fd-67f6-42a3-b69a-f47f5ab70f33"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/janado_logo.png"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "collection",
+    "slyder",
+    "page-slyder",
+    "subfooter"
+  ]
+}

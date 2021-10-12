@@ -1,0 +1,1002 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{% comment %}
+<div>
+    {% for variant in product.variants %}
+        {{ variant.metafields['global']['Frontkamera'] }}
+    {% endfor %}
+</div>
+
+<h1>
+
+{% for variant in product.variants %}
+    <a href="{{shop.url}}{{product.url}}?variant={{variant.id}}">Your Product Title</a>
+    {% endfor %}
+</h1>
+{% endcomment %}
+<div class="janado-section _100vh first-section">
+    {%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+        {%- assign t = template | split: '.' | first -%}
+        <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+            <ol class="breadcrumbs__list">
+                <li class="breadcrumbs__item">
+                    <a class="breadcrumbs__link" href="/">Home</a>
+                </li>
+                {%- case t -%}
+                    {%- when 'page' -%}
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+                        </li>
+                    {%- when 'product' -%}
+                        {%- if collection.url -%}
+                            <li class="breadcrumbs__item">
+                                {{ collection.title | link_to: collection.url }}
+                            </li>
+                        {%- endif -%}
+                        {% for collection in product.collections %}
+                            {% if product.type == collection.title %}
+                                <li class="breadcrumbs__item">
+                                    {{ collection.title | link_to: collection.url }}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link"
+                               href="/collections/{{ product.type | downcase }}/{{ product.vendor }}"
+                               aria-current="page">{{ product.vendor }}</a>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ product.url }}"
+                               aria-current="page">{{ product.title }}</a>
+                        </li>
+                    {%- when 'collection' and collection.handle -%}
+                        {%- if current_tags -%}
+                            <li class="breadcrumbs__item">
+                                {{ collection.title | link_to: collection.url }}
+                            </li>
+                            <li class="breadcrumbs__item">
+                                {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: "+" }}{%- endcapture -%}
+                                <a class="breadcrumbs__link" href="{{ tag_url }}"
+                                   aria-current="page">{{ current_tags | join: " + " }}</a>
+                            </li>
+                        {%- else -%}
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link" href="{{ collection.url }}"
+                                   aria-current="page">{{ collection.title }}</a>
+                            </li>
+                        {%- endif -%}
+                    {%- when 'blog' -%}
+                        {%- if current_tags -%}
+                            <li class="breadcrumbs__item">
+                                {{ blog.title | link_to: blog.url }}
+                            </li>
+                            <li class="breadcrumbs__item">
+                                {%- capture tag_url -%}{{ blog.url }}/tagged/{{ current_tags | join: "+" }}{%- endcapture -%}
+                                <a class="breadcrumbs__link" href="{{ tag_url }}"
+                                   aria-current="page">{{ current_tags | join: " + " }}</a>
+                            </li>
+                        {%- else -%}
+                            <li class="breadcrumbs__item">
+                                <a class="breadcrumbs__link" href="{{ blog.url }}"
+                                   aria-current="page">{{ blog.title }}</a>
+                            </li>
+                        {%- endif -%}
+                    {%- when 'article' -%}
+                        <li class="breadcrumbs__item">
+                            {{ blog.title | link_to: blog.url }}
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ article.url }}"
+                               aria-current="page">{{ article.title }}</a>
+                        </li>
+                    {%- else -%}
+                        <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ request.path }}"
+                               aria-current="page">{{ page_title }}</a>
+                        </li>
+                {%- endcase -%}
+            </ol>
+        </nav>
+    {%- endunless -%}
+    <div class="w-layout-grid single-product-grid">
+        <div id="w-node-_0ab2e899-a8d7-6cde-a6a5-823fdeb6f881-c5838be9" class="flex-vertical lft">
+            <div class="wrapper-product-name-headline">
+                <h1>
+                    {{ product.vendor }} {{ product.title }}
+                </h1>
+            </div>
+
+        </div>
+        <div class="staff-position">
+            <div class="wrapper-staff-pick">
+                <p class="staff-pick">Staff pick</p><img
+                        src="https://assets.website-files.com/607d9cf6158fff6280f6aa76/607ef196a8e80b873c07b095_blitz.svg"
+                        loading="lazy" alt="" class="image-3"/>
+            </div>
+            <div id="w-node-_8517987f-032b-2638-fce4-b4a2107b005e-c5838be9" class="flex-vertical lft">
+                <div data-animation="slide" data-duration="500" data-infinite="1" class="product-slider-page w-slider">
+                    <div class="mask-2 w-slider-mask swiper-container">
+                        <div class="swiper-wrapper">
+                            {% for image in product.images %}
+                                <div class="slide w-slide swiper-slide">
+                                    <div class="wrapper-slider-image">
+                                        <img src="{{ image.src | product_img_url: 'grande' }}" alt="">
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="w-slider-arrow-left swiper-button-prev">
+                        <div class="icon w-icon-slider-left"></div>
+                    </div>
+                    <div class="w-slider-arrow-right swiper-button-next">
+                        <div class="icon-2 w-icon-slider-right"></div>
+                    </div>
+                    <div class="slide-nav-2 w-slider-nav w-round"></div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-vertical m-t-40">
+            <div class="custom-wrapper no-boarder-top">
+                <div class="wrapper-arguments">
+                    <div class="wrapper-argument-button">
+                        <div class="wrapper-icon-argument"><img
+                                    src="https://assets.website-files.com/607d9cf6158fff6280f6aa76/6080b6a20c918d1cbcc3dd13_undo.svg"
+                                    loading="lazy" alt=""
+                                    class="m-d-2"/></div>
+                        <p class="body-2 text-center font-weight-12">30 Tage <br/>Rückgabe</p>
+                    </div>
+                    <div class="wrapper-argument-button">
+                        <div class="wrapper-icon-argument"><img
+                                    src="https://assets.website-files.com/607d9cf6158fff6280f6aa76/607f6257e56dda157a6c7326_checkmark.svg"
+                                    loading="lazy" alt=""
+                                    class="m-d-2"/></div>
+                        <p class="body-2 text-center font-weight-12">12 Monate <br/>Garantie</p>
+                    </div>
+                    <div class="wrapper-argument-button">
+                        <div class="wrapper-icon-argument"><img
+                                    src="https://assets.website-files.com/607d9cf6158fff6280f6aa76/60904ea611aa5a4ad1158a85_badge.svg"
+                                    loading="lazy" alt=""
+                                    class="m-d-2"/></div>
+                        <p class="body-2 text-center font-weight-12">Geprüft<br/>Refurbished</p>
+                    </div>
+                </div>
+            </div>
+            <h1>
+                {% assign total_stock = 0 %}
+                {% for variant in product.variants %}
+                    {% capture i %}{{ total_stock | plus: variant.inventory_quantity }}{% endcapture %}
+                    {% assign total_stock = i %}
+                    <p class="quantity" name="{{ variant.id }}" data-quantity="{{ variant.inventory_quantity }}"></p>
+                {% endfor %}
+                {% assign total_stock = total_stock | plus: 0 %}
+            </h1>
+            <div class="wrappper-custum-headline rest-value">
+                <p class="body-2 text-color-grey50"></p>
+                <p class="heading-1 quantity-stock"></p>
+            </div>
+
+            {% comment %}<form class="product-grid-wrapper-text costomate p-d-0">{% endcomment %}
+            {% form "product", product %}
+                <h1>{{ pageurl }}</h1>
+                {%- for option in product.options_with_values -%}
+                    {% if option.name == 'Farbe' or option.name == 'Apple Farbe' %}
+                        <div class="custom-wrapper">
+                            <div class="wrappper-custum-headline">
+                                <p class="body-2 text-color-grey50">
+                                    {{ option.name }}
+                                </p>
+                                <p class="heading-1">
+                                    {%- for value in option.values -%}
+                                        {% if forloop.first %}
+                                            {{ option.selected_value | capitalize }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <h1>{{ option.id }}</h1>
+                            <div class="wrapper-select-picker">
+
+                                {%- for value in option.values -%}
+                                    <label class="color-picker-indicator {% if option.selected_value == value %}activ{% endif %}"
+                                           id="{{ value }}">
+                                        {{ value | downcase | append: '.png' | replace: ' ', '-' | replace: 'ß', 'b' | replace: 'ü', 'u' | asset_url | img_tag: value | downcase }}
+                                        <input data-color="{{ value }}" type="radio"
+                                               value="{{ product.selected_or_first_available_variant.id }}"
+                                               name="id" class="color-swatch" checked="">
+                                    </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% elsif option.name != 'Farbe' and option.name != 'Zustand' %}
+                        <div class="custom-wrapper">
+                            <div class="wrappper-custum-headline">
+                                <p class="body-2 text-color-grey50"> {{ option.name }}</p>
+                                <p class="heading-1 size">
+                                    {%- for value in option.values -%}
+                                        {% if forloop.first %}
+                                            {{ option.selected_value | capitalize }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="wrapper-select-picker">
+                                {%- for value in option.values -%}
+                                    <label class="kapazitaet-picker  {% if option.selected_value == value %}activ{% endif %}">
+                                        {{ value }}
+                                        <input data-gb="{{ value }}" type="radio" name="id"
+                                               class="kapazitaet-picker-input"
+                                               value="{{ product.selected_or_first_available_variant.id }}">
+                                    </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% elsif option.name == 'Zustand' %}
+                        <div id="w-node-b71406e3-a7ea-120e-9501-8cb1c91e7663-c5838be9" class="custom-wrapper">
+                            <div class="wrappper-custum-headline">
+                                <div class="wrapper-question">
+                                    <p class="body-2 text-color-grey50">Zustand</p>
+                                    <div data-w-id="9058e158-c183-af0f-99a4-77b4323bbfa3"
+                                         class="wrapper-question-trigger">
+                                        <img src="{{ 'question-mark.png' | asset_img_url: 'master' }}" loading="lazy"
+                                             alt=""
+                                             class="image-19"/>
+                                    </div>
+                                </div>
+                                <p class="heading-1 status">
+                                    {%- for value in option.values -%}
+                                        {% if forloop.first %}
+                                            {{ option.selected_value | capitalize }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+                            <div class="wrapper-select-picker">
+                                <select id="single-product__zustand-select" data-hover="" data-delay="0" class="dropdown-2 w-dropdown" name="id">
+                                    {%- for value in option.values -%}
+                                        <option data-zustand="{{ value }}"
+                                                value="{{ product.selected_or_first_available_variant.id }}"{% if option.selected_value == value %} selected="selected"{% endif %}
+                                                class="status-options"
+                                                id="{{ value }}">
+                                            {{ value }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <div class="zustand-dropdown">
+                                    <div class="zustand-dropdown__head">
+                                        123
+                                    </div>
+                                    <div class="zustand-dropdown__container">
+                                        {%- for value in option.values -%}
+                                            <label class="zustand-dropdown__container_item">
+                                            <input type="radio"
+                                                   name="zustand-radio"
+                                                   class="zustand-dropdown__container_radio"
+                                                   data-zustand="{{ value }}"
+                                                   value="{{ product.selected_or_first_available_variant.id }}"
+                                                   {% if option.selected_value == value %}
+                                                        checked="checked"
+                                                    {% endif %}>
+                                                {{ value }}
+                                            </label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#product-infos" class="gost-button-small p-t-8">Alle Infos zum Produkt</a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <div id="w-node-_50431423-a953-a830-3f4a-6a89c3b9e891-c5838be9" class="custom-wrapper flex">
+                    <div class="wrapper-lieferung"><img
+                                src="https://assets.website-files.com/607d9cf6158fff6280f6aa76/60904e986493a9222752ecf0_delivery.svg"
+                                loading="lazy" alt=""
+                                class="image-17 m-r-16"/>
+                        {% capture now_time_H %} {{ 'now' | date: "%H" }}{% endcapture %}
+                        {% capture now_time_M %} {{ 'now' | date: "%M" }}{% endcapture %}
+                        {% assign now_time = now_time_H | times: 100 | plus: now_time_M %}
+                        {% if now_time >= 1500 %}
+                            <p class="body-2"> Bestelle heute und erhalte dein Gerät
+                                vom {{ "now" | date: "%s" | plus: 259200 | date: "%a. %d.%m" | replace: 'Mon', 'Mo' | replace: 'Tue', 'Di' | replace: 'Wed', 'Mi' | replace: 'Thu', 'Do' | replace: 'Fri', 'Fr' | replace: 'Sat', 'Sa' | replace: 'Sun', 'So' }}
+                                bis
+                                zum {{ "now" | date: "%s" | plus: 345600 | date: "%a. %d.%m" | replace: 'Mon', 'Mo' | replace: 'Tue', 'Di' | replace: 'Wed', 'Mi' | replace: 'Thu', 'Do' | replace: 'Fri', 'Fr' | replace: 'Sat', 'Sa' | replace: 'Sun', 'So' }}
+                                .</p>
+                        {% else %}
+                            <p class="body-2"> Bestelle heute noch vor 15:00 Uhr und erhalte dein Gerät
+                                vom {{ "now" | date: "%s" | plus: 172800 | date: "%a. %d.%m" | replace: 'Mon', 'Mo' | replace: 'Tue', 'Di' | replace: 'Wed', 'Mi' | replace: 'Thu', 'Do' | replace: 'Fri', 'Fr' | replace: 'Sat', 'Sa' | replace: 'Sun', 'So' }}
+                                bis
+                                zum {{ "now" | date: "%s" | plus: 259200 | date: "%a. %d.%m" | replace: 'Mon', 'Mo' | replace: 'Tue', 'Di' | replace: 'Wed', 'Mi' | replace: 'Thu', 'Do' | replace: 'Fri', 'Fr' | replace: 'Sat', 'Sa' | replace: 'Sun', 'So' }}
+                                .</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div id="w-node-bdca2bd2-bab9-f618-cc6b-8c792ed24581-c5838be9" class="custom-wrapper price">
+                    <div class="wrappper-custum-headline align-bottum p-d-16">
+                        <div class="wrapper-price-product-site">
+                            <p class="body-1 gray-60 cancel"><span class="text-span-2">
+                                {% for variant in product.variants %}
+                                    {% if forloop.first == true %}
+                                    {{ variant.compare_at_price | money }}
+                                    {% assign minPrice = variant.price %}
+                                    {% assign P = variant.compare_at_price %}
+                                    {% assign youSave = P | minus: minPrice %}
+                                    {% assign youSavePerc = youSave | times: 100 | divided_by: P %}</span><span
+                                        class="text-span-2-perceint">(-{{ youSavePerc | round: 1 }} %)</span>
+                                {% endif %}
+                                {% endfor %}</p>
+                            <h4 class="bold">
+                                {% for variant in product.variants %}
+                                    {% if forloop.first == true %}
+                                        {{ variant.price | money }}
+                                    {% endif %}
+                                {% endfor %}
+                                <span class="text-span-3">*</span></h4>
+                        </div>
+                        <div class="w-layout-grid grid-buttons">
+                            <input id="w-node-_99b5e253-b044-787a-bee9-2cf74313a698-c5838be9" type="submit"
+                                   value="Zum Warenkorb" class="button w-button"/>
+                            <a href="#" class="button mieten w-button">ab 25 € / mtl. mieten</a>
+                        </div>
+                    </div>
+
+                    <p class="caption gray-40">* inkl. ges. MwSt. zzgl.
+                        <a href="#" class="link-in-text">Versandkosten</a><br/>
+                    </p>
+                </div>
+            {% endform %}
+        </div>
+    </div>
+</div>
+<section class="zustand">
+    <div class="zustand__wrapper">
+        <div class="zustand__wrapper_esc-btn">
+            <img src="{{ 'esc-btn.png' | asset_img_url: 'master' }}" class="zustand__wrapper_esc-btn_img">
+        </div>
+        <div class="zustand__wrapper_container">
+            {% for block in section.blocks %}
+                <div class="zustand__wrapper_container_item zustand-item {% if forloop.first == true %}visible {% endif %}"
+                     data-index="{{ forloop.index0 }}">
+                    <div class="zustand-item__container">
+                        <p class="zustand-item__text">
+                            Zustand
+                        </p>
+                        <h2 class="zustand-item__title">
+                            {{ block.settings.header }}
+                        </h2>
+                        <div class="zustand-item__container_content">
+                            <div class="zustand-item__container_item">
+                                <p class="zustand-item__container_item_title">
+                                    Technischer Zustand
+                                </p>
+                                <p class="zustand-item__container_item_text">
+                                    {{ block.settings.technical }}
+                                </p>
+                            </div>
+                            <div class="zustand-item__container_item">
+                                <p class="zustand-item__container_item_title">
+                                    Wie es aussieht
+                                </p>
+                                <p class="zustand-item__container_item_text">
+                                    - {{ block.settings.first_text }} <br>
+                                    - {{ block.settings.second_text }} <br>
+                                    - {{ block.settings.third_text }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="zustand-item__img-wrapper">
+                        <img src="{{ block.settings.image.src | img_url: 'master' }}"
+                             class="zustand-item__img-wrapper_img">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="zustand__wrapper_titles">
+            {% for block in section.blocks %}
+                <div class="zustand__wrapper_titles_item {% if forloop.first == true %}active {% endif %}"
+                     data-index="{{ forloop.index0 }}">
+                    <p class="zustand__wrapper_title_item-text">
+                        {{ block.settings.header }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+
+{% assign product_variants = product.variants | json %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const imageSlide = `<div class="slide w-slide swiper-slide">
+                <div class="wrapper-slider-image">
+                    <img  src="$IMAGESRC" alt="">
+                </div>
+            </div> `
+        //swiper-slide-active
+        const imageSlideActive = `<div class="slide w-slide swiper-slide swiper-slide-active">
+                <div class="wrapper-slider-image">
+                    <img  src="$IMAGESRC" alt="">
+                </div>
+            </div> `
+        let product_variant = JSON.parse('{{ product_variants }}');
+        let product = JSON.parse('{{ current_variant | json }}');
+
+        let selectOptionsVariant = (Object) => {
+            let variantId = window.location.search;
+            variantId = variantId.split('variants=');
+            if (variantId[1] !== undefined) {
+                let variantFirst = Object.find((item) => {
+                    return item.id === Number(variantId[1]);
+                });
+                currentVariantSelectPrice(variantFirst);
+            } else {
+                let variantProductFirst = Object.find((item) => {
+                    return item.id === product.id;
+                });
+                currentVariantSelectPrice(variantProductFirst);
+            }
+        }
+
+        if (document.querySelector(".zustand")) {
+            const zustandLinks = document.querySelectorAll(".zustand__wrapper_titles_item");
+            document.querySelector(".wrapper-question-trigger").addEventListener("click", (e) => {
+                document.querySelector(".zustand").classList.add("active")
+                const zustandPanels = document.querySelectorAll(".zustand-item");
+
+                zustandLinks.forEach((el) => {
+                    el.addEventListener("click", e => {
+                        let currentIndex = null;
+                        zustandLinks.forEach((tab) => {
+                            tab.classList.remove("active")
+                            if (e.target.closest(".zustand__wrapper_titles_item") === tab) {
+                                e.target.closest(".zustand__wrapper_titles_item").classList.add("active")
+                                currentIndex = tab.getAttribute('data-index');
+                            }
+                        })
+                        zustandPanels.forEach((tab) => {
+                            tab.classList.remove("visible")
+                            if (tab.getAttribute('data-index') === currentIndex) {
+                                tab.classList.add("visible")
+                            }
+                        })
+                    });
+                })
+            })
+            document.querySelector(".zustand__wrapper_esc-btn").addEventListener("click", (e) => {
+                document.querySelector(".zustand").classList.remove("active");
+                zustandLinks.forEach((elem) => {
+                    elem.removeEventListener("click", (e) => undefined)
+                })
+            })
+        }
+
+        let currentPageSize, currentPageNumber,
+            selectPageStatus = document.querySelector(".dropdown-2"),
+            currentPageStatus = selectPageStatus.options[selectPageStatus.selectedIndex].text,
+            textComparePrice = document.querySelector(".text-span-2"),
+            textPrice = document.querySelector(".bold"),
+            textPerceint = document.querySelector(".text-span-2-perceint");
+
+        if (document.querySelector(".color-picker-indicator.activ input") !== null) {
+            currentPageNumber = document.querySelector(".color-picker-indicator.activ input").getAttribute('data-color');
+        }
+
+        if (currentPageSize !== null && currentPageSize !== undefined) {
+            currentPageSize.innerHTML.replace(/<\/?[^>]+(>|$)/g, "").trim();
+        }
+
+        document.querySelectorAll(".color-swatch").forEach((item) => {
+            item.addEventListener("click", (e) => {
+                currentPageNumber = e.target.closest('.color-picker-indicator ').id;
+                findPrice(currentPageNumber);
+            })
+
+        })
+
+        document.querySelectorAll(".kapazitaet-picker-input").forEach((item) => {
+            item.addEventListener("click", (e) => {
+                currentPageSize = e.target.closest('.kapazitaet-picker ').innerHTML.replace(/<\/?[^>]+(>|$)/g, "").trim();
+                findPrice(currentPageSize);
+            })
+        })
+
+        let selectStatus = document.querySelector(".dropdown-2");
+        selectStatus.addEventListener("change", (e) => {
+            currentPageStatus = e.target.options[e.target.selectedIndex].getAttribute('data-zustand');
+            let TextStatus = document.querySelector(".custom-wrapper .status");
+            TextStatus.innerHTML = currentPageStatus;
+            selectZustand(currentPageStatus);
+        })
+
+        let findPrice = (currentOption) => {
+            let variantOfTwoOptions = product_variant.filter((item) => {
+                return item.options.includes(currentPageNumber) && item.options.includes(currentPageSize);
+            });
+            if (variantOfTwoOptions != '') {
+                currentVariantSelectPrice(variantOfTwoOptions);
+            } else {
+
+                let variantOfOneOption = product_variant.filter((item) => {
+                    if (currentOption == currentPageNumber) {
+                        currentOption = currentOption;
+                    }
+                    return item.options.includes(currentOption)
+                });
+
+                currentVariantSelectPrice(variantOfOneOption);
+            }
+
+        }
+
+        let disableSize = (currentColor) => {
+
+
+            let variantOfColorOption = product_variant.filter((item) => {
+                if (currentColor == currentPageNumber && currentPageNumber !== undefined) {
+
+                    currentColor = currentColor
+                }
+                return item.options.includes(currentColor)
+            });
+            document.querySelectorAll('.kapazitaet-picker-input').forEach((elem) => {
+                let text = elem.getAttribute('data-gb');
+                let arrayColor = variantOfColorOption.find((key) => {
+                    return key.options.includes(text);
+                })
+                if (arrayColor === undefined) {
+                    elem.setAttribute("disabled", "disabled");
+                    elem.closest('.kapazitaet-picker').classList.add('disabled');
+                } else {
+                    elem.removeAttribute("disabled");
+                    elem.closest('.kapazitaet-picker').classList.remove('disabled');
+                }
+            })
+        }
+        let variantColor;
+        let variantSize;
+        let variantStatus;
+
+        let currentVariantSelectPrice = (arg) => {
+            let minPriceProduct;
+            if (Array.isArray(arg)) {
+                arg.forEach((item, index) => {
+                    if (index == 0) {
+                        minPriceProduct = item;
+                    } else {
+                        if (minPriceProduct.price > item.price) {
+                            minPriceProduct = item;
+                        }
+                    }
+                })
+            } else {
+                minPriceProduct = arg;
+            }
+
+            createMetafields(minPriceProduct);
+
+
+            let price = parseFloat(minPriceProduct.price / 100).toFixed(2);
+            if (!Number.isInteger(price)) {
+                price = String(price);
+                price = price.replace('.', ',');
+            }
+            let compare_price = parseFloat(minPriceProduct.compare_at_price / 100).toFixed(2);
+            if (!Number.isInteger(compare_price)) {
+                compare_price = String(compare_price);
+                compare_price = compare_price.replace('.', ',');
+            }
+
+            textComparePrice.innerHTML = compare_price + '€';
+            textPrice.innerHTML = price + '€' + '<span class="text-span-3">*</span>';
+            if (minPriceProduct.compare_at_price !== null) {
+                let percentPrice = minPriceProduct.compare_at_price - minPriceProduct.price;
+                let percent = percentPrice * 100 / minPriceProduct.compare_at_price;
+                textPerceint.innerHTML = '(-' + percent.toFixed(0) + '%)';
+            } else {
+                textComparePrice.innerHTML = '';
+                textPerceint.innerHTML = '';
+            }
+
+            if (document.querySelectorAll(".color-swatch") !== '') {
+                document.querySelectorAll(".color-swatch").forEach((item) => {
+                    item.parentElement.classList.remove('activ');
+                    item.parentElement.classList.add('not-chosen');
+                    if (minPriceProduct.options.includes(item.getAttribute('data-color'))) {
+                        variantColor = item.getAttribute('data-color');
+                        item.parentElement.classList.remove('not-chosen');
+                        item.parentElement.classList.add('activ');
+                        item.setAttribute("checked", "checked");
+                        let CurrentPageText = item.getAttribute('data-color');
+                        let Text = document.querySelector(".custom-wrapper .heading-1");
+                        Text.innerHTML = CurrentPageText.charAt(0).toUpperCase() + CurrentPageText.slice(1);
+                    }
+                })
+                disableSize(variantColor);
+            }
+            if (document.querySelectorAll(".kapazitaet-picker-input") !== '') {
+                document.querySelectorAll(".kapazitaet-picker-input").forEach((item) => {
+                    item.parentElement.classList.remove('activ');
+                    item.setAttribute("checked", "unchecked");
+                    if (minPriceProduct.options.includes(item.getAttribute('data-gb'))) {
+                        variantSize = item.getAttribute('data-gb');
+                        item.setAttribute("checked", "checked");
+                        item.parentElement.classList.add('activ');
+                        let Text = document.querySelector(".custom-wrapper .size");
+                        Text.innerHTML = item.getAttribute('data-gb');
+                    }
+                })
+            }
+
+            let itemStartPrice;
+            let variantQuantityId;
+
+            document.querySelectorAll('.status-options').forEach((item) => {
+                item.value = minPriceProduct.id
+                item.removeAttribute('selected');
+                item.setAttribute("disabled", "disabled");
+                item.innerHTML = item.getAttribute('data-zustand') + "/" + '(Sold Out)';
+                if (minPriceProduct.options.includes(item.getAttribute('data-zustand'))) {
+                    variantStatus = item.getAttribute('data-zustand');
+                    itemStartPrice = Number(parseFloat(minPriceProduct.price / 100).toFixed(2))
+                    variantQuantityId = minPriceProduct.id;
+                    item.setAttribute("selected", "selected");
+                    let selectText = document.querySelector(".heading-1.status");
+                    selectText.innerHTML = item.getAttribute('data-zustand');
+                }
+            })
+
+            checkedQuantity(variantQuantityId);
+
+            let newArray = product_variant.filter((elem, index, array) => {
+                if (variantSize === undefined && variantColor === undefined) {
+                    return array;
+                } else if (variantSize === undefined) {
+                    return elem.options.includes(variantColor)
+                } else if (variantColor === undefined) {
+                    return elem.options.includes(variantSize)
+                } else {
+                    return elem.options.includes(variantColor) && elem.options.includes(variantSize);
+
+                }
+
+            })
+
+            let difference;
+            for (value of newArray) {
+                document.querySelectorAll('.status-options').forEach((item) => {
+                    value.options.forEach((option) => {
+                        if (item.getAttribute("data-zustand") === option) {
+                            if (itemStartPrice > Number(parseFloat(value.price / 100).toFixed(2))) {
+                                difference = itemStartPrice - Number(parseFloat(value.price / 100).toFixed(2));
+                                difference = difference.toFixed(2);
+                                difference = '-' + difference.toString() + '€';
+                                difference = difference.replace('.', ',');
+                            } else {
+                                difference = Number(parseFloat(value.price / 100).toFixed(2)) - itemStartPrice;
+                                difference = difference.toFixed(2);
+                                difference = '+' + difference.toString() + '€';
+                                difference = difference.replace('.', ',');
+                            }
+                            item.removeAttribute('disabled');
+
+                            if (item.hasAttribute('selected')) {
+                                item.innerHTML = item.getAttribute('data-zustand') + ' ' + parseFloat(value.price / 100).toFixed(2).replace('.', ',') + '€';
+                            } else {
+                                item.innerHTML = item.getAttribute('data-zustand') + ' ' + parseFloat(value.price / 100).toFixed(2).replace('.', ',') + '€' + ' ' + difference;
+
+                            }
+
+                        }
+                    })
+                })
+            }
+
+            document.querySelectorAll('.status-options').forEach((item) => {
+                item.removeAttribute('selected');
+                if (minPriceProduct.options.includes(item.getAttribute('data-zustand'))) {
+                    item.setAttribute("selected", "selected");
+                    let selectText = document.querySelector(".heading-1.status");
+                    selectText.innerHTML = item.getAttribute('data-zustand');
+                }
+            })
+
+            // let currentImage = document.querySelector('.current-image');
+            // currentImage.setAttribute('src', `${minPriceProduct.featured_image.src}`)
+            // console.log(currentImage);
+            // document.querySelector('.w-icon-slider-right').click();
+            selectImage(minPriceProduct.featured_image.src);
+        }
+
+        let selectZustand = (currentSelectOption) => {
+            let variantOfThreeOptions = product_variant.find((item, index, array) => {
+                if (variantSize === undefined && variantColor === undefined) {
+                    return item.options.includes(currentSelectOption);
+                } else if (variantSize === undefined) {
+                    return item.options.includes(variantColor) && item.options.includes(currentSelectOption)
+                } else if (variantColor === undefined) {
+                    return item.options.includes(variantSize) && item.options.includes(currentSelectOption)
+                } else {
+                    return item.options.includes(variantColor) && item.options.includes(variantSize) && item.options.includes(currentSelectOption)
+                }
+            });
+
+            if (variantOfThreeOptions != undefined) {
+                currentVariantSelectPrice(variantOfThreeOptions);
+            }
+        }
+
+
+        let createMetafields = async (object) => {
+            let productType = '{{ product.type }}';
+            const query = `
+        query {
+          node(id: "gid://shopify/ProductVariant/${object.id}") {
+            ... on ProductVariant {
+                metafields(first: 35) {
+                    edges {
+                        node {
+                            key
+                            value
+                        }
+                    }
+               }
+            }
+          }
+        }`;
+
+            let data = await apiCall(query);
+            document.querySelectorAll('.w-layout-grid.grid-tech-data').forEach((item) => {
+
+                item.innerHTML = '';
+                data.forEach((metaField) => {
+                    if (productType === 'Smartphones') {
+                        if (item.getAttribute('data') === 'data-allgemain') {
+                            if (['Betriebssystem', 'Markteinführung', 'Abmessungen', 'Gewicht', 'Gerätekapazität', 'RAM / Arbeitsspeicher', 'Anschlüsse'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-hardware') {
+                            if (['Prozessorkern', 'Prozessor-Taktfrequenz', 'Prozessortyp', 'Dual-SIM Technik', 'SIM-Karten', 'Speicherkarte'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-akku') {
+                            if (['Akku + Akku-Kapazität', 'Ladestrom Spezifikationen', 'Akku-Eigenschaften'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-display') {
+                            if (['Displayauflösung', 'Bildschirmgröße', 'Displayart'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-kamera') {
+                            if (['Kameraauflösung', 'Frontkamera', 'Hauptkamera Videoaufzeichnung', 'Selfie-Videoaufzeichnung'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-kommunikation') {
+                            if (['WLAN-Frequenzbänder', 'Bluetooth-Version', 'Mobilfunkstandards'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        }
+                    } else if (productType === 'Tablets') {
+                        if (item.getAttribute('data') === 'data-allgemain') {
+                            if (['Betriebssystem', 'Markteinführung', 'Abmessungen', 'Gewicht', 'Gerätekapazität', 'Anschlüsse'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-hardware') {
+                            if (['Prozessorkern', 'Prozessortyp'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-akku') {
+                            if (['Akku + Akku-Kapazität', 'Akku-Laufzeit'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-display') {
+                            if (['Displayauflösung', 'Bildschirmgröße', 'Displayart'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-kamera') {
+                            if (['Kameraauflösung', 'Frontkamera'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-kommunikation') {
+                            if (['WLAN-Frequenzbänder', 'Bluetooth-Version', 'Mobilfunkstandards'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        }
+                    } else if (productType === 'Notebooks') {
+                        if (item.getAttribute('data') === 'data-allgemain') {
+                            if (['Betriebssystem', 'Markteinführung', 'Abmessungen', 'Gewicht', 'RAM / Arbeitsspeicher', 'Anschlüsse'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-hardware') {
+                            if (['Prozessorkern', 'Prozessor-Taktfrequenz', 'Prozessortyp', 'Festplatten-Typ', 'Festplatten-Speicher'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-akku') {
+                            if (['Akku + Akku-Kapazität', 'Ladegerät', 'Akku-Laufzeit'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-display') {
+                            if (['Displayauflösung', 'Bildschirmgröße', 'Displayart'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-kamera') {
+                            if (metaField.node.key === 'Kameraauflösung') {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-kommunikation') {
+                            if (['WLAN-Frequenzbänder', 'Bluetooth-Version'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        }
+                    } else if (productType === 'Smartwatches') {
+                        if (item.getAttribute('data') === 'data-allgemain') {
+                            if (['Marke', 'Modell', 'Betriebssystem', 'Gehäusefarbe', 'Armbandmaterial', 'Armbandfarbe', 'Festplatten-Speicher', 'Serie', 'Markteinführung'].includes(metaField.node.key)) {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-display') {
+                            if (metaField.node.key === 'Gehäusegröße') {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        } else if (item.getAttribute('data') === 'data-kommunikation') {
+                            if (metaField.node.key === 'Bluetooth-Version') {
+                                item.innerHTML += `<p class="body-2 text-color-grey50">${metaField.node.key}</p>
+                                            <p class="body-2">${metaField.node.value}</p>`
+                            }
+                        }
+                    }
+                })
+
+            });
+        }
+
+        function apiCall(query) {
+            return fetch('http://127.0.0.1:9292/api/graphql.json',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/graphql',
+                        "Access-Control-Origin": "*",
+                        'X-Shopify-Storefront-Access-Token': "c6f0ad3730c44be6b7183aa278679270"
+                    },
+                    "body": query
+                })
+                .then(response => response.json()).then(response => {
+                    let data = response;
+                    data = data.data.node.metafields.edges;
+                    return data;
+                })
+        }
+
+        let selectImage = (src) => {
+            let imageArray = [];
+            document.querySelector('.swiper-wrapper').innerHTML = '';
+            product_variant.forEach((item) => {
+                imageArray.push(item.featured_image.src);
+            })
+            let imageUniqArray = imageArray.filter((item, index) => imageArray.indexOf(item) === index);
+            imageUniqArray.forEach((item) => {
+                if (src === item) {
+                    let _imageSlideActive = imageSlideActive;
+                    _imageSlideActive = _imageSlideActive.replace(/\$IMAGESRC/g, item);
+                    document.querySelector('.swiper-wrapper').innerHTML += _imageSlideActive;
+                }
+            })
+            imageUniqArray.forEach((item) => {
+                if (src !== item) {
+                    let _imageSlide = imageSlide;
+                    _imageSlide = _imageSlide.replace(/\$IMAGESRC/g, item);
+                    document.querySelector('.swiper-wrapper').innerHTML += _imageSlide;
+                }
+            })
+
+            new Swiper('.mask-2.w-slider-mask.swiper-container', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+        }
+
+        let checkedQuantity = (variantID) => {
+            document.querySelector('.quantity-stock').innerHTML = ''
+            document.querySelector('.body-2.text-color-grey50').innerHTML = '';
+            document.querySelector('.button.w-button').removeAttribute('disabled');
+            document.querySelectorAll('.quantity').forEach((item) => {
+                if (variantID === Number(item.getAttribute('name')) && Number(item.getAttribute('data-quantity')) > 0 && Number(item.getAttribute('data-quantity')) < 3) {
+                    document.querySelector('.quantity-stock').innerHTML = 'Nur noch ' + item.getAttribute('data-quantity') + ' auf Lager';
+                    document.querySelector('.body-2.text-color-grey50').innerHTML = 'Der Rest';
+                }
+            })
+            document.querySelectorAll('.quantity').forEach((item) => {
+                if (variantID === Number(item.getAttribute('name')) && Number(item.getAttribute('data-quantity')) === 0) {
+                    document.querySelector('.quantity-stock').innerHTML = 'Ausverkauft';
+                    document.querySelector('.body-2.text-color-grey50').innerHTML = 'Der Rest';
+                    document.querySelector('.button.w-button').setAttribute('disabled', true);
+                }
+            })
+        }
+        selectOptionsVariant(product_variant);
+    })
+
+</script>
+{% style %}
+
+{% endstyle %}
+
+{% javascript %}
+
+{% endjavascript %}
+
+{% schema %}
+{
+"name": "Product",
+"max_blocks": 6,
+"settings": [
+{
+"type": "header",
+"content": "Product Page"
+}
+],
+"blocks": [
+{
+"type": "text",
+"name": "POPUP TABS",
+"settings": [
+{
+"type": "text",
+"id": "header",
+"label": "Tab Name"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Image"
+},
+{
+"type": "textarea",
+"id": "technical",
+"label": "Technischer Zustand"
+},
+{
+"type": "text",
+"id": "first_text",
+"label": "First Line"
+},
+{
+"type": "text",
+"id": "second_text",
+"label": "Second Line"
+},
+{
+"type": "text",
+"id": "third_text",
+"label": "Third Line"
+}
+]
+}
+]
+}
+{% endschema %}

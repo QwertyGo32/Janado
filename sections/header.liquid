@@ -1,0 +1,46 @@
+<header class="header">
+    <div class="header__wrapper">
+        <div class="header__container">
+            {%- assign main_menu_handle = section.settings.navigation_menu -%}
+            {%- assign main_menu = linklists[main_menu_handle] -%}
+          {%- render 'header-sidebar-mobile-nav', main_menu: main_menu -%}
+          {%- render 'header-sidebar-nav', main_menu: main_menu -%}
+          {%- render 'header-search' -%}
+        </div>
+    </div>
+</header>
+{% schema %}
+  {
+    "name": "header",
+    "settings": [
+    {
+    "type": "image_picker",
+    "id": "logo",
+    "label": "Logo"
+    },
+    {
+    "type": "image_picker",
+    "id": "mobile_logo",
+    "label": "Mobile logo image"
+    },
+    {
+    "type": "header",
+    "content": "Navigation"
+    },
+    {
+    "type": "link_list",
+    "id": "navigation_menu",
+    "label": "Menu"
+    },
+    {
+    "type": "checkbox",
+    "id": "mobile_expand_nav_first_level",
+    "label": "Expand first level of navigation on mobile",
+    "default": false
+    }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

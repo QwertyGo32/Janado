@@ -1,0 +1,152 @@
+{
+  "sections": {
+    "blog": {
+      "type": "blog",
+      "blocks": {
+        "ea5df867-73ca-4c5f-8a45-53201aa91197": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio6"
+          }
+        },
+        "add2dffc-2a08-4d1d-9807-cb3c7657e9de": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio8"
+          }
+        },
+        "ba072d9b-d5b9-4c8d-a8c9-c93b2e2c6407": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/molestie-netus-lacinia-ipsum-odio5"
+          }
+        },
+        "c5e00063-2879-4ef7-a73a-62551e08aa27": {
+          "type": "blogs",
+          "settings": {
+            "article": "janado\/test-blogpost"
+          }
+        }
+      },
+      "block_order": [
+        "ea5df867-73ca-4c5f-8a45-53201aa91197",
+        "add2dffc-2a08-4d1d-9807-cb3c7657e9de",
+        "ba072d9b-d5b9-4c8d-a8c9-c93b2e2c6407",
+        "c5e00063-2879-4ef7-a73a-62551e08aa27"
+      ],
+      "settings": {
+        "paginate_size": 4
+      }
+    },
+    "blog-card": {
+      "type": "blog-card",
+      "blocks": {
+        "b14ceaf0-9cac-4287-af39-585ed5271b6b": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "24b4f315-9608-4d45-996e-2004c330e644": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "44dac6d9-5cf0-4742-9f2b-7825758277d7": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "263a6ecd-2e5c-460f-8ddf-f41cf19b0257": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "1231d0d6-ec21-4d41-95f0-39b6316be3c6": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        },
+        "8bfa14e6-088a-461f-8c62-15ce8c014381": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-12"
+          }
+        }
+      },
+      "block_order": [
+        "b14ceaf0-9cac-4287-af39-585ed5271b6b",
+        "24b4f315-9608-4d45-996e-2004c330e644",
+        "44dac6d9-5cf0-4742-9f2b-7825758277d7",
+        "263a6ecd-2e5c-460f-8ddf-f41cf19b0257",
+        "1231d0d6-ec21-4d41-95f0-39b6316be3c6",
+        "8bfa14e6-088a-461f-8c62-15ce8c014381"
+      ],
+      "settings": {
+        "heading": "Janado Staff Pick — die Favoriten unserer Mitarbeiter",
+        "text": "Vergleichbare Produkte"
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "blocks": {
+        "3bb44da7-b811-400b-93e0-b111f944c39a": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-first-menu"
+          }
+        },
+        "d2799b02-6c39-48e1-be71-e4fcc7780c36": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-second-menu"
+          }
+        },
+        "239399d2-d8db-4211-a500-ef8fda6f9ba7": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-third-menu"
+          }
+        },
+        "2074523e-325c-4545-8fc4-d4ae422f266c": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-four-menu"
+          }
+        },
+        "e589f7f7-ab48-4a86-8a0a-5c59a3540e0c": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-five-menu"
+          }
+        },
+        "eba269f7-96c4-4ec9-a2b1-e8a531d3166c": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-six-menu"
+          }
+        }
+      },
+      "block_order": [
+        "3bb44da7-b811-400b-93e0-b111f944c39a",
+        "d2799b02-6c39-48e1-be71-e4fcc7780c36",
+        "239399d2-d8db-4211-a500-ef8fda6f9ba7",
+        "2074523e-325c-4545-8fc4-d4ae422f266c",
+        "e589f7f7-ab48-4a86-8a0a-5c59a3540e0c",
+        "eba269f7-96c4-4ec9-a2b1-e8a531d3166c"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/janado_logo.png"
+      }
+    }
+  },
+  "order": [
+    "blog",
+    "blog-card",
+    "subfooter"
+  ]
+}

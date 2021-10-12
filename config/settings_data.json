@@ -1,0 +1,1107 @@
+{
+  "current": {
+    "checkout_logo_image": "shopify:\/\/shop_images\/janado_logo.png",
+    "checkout_logo_position": "left",
+    "checkout_body_background_color": "#f7f3f2",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_color": "#f7f3f2",
+    "checkout_accent_color": "#0000ff",
+    "checkout_button_color": "#ffe60d",
+    "checkout_error_color": "#ff0000",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/janado_logo.png",
+          "mobile_logo": "shopify:\/\/shop_images\/janado_logo.png",
+          "navigation_menu": "menu-ss",
+          "mobile_expand_nav_first_level": true
+        }
+      },
+      "collection-page-banner": {
+        "type": "collection-page-banner",
+        "settings": {
+          "back_image": "shopify:\/\/shop_images\/banner_bgr.jpg"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "show_sort_by": true,
+          "show_color_swatch": true
+        }
+      },
+      "collection-slyder": {
+        "type": "collection-slyder",
+        "blocks": {
+          "ab5c35da-565c-47b7-b95d-7029c7c73f19": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/iphone_banner.png",
+              "background": "#000000",
+              "heading1": "iPhone 12",
+              "heading2": "Pro Max Pacific",
+              "heading3": "Blue 128GB",
+              "text": "Mehr Kamera für deinen nächsten Urlaub. Das bisher schnellste und leistungsstärkste iPhone.",
+              "text_btn": "Jetzt entdecken",
+              "btn_background": "#e22120",
+              "btn_hover": "#0e78e6",
+              "link": ""
+            }
+          },
+          "4dfe6dcc-16d2-4779-baf3-4de569510e23": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/iphone_banner.png",
+              "background": "#33e5e9",
+              "heading1": "Samsung Galaxy",
+              "heading2": "S21 Ultra 12\/128Gb",
+              "heading3": "Blue 128GB",
+              "text": "Mehr Kamera für deinen nächsten Urlaub.",
+              "text_btn": "Jetzt entdecken",
+              "btn_background": "#bb42a1",
+              "btn_hover": "#256d9d",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "ab5c35da-565c-47b7-b95d-7029c7c73f19",
+          "4dfe6dcc-16d2-4779-baf3-4de569510e23"
+        ],
+        "settings": {
+        }
+      },
+      "collection-page-slyder": {
+        "type": "collection-page-slyder",
+        "blocks": {
+          "33f22c8b-e4a7-46b7-99d0-34565b8e1242": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cube.png",
+              "heading": "Gratis Versand",
+              "text": "Gratis- und Expressversand innerhalb Deutschland",
+              "link": ""
+            }
+          },
+          "cbd62db0-e129-4cf4-a93b-84a4572cd97c": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/reverse_arrow.png",
+              "heading": "Wiederrufsrecht",
+              "text": "30 Tage testen und kostenlos an uns zurücksenden",
+              "link": ""
+            }
+          },
+          "da732ba7-409d-4f6f-844d-1148ad61782c": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/card.png",
+              "heading": "Zahlung",
+              "text": "Sicher und einfach bezahlen mit dem Anbieter deiner Wahl",
+              "link": ""
+            }
+          },
+          "7870b8de-932e-467a-8bf7-b75049497189": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/chat.png",
+              "heading": "WhatsApp Live Chat",
+              "text": "Schnelle Frage? Schreib uns. Mo—Fr: 10:00 Uhr — 16:00 Uhr",
+              "link": ""
+            }
+          },
+          "7bef7130-5f74-4526-8a4e-6f17e094af2b": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/info.png",
+              "heading": "Helpcenter",
+              "text": "Deine Hotline für alle Fragen. Mo—Fr: 10:00 Uhr — 16:00 Uhr",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "33f22c8b-e4a7-46b7-99d0-34565b8e1242",
+          "cbd62db0-e129-4cf4-a93b-84a4572cd97c",
+          "da732ba7-409d-4f6f-844d-1148ad61782c",
+          "7870b8de-932e-467a-8bf7-b75049497189",
+          "7bef7130-5f74-4526-8a4e-6f17e094af2b"
+        ],
+        "settings": {
+          "title": "Deine Janado Vorteile",
+          "title_text": "Suche neue Erinnerungen, kein neues Telefon"
+        }
+      },
+      "subfooter": {
+        "type": "subfooter",
+        "blocks": {
+          "f3ea7a82-6f82-4652-8c92-3e29c17882f7": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_menu": "subfoter-first-menu"
+            }
+          },
+          "da3257ca-d648-4d74-827d-8ba3d62d9324": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_menu": "subfoter-second-menu"
+            }
+          },
+          "9b08b898-41cd-449f-93b4-6135ed8eaead": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_menu": "subfooter-third-menu"
+            }
+          },
+          "aea53c12-dc9b-4036-bdd7-29beaeb1fb00": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_menu": "subfooter-four-menu"
+            }
+          },
+          "8be3bc58-0591-4cb1-a8aa-c6e6d102122e": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_menu": "subfooter-five-menu"
+            }
+          },
+          "0fd29643-c450-4bc0-9991-feec7d5f3681": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_menu": "subfooter-six-menu"
+            }
+          }
+        },
+        "block_order": [
+          "f3ea7a82-6f82-4652-8c92-3e29c17882f7",
+          "da3257ca-d648-4d74-827d-8ba3d62d9324",
+          "9b08b898-41cd-449f-93b4-6135ed8eaead",
+          "aea53c12-dc9b-4036-bdd7-29beaeb1fb00",
+          "8be3bc58-0591-4cb1-a8aa-c6e6d102122e",
+          "0fd29643-c450-4bc0-9991-feec7d5f3681"
+        ],
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/janado_logo.png"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "navigation_menu": "footer-menu",
+          "enable": true,
+          "title": "Newsletter Anmeldung",
+          "text": "<p>Invite customers to join your mailing list.<\/p>"
+        }
+      },
+      "search-template": {
+        "type": "search-template",
+        "settings": {
+          "grid_items_per_row": 4,
+          "grid_number_of_rows": 6,
+          "show_color_swatch": true,
+          "image_dimension": "normal"
+        }
+      },
+      "product-page": {
+        "type": "product-page",
+        "settings": {
+        }
+      },
+      "product-discription": {
+        "type": "product-discription",
+        "settings": {
+          "heading": "<p>Keiner kennt mich danach<br\/>so gut wie du…<p>",
+          "heading1": "Produktbeschreibung",
+          "subheading1": "Neu",
+          "btntext1": "Welche Zustände gibt es ?",
+          "link1": "",
+          "heading2": "Technische Daten",
+          "subheading2": "iPhone 11 mini 64 Gb - Weiß - Ohne Vertrag",
+          "btntext2": "Modell vergleichen ?",
+          "link2": "",
+          "heading3": "Checkliste Wiederaufbereitung",
+          "subheading3": "iPhone 11 mini 64 Gb - Weiß - Ohne Vertrag",
+          "textbot": "<p>Wir sind Experten für wiederaufbereitete Elektronik. Jedes Produkt wird getestet und zertifiziert bevor es die Fabrik verlässt. Alle Produkte werden auf alle Funktionalitäten geprüft bevor sie verkauft werden. Profitiere bei Janado von 36 Monaten Garantie auf dein refurbished Gerät. Der Umwelt und deinem Geldbeutel zur Liebe.<\/p>",
+          "btntitle1": "<p>Hast du noch eine Frage?<br\/><\/p>",
+          "btntitle2": "<p>Dann kontaktiere uns!<br\/><\/p>",
+          "btntext3": "Hilfe & Support",
+          "link3": ""
+        }
+      },
+      "product-cart": {
+        "type": "product-cart",
+        "blocks": {
+          "5c8cf062-56be-444c-95f1-812254eefd98": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-ipad-air-4-2020-lte"
+            }
+          },
+          "4a63a569-4906-42a6-a9a3-f38e71ec1bae": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-7"
+            }
+          },
+          "86e3dc20-b2d0-411a-910d-f2c51adf7ad1": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12"
+            }
+          },
+          "d570f502-9bcd-4788-be15-f17d407a147f": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-7"
+            }
+          },
+          "63b74df1-de8a-43dc-95ad-04bcf2fdd1ae": {
+            "type": "collection",
+            "settings": {
+              "product": "cat-s42-dual-sim"
+            }
+          },
+          "80e5438c-64e7-4ffb-ac87-bf920e005ffc": {
+            "type": "collection",
+            "settings": {
+              "product": "mi-4"
+            }
+          },
+          "0e6429f4-3238-4800-8eea-3d315f35a210": {
+            "type": "collection",
+            "settings": {
+              "product": "redmi-note-9"
+            }
+          },
+          "6ac292eb-f21a-47d3-8e47-f84f747b7df9": {
+            "type": "collection",
+            "settings": {
+              "product": "iphone-7"
+            }
+          },
+          "6ab3f2bf-aeab-48a5-ae9d-82e87a80a0ac": {
+            "type": "collection",
+            "settings": {
+              "product": "iphone-12-pro"
+            }
+          }
+        },
+        "block_order": [
+          "5c8cf062-56be-444c-95f1-812254eefd98",
+          "4a63a569-4906-42a6-a9a3-f38e71ec1bae",
+          "86e3dc20-b2d0-411a-910d-f2c51adf7ad1",
+          "d570f502-9bcd-4788-be15-f17d407a147f",
+          "63b74df1-de8a-43dc-95ad-04bcf2fdd1ae",
+          "80e5438c-64e7-4ffb-ac87-bf920e005ffc",
+          "0e6429f4-3238-4800-8eea-3d315f35a210",
+          "6ac292eb-f21a-47d3-8e47-f84f747b7df9",
+          "6ab3f2bf-aeab-48a5-ae9d-82e87a80a0ac"
+        ],
+        "settings": {
+          "heading": "Passt perfekt dazu",
+          "text": "Zubehör"
+        }
+      },
+      "product-cart-top": {
+        "type": "product-cart-top",
+        "blocks": {
+          "0620109f-bd56-4b50-a6fc-71f2975258f9": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12-mini"
+            }
+          },
+          "808f77ef-a71c-4cfe-9b19-fbba16f67131": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-ipad-air-4-2020-lte"
+            }
+          },
+          "6a10fd88-451d-4444-97f4-9877950b2f1f": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-7"
+            }
+          },
+          "06a11a65-610b-4d7d-9cd9-79c763c7c588": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12"
+            }
+          },
+          "f4e53db9-9d4d-49e6-bb06-84af190518e6": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-xs"
+            }
+          },
+          "303353ce-7a60-4406-90b6-ddcc1eb569b0": {
+            "type": "collection",
+            "settings": {
+              "product": "emporia-smart-3"
+            }
+          },
+          "88da5678-eb33-4d7c-82e5-337c3dd2975b": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12-mini"
+            }
+          },
+          "3ff22e56-411f-4ccb-8e45-c49e98c761eb": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-6"
+            }
+          },
+          "456817db-0e44-4a60-bd71-2e467615b137": {
+            "type": "collection",
+            "settings": {
+              "product": "cat-s62-pro-dual-sim"
+            }
+          },
+          "99b09c72-0cae-47a4-9e4f-8c192f1b53be": {
+            "type": "collection",
+            "settings": {
+              "product": "huawei-p-smart-2021-dual-sim"
+            }
+          }
+        },
+        "block_order": [
+          "0620109f-bd56-4b50-a6fc-71f2975258f9",
+          "808f77ef-a71c-4cfe-9b19-fbba16f67131",
+          "6a10fd88-451d-4444-97f4-9877950b2f1f",
+          "06a11a65-610b-4d7d-9cd9-79c763c7c588",
+          "f4e53db9-9d4d-49e6-bb06-84af190518e6",
+          "303353ce-7a60-4406-90b6-ddcc1eb569b0",
+          "88da5678-eb33-4d7c-82e5-337c3dd2975b",
+          "3ff22e56-411f-4ccb-8e45-c49e98c761eb",
+          "456817db-0e44-4a60-bd71-2e467615b137",
+          "99b09c72-0cae-47a4-9e4f-8c192f1b53be"
+        ],
+        "settings": {
+          "heading": "Smarte Vergleiche",
+          "text": "Vergleichbare Produkte"
+        }
+      },
+      "product-cart-bottom": {
+        "type": "product-cart-bottom",
+        "blocks": {
+          "f4d0f633-c909-41dc-9707-f0b16453fc44": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12-pro-max"
+            }
+          },
+          "c2f21e27-4fc6-49c9-9730-89dd6fe3b5e4": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12"
+            }
+          },
+          "7918da5f-4123-4e15-956b-d414e1ae4d26": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-7"
+            }
+          },
+          "13023e57-0764-4918-b032-839c7accd241": {
+            "type": "collection",
+            "settings": {
+              "product": "cat-s42-dual-sim"
+            }
+          },
+          "265830ea-d620-44ec-8c6e-4d2904769946": {
+            "type": "collection",
+            "settings": {
+              "product": "cat-s62-pro-dual-sim"
+            }
+          }
+        },
+        "block_order": [
+          "f4d0f633-c909-41dc-9707-f0b16453fc44",
+          "c2f21e27-4fc6-49c9-9730-89dd6fe3b5e4",
+          "7918da5f-4123-4e15-956b-d414e1ae4d26",
+          "13023e57-0764-4918-b032-839c7accd241",
+          "265830ea-d620-44ec-8c6e-4d2904769946"
+        ],
+        "settings": {
+          "heading": "Das könnte dirauch gefallen",
+          "text": "Weitere Produkte"
+        }
+      },
+      "product-cart-home": {
+        "type": "product-cart-home",
+        "blocks": {
+          "88073355-ca82-4f13-b5ec-a400a50b61dd": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-11-pro-max"
+            }
+          },
+          "e0cc8259-4822-43ce-9236-ab9be33b5448": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12-mini"
+            }
+          },
+          "1ac8de9a-9d77-45f6-9d39-d7c8467ab398": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-6"
+            }
+          },
+          "73739bfe-7b0f-472d-859c-070cf772a07c": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12-pro-max"
+            }
+          },
+          "982a227a-a1e4-47bc-b905-2acea05f0cb4": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-7"
+            }
+          },
+          "37eb983c-d023-41e1-9af2-a91fd998b889": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-xs"
+            }
+          },
+          "ef0cd25b-4dee-45b6-b31f-aa7e555d3e1b": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-ipad-air-4-2020-lte"
+            }
+          },
+          "2a985560-2137-410f-a101-7f0c480d7ae1": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12"
+            }
+          },
+          "fa4f8604-bc56-4c2a-9b3a-ae277181d32f": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-12-pro"
+            }
+          },
+          "3c0c744e-1d76-45c2-8297-396b30470ec6": {
+            "type": "collection",
+            "settings": {
+              "product": "apple-iphone-6"
+            }
+          }
+        },
+        "block_order": [
+          "88073355-ca82-4f13-b5ec-a400a50b61dd",
+          "e0cc8259-4822-43ce-9236-ab9be33b5448",
+          "1ac8de9a-9d77-45f6-9d39-d7c8467ab398",
+          "73739bfe-7b0f-472d-859c-070cf772a07c",
+          "982a227a-a1e4-47bc-b905-2acea05f0cb4",
+          "37eb983c-d023-41e1-9af2-a91fd998b889",
+          "ef0cd25b-4dee-45b6-b31f-aa7e555d3e1b",
+          "2a985560-2137-410f-a101-7f0c480d7ae1",
+          "fa4f8604-bc56-4c2a-9b3a-ae277181d32f",
+          "3c0c744e-1d76-45c2-8297-396b30470ec6"
+        ],
+        "settings": {
+          "heading": "Janado Staff Pick — die Favoriten unserer Mitarbeiter",
+          "text": "Zubehör"
+        }
+      },
+      "home-slyder": {
+        "type": "home-slyder",
+        "blocks": {
+          "7928084e-7247-4a7e-89e9-ebd4bbe45c7f": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/homepage-banner.jpg",
+              "background": "#000000",
+              "heading1": "SEEK NEW",
+              "heading2": "MEMORIES,",
+              "heading3": "NOT NEW PHONES",
+              "text": "Wähle aus unserem Angebot von über 2.000 generalüberholten Smartphones und spar dein\n                                    Geld für neue Erlebnisse.",
+              "text_btn": "Finde dein Smartphone",
+              "btn_background": "#ffffff",
+              "btn_hover": "#ffe60d",
+              "link": ""
+            }
+          },
+          "0c6a6fe0-fdfc-4e17-832d-d38816932c4a": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/iphone_banner.png",
+              "background": "#ffe300",
+              "heading1": "Samsung Galaxy",
+              "heading2": "S21 Ultra 12\/128Gb",
+              "heading3": "Blue 128GB",
+              "text": "Mehr Kamera für deinen nächsten Urlaub.",
+              "text_btn": "Jetzt entdecken",
+              "btn_background": "#1878b9",
+              "btn_hover": "#bb42a1",
+              "link": ""
+            }
+          },
+          "9f626449-81b8-410a-b931-ec983be95710": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/iphone_banner.png",
+              "background": "#bb42a1",
+              "heading1": "sssssssssssssssssss",
+              "heading2": "dddddddddd",
+              "heading3": "fffffffffffff",
+              "text": "fffffffffffffffffffffffffffdffffffffffffffffffffffffffffffffffffffffffff",
+              "text_btn": "ffffffffffff",
+              "btn_background": "#e6d50a",
+              "btn_hover": "#e22120",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "7928084e-7247-4a7e-89e9-ebd4bbe45c7f",
+          "0c6a6fe0-fdfc-4e17-832d-d38816932c4a",
+          "9f626449-81b8-410a-b931-ec983be95710"
+        ],
+        "settings": {
+        }
+      },
+      "home-mosaic": {
+        "type": "home-mosaic",
+        "settings": {
+          "heading1": "Smartphones",
+          "image_smart": "shopify:\/\/shop_images\/mosaic_smartphones.jpg",
+          "heading2": "Smartwatches",
+          "image_watch": "shopify:\/\/shop_images\/mosaic_smartwatches.jpg",
+          "heading3": "Laptops",
+          "image_laptop": "shopify:\/\/shop_images\/mosaic_laptops.jpg",
+          "heading4": "Hifi",
+          "image_hi": "shopify:\/\/shop_images\/mosaic_hifi.png",
+          "heading5": "Game consoles",
+          "image_game": "shopify:\/\/shop_images\/mosaic_game-consoles.jpg",
+          "heading6": "Tablets",
+          "image_tab": "shopify:\/\/shop_images\/mosaic_tablets.jpg"
+        }
+      },
+      "home-banner-spares": {
+        "type": "home-banner-spares",
+        "settings": {
+          "heading": "Mehr Teile als der Dealer im Berghain",
+          "text": "Wir bieten eine breite Auswahl verschiedenster Ersatzteile",
+          "text_btn": "Jetzt entdecken",
+          "btn_background": "#e6d50e",
+          "link": "#"
+        }
+      },
+      "home-insurance-rent": {
+        "type": "home-insurance-rent",
+        "settings": {
+          "left_text_heading": "Janado Versicherung",
+          "left_heading": "Auch wir können nicht alles reparieren. Aber versichern",
+          "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0470\/7719\/5935\/files\/6080cda753239cade1d37ce7_pexels-tima-miroshnichenko-6754827-transcode.mp4?v=1626847544",
+          "left_text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n                beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n                versichert,\n                Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+          "left_text_btn": "Jetzt entdecken",
+          "left_link": "#",
+          "image": "shopify:\/\/shop_images\/circles.png",
+          "right_text_heading": "Janado Versicherung",
+          "right_heading": "Auch wir können nicht alles reparieren. Aber versichern",
+          "right_text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n                beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n                versichert,\n                Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+          "right_text_btn": "Jetzt entdecken",
+          "right_link": "#"
+        }
+      },
+      "home-recovery": {
+        "type": "home-recovery",
+        "settings": {
+          "text_heading": "Janado Versicherung",
+          "heading": "Auch wir können nicht alles reparieren. Aber versichern",
+          "text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n            beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n            versichert, Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+          "text_btn": "Jetzt entdecken",
+          "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0470\/7719\/5935\/files\/608108c3845d8c7b9403905e_pexels-tima-miroshnichenko-6754829-transcode.mp4?v=1626847705",
+          "link": "#"
+        }
+      },
+      "faq-template": {
+        "type": "faq-template",
+        "settings": {
+          "title1": "First Tab",
+          "title2": "Second Tab",
+          "title3": "Third Tab",
+          "title4": "Four Tab"
+        }
+      },
+      "faq-first-tab": {
+        "type": "faq-first-tab",
+        "blocks": {
+          "926cf0c6-70b9-4410-9a49-85833d4dd568": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          },
+          "d9ca508b-a45a-4f73-9534-61aec8f72daa": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          },
+          "38219757-32ef-484c-8ca1-237ae4f33653": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          },
+          "d8d95a52-1d53-488f-9571-11e8dbcf01a1": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          },
+          "13325527-fa4c-45ce-8f5a-6d9a39da7f2c": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          }
+        },
+        "block_order": [
+          "926cf0c6-70b9-4410-9a49-85833d4dd568",
+          "d9ca508b-a45a-4f73-9534-61aec8f72daa",
+          "38219757-32ef-484c-8ca1-237ae4f33653",
+          "d8d95a52-1d53-488f-9571-11e8dbcf01a1",
+          "13325527-fa4c-45ce-8f5a-6d9a39da7f2c"
+        ],
+        "settings": {
+        }
+      },
+      "faq-second-tab": {
+        "type": "faq-second-tab",
+        "blocks": {
+          "b280feab-f3db-4eec-9cf3-2d766f408066": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          }
+        },
+        "block_order": [
+          "b280feab-f3db-4eec-9cf3-2d766f408066"
+        ],
+        "settings": {
+        }
+      },
+      "faq-third-tab": {
+        "type": "faq-third-tab",
+        "blocks": {
+          "b232decb-85c9-47eb-9c11-26711ea655ce": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          },
+          "b6ef8107-c1bd-4448-b531-7afad9319816": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?"
+            }
+          }
+        },
+        "block_order": [
+          "b232decb-85c9-47eb-9c11-26711ea655ce",
+          "b6ef8107-c1bd-4448-b531-7afad9319816"
+        ],
+        "settings": {
+        }
+      },
+      "faq-four-tab": {
+        "type": "faq-four-tab",
+        "blocks": {
+          "4a5261c6-3ad6-479c-a517-4b78452b4f8b": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          },
+          "9a911ffa-8b22-4410-98a5-ed77ab9dbd49": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus sapien pellentesque urna, sed. Et nibh integer purus consequat risus ultricies pellentesque. Vel dictum ullamcorper in quis volutpat, tellus. Lacus varius netus etiam quam eget pellentesque donec. Mollis scelerisque consequat, in adipiscing."
+            }
+          },
+          "1554e887-e578-4433-a462-e6ac85776280": {
+            "type": "text",
+            "settings": {
+              "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis sed amet, ullamcorper facilisis?"
+            }
+          }
+        },
+        "block_order": [
+          "4a5261c6-3ad6-479c-a517-4b78452b4f8b",
+          "9a911ffa-8b22-4410-98a5-ed77ab9dbd49",
+          "1554e887-e578-4433-a462-e6ac85776280"
+        ],
+        "settings": {
+        }
+      },
+      "login-template": {
+        "type": "login-template",
+        "settings": {
+        }
+      },
+      "get-to-banner": {
+        "type": "get-to-banner",
+        "settings": {
+          "title_text": "All About Janado",
+          "title": "GET TO NOW US",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu volutpat odio",
+          "text_btn": "Jetzt entdecken",
+          "btn_background": "#f9f519",
+          "btn_hover": "#6ce60e",
+          "link": "",
+          "back_image": "shopify:\/\/shop_images\/know-us-banner.png",
+          "background": "#f9f519"
+        }
+      },
+      "about-us": {
+        "type": "about-us",
+        "blocks": {
+          "5b780288-e982-451d-a950-0b601a47d752": {
+            "type": "Text",
+            "settings": {
+              "letter": "R",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+            }
+          },
+          "42428f40-664b-4dee-9f80-3a4da4a88fca": {
+            "type": "Text",
+            "settings": {
+              "letter": "E",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+            }
+          },
+          "4581c41d-77e6-4417-9d36-a7288ab56980": {
+            "type": "Text",
+            "settings": {
+              "letter": "A",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+            }
+          },
+          "4572b0ea-773e-4489-8f4f-ca432986dd71": {
+            "type": "Text",
+            "settings": {
+              "letter": "L",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque non viverra sed posuere integer amet. Velit leo lectus donec amet non id. Viverra semper sed velit ultrices"
+            }
+          }
+        },
+        "block_order": [
+          "5b780288-e982-451d-a950-0b601a47d752",
+          "42428f40-664b-4dee-9f80-3a4da4a88fca",
+          "4581c41d-77e6-4417-9d36-a7288ab56980",
+          "4572b0ea-773e-4489-8f4f-ca432986dd71"
+        ],
+        "settings": {
+          "text_top": "About Us",
+          "title": "Our Values"
+        }
+      },
+      "get-to-tree": {
+        "type": "get-to-tree",
+        "settings": {
+          "title": "OUR ENGAGEMENT FOR THE  FUTURE",
+          "image": "shopify:\/\/shop_images\/tree.png",
+          "background": "#0ecbe6",
+          "text_btn": "Jetzt entdecken",
+          "link": "",
+          "btn_background": "#0ecbe6",
+          "btn_hover": "#0e68e6"
+        }
+      },
+      "get-to-vision": {
+        "type": "get-to-vision",
+        "blocks": {
+          "58878d76-06de-4474-8346-6838c2149bbd": {
+            "type": "Text",
+            "settings": {
+              "number": "01",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+            }
+          },
+          "b34db0d8-1b40-4744-98e5-6ee03f0b061d": {
+            "type": "Text",
+            "settings": {
+              "number": "02",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+            }
+          },
+          "9400242d-261e-4504-b4e1-01f2fbdcac8c": {
+            "type": "Text",
+            "settings": {
+              "number": "03",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+            }
+          },
+          "a1188b28-e5ff-471f-a0b2-bab6ae47dfa4": {
+            "type": "Text",
+            "settings": {
+              "number": "04",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+            }
+          },
+          "58fcc2bd-c17b-4279-b1be-6091aeddd1d3": {
+            "type": "Text",
+            "settings": {
+              "number": "05",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+            }
+          },
+          "d2831155-9154-468b-b95b-0a2d8e5b1cde": {
+            "type": "Text",
+            "settings": {
+              "number": "06",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse aliquet sed nibh egestas lacus, ac."
+            }
+          }
+        },
+        "block_order": [
+          "58878d76-06de-4474-8346-6838c2149bbd",
+          "b34db0d8-1b40-4744-98e5-6ee03f0b061d",
+          "9400242d-261e-4504-b4e1-01f2fbdcac8c",
+          "a1188b28-e5ff-471f-a0b2-bab6ae47dfa4",
+          "58fcc2bd-c17b-4279-b1be-6091aeddd1d3",
+          "d2831155-9154-468b-b95b-0a2d8e5b1cde"
+        ],
+        "settings": {
+          "text_top": "Lorem ipsun",
+          "title": "Our Vision"
+        }
+      },
+      "contact-us": {
+        "type": "contact-us",
+        "settings": {
+          "title": "",
+          "back_image": "shopify:\/\/shop_images\/contact_bgr.jpg",
+          "text_btn": "Sent the message",
+          "btn_background": "rgba(0,0,0,0)",
+          "btn_hover": "#e6d50e",
+          "mail": "Mailing address",
+          "adres": "Highlight Inc.\nAttn: Returns\/Exchanges\n123 Great Mill Rd.\nWashington, WW 12345\nUSA",
+          "question": "Have a question?",
+          "first_text": "Tems & Conditions",
+          "first_link": "",
+          "second_text": "Sizing & Fit",
+          "second_link": "",
+          "third_text": "FAQ",
+          "third_link": ""
+        }
+      },
+      "get-to-facts": {
+        "type": "get-to-facts",
+        "blocks": {
+          "6cf8b350-e3bd-42d1-90d5-1cf5df492a1d": {
+            "type": "Text",
+            "settings": {
+              "title_block": "Fact1",
+              "count": "1000"
+            }
+          },
+          "38e8fc68-a0ef-453b-b709-21371c554121": {
+            "type": "Text",
+            "settings": {
+              "title_block": "Fact2",
+              "count": "300"
+            }
+          },
+          "946171c6-85e6-4ea9-9ebf-5fa277135911": {
+            "type": "Text",
+            "settings": {
+              "title_block": "Fact3",
+              "count": "400"
+            }
+          },
+          "c078082a-861e-4bdf-8700-1ba0a7cce0bd": {
+            "type": "Text",
+            "settings": {
+              "title_block": "Fact4",
+              "count": "80"
+            }
+          }
+        },
+        "block_order": [
+          "6cf8b350-e3bd-42d1-90d5-1cf5df492a1d",
+          "38e8fc68-a0ef-453b-b709-21371c554121",
+          "946171c6-85e6-4ea9-9ebf-5fa277135911",
+          "c078082a-861e-4bdf-8700-1ba0a7cce0bd"
+        ],
+        "settings": {
+          "text_top": "Lorem ipsum",
+          "title": "Facts"
+        }
+      },
+      "get-to-team": {
+        "type": "get-to-team",
+        "blocks": {
+          "c4900f86-5103-49bf-a405-a162805c16eb": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4uj3iZ5m084.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          },
+          "76d69e71-b433-460b-8512-0895b036f8db": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DItYlc26zVI.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          },
+          "df3f4b64-09a9-4581-9127-9d915010b247": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GRyMXAQdtp8.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          },
+          "8e1c2647-f1e6-4c94-8a20-7f2b10a19303": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/KIPqvvTOC1s.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          },
+          "a64f9636-4af9-4fb2-a186-36e69a66c0ac": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4uj3iZ5m084.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          },
+          "10df3452-000a-4bb3-be87-7e432cdc5950": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/GRyMXAQdtp8.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          },
+          "07ac0918-878b-4efb-9ebd-8ef47165289d": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DItYlc26zVI.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          },
+          "73570206-32e5-46bb-b9f8-a3d4e41b6225": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/KIPqvvTOC1s.png",
+              "name": "Name Surname",
+              "position": "Position",
+              "link_twit": "",
+              "link_teleg": "",
+              "link_inst": "",
+              "link_linked": ""
+            }
+          }
+        },
+        "block_order": [
+          "c4900f86-5103-49bf-a405-a162805c16eb",
+          "76d69e71-b433-460b-8512-0895b036f8db",
+          "df3f4b64-09a9-4581-9127-9d915010b247",
+          "8e1c2647-f1e6-4c94-8a20-7f2b10a19303",
+          "a64f9636-4af9-4fb2-a186-36e69a66c0ac",
+          "10df3452-000a-4bb3-be87-7e432cdc5950",
+          "07ac0918-878b-4efb-9ebd-8ef47165289d",
+          "73570206-32e5-46bb-b9f8-a3d4e41b6225"
+        ],
+        "settings": {
+          "text_top": "Only Professionals",
+          "title": "Our Team",
+          "btn_text": "Become a part of our team",
+          "link": "",
+          "btn_background": "#ffffff",
+          "btn_hover": "#e6d50e"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "btn_text": "Add Accessoires",
+          "btn_link": "shopify:\/\/collections"
+        }
+      },
+      "faq-banner": {
+        "type": "faq-banner",
+        "settings": {
+          "heading": "FAQ",
+          "text": "Answers and Questions",
+          "font_on_off": false,
+          "select_fonts": "",
+          "title_font": "work_sans_n6",
+          "title_color": "#FFE300",
+          "header_size": 100,
+          "header_line": 1.2,
+          "select_fonts_body": "",
+          "text_font": "work_sans_n6",
+          "text_color": "#FFF",
+          "text_size": 24,
+          "text_line": 1.3
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+    }
+  }
+}

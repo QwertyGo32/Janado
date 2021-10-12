@@ -1,0 +1,273 @@
+<div id="product-infos" class="janado-section">
+  <div><p class="overline">Details</p>
+    <h3 class="p-d-40">{{ section.settings.heading }}</h3></div>
+  <div class="accordion-wrapper">
+    <div data-w-id="7b512501-147a-f5ac-1648-5e604740e325" class="accordion-trigger _1"><p class="accordion-opener">{{ section.settings.heading1 }}</p><img
+              src="https://assets.website-files.com/607d9cf6158fff6280f6aa76/607f6258bf18a14d50f174b6_chevron--sort--down.svg"
+              loading="lazy" alt="" class="image-27"/></div>
+    <div class="accordion-content">
+      <div class="accordion-content__head">
+        <div class="wrapper-flex-left"><h4>Zustand:</h4></div>
+        <h4>{{ section.settings.subheading1 }}</h4></div>
+      <p class="accordion-content__content">
+        {{ product.description }}
+      </p>
+      <div class="w-layout-grid grid-tap-content">
+        <div><a data-w-id="88adb1e9-2010-7323-1bff-378e3f58b43b" href="{{ section.settings.link1 }}" class="small-button w-inline-block"><p
+                    class="body-2">{{ section.settings.btntext1 }}</p></a></div>
+        <div class="wrapper-flex-left"></div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-wrapper">
+    <div data-w-id="f130d31e-ec88-6f40-8774-d81fa0935149" class="accordion-trigger _2"><p class="accordion-opener">{{ section.settings.heading2 }}</p><img
+              src="https://assets.website-files.com/607d9cf6158fff6280f6aa76/607f6258bf18a14d50f174b6_chevron--sort--down.svg"
+              loading="lazy" alt="" class="image-26"/></div>
+    <div class="accordion-content">
+      <div class="accordion-content__head">
+        <div class="wrapper-flex-left">
+          <h4>Technische Daten:</h4>
+        </div>
+        <h4>{{ section.settings.subheading2 }}</h4>
+      </div>
+      <div class="accordion-content__content">
+        <div class="wrapper-zustand">
+          <p class="heading-1--boarder-down">Look</p>
+          {% assign look = product.metafields["global"]["Look"] %}
+          {% assign masslook = look | split: '_split_'%}
+          {% for field in masslook %}
+            {% assign massfield = field | split: ':'%}
+            <div class="w-layout-grid grid-tech-data">
+              <p class="body-2 text-color-grey50">{{ massfield | first }}</p>
+              <p id="w-node-f130d31e-ec88-6f40-8774-d81fa093515b-c5838be9" class="body-2">{{ massfield | last }}</p>
+            </div>
+          {% endfor %}
+
+        </div>
+        <div class="wrapper-zustand">
+          <p class="heading-1--boarder-down">Kamera</p>
+          {% assign kamera = product.metafields["global"]["Kamera"] %}
+          {% assign masskamera = kamera | split: '_split_'%}
+          {% for field in masskamera %}
+            {% assign massfield = field | split: ':'%}
+            <div class="w-layout-grid grid-tech-data">
+              <p class="body-2 text-color-grey50">{{ massfield | first }}</p>
+              <p class="body-2">{{ massfield | last }}</p>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="wrapper-zustand">
+          <p class="heading-1--boarder-down">Model2</p>
+          {% assign modell = product.metafields["global"]["Modell"] %}
+          {% assign massmodell = modell | split: '_split_'%}
+          {% for field in massmodell %}
+            {% assign massfield = field | split: ':'%}
+            <div class="w-layout-grid grid-tech-data">
+              <p class="body-2 text-color-grey50">{{ massfield | first }}</p>
+              <p class="body-2">{{ massfield | last }}</p>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="wrapper-zustand">
+          <p class="heading-1--boarder-down">Kapazität</p>
+          {% assign kapazitat = product.metafields["global"]["Kapazität"] %}
+          {% assign masskapazitat = kapazitat | split: '_split_'%}
+          {% for variant in product.variants %}
+            <h1>1 {{ variant.metafields["global"]["Bildschirmgröße"] }} </h1>
+
+          {% endfor %}
+
+
+          {% for field in masskapazitat %}
+            {% assign massfield = field | split: ':'%}
+            <div class="w-layout-grid grid-tech-data">
+
+              <p class="body-2 text-color-grey50">{{ massfield | first }}</p>
+              <p class="body-2">{{ massfield | last }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="w-layout-grid grid-tap-content">
+        <div><a data-w-id="f130d31e-ec88-6f40-8774-d81fa09351f4" href="{{ section.settings.link2 }}" class="small-button w-inline-block"><p
+                    class="body-2">{{ section.settings.btntext2 }}</p></a></div>
+        <div class="wrapper-flex-left"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+    "name": "Discription Product",
+    "settings": [
+{
+"type": "richtext",
+"id": "heading",
+"label": {
+"de": "Abschnittsüberschrift",
+"en": "Section Title"
+},
+"default": "<p>Keiner kennt mich danach<br/>so gut wie du…<p>"
+},
+{
+"type": "header",
+"content": {
+"de": "Erster Akkordeon",
+"en": "First Accordion"
+}
+},
+{
+"type": "text",
+"id": "heading1",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Produktbeschreibung"
+},
+{
+"type": "text",
+"id": "subheading1",
+"label": {
+"de": "Zustand",
+"en": "Status"
+},
+"default": "Neu"
+},
+{
+"type": "text",
+"id": "btntext1",
+"label": {
+"de": "Schaltflächentext",
+"en": "Button Text"
+},
+"default": "Welche Zustände gibt es ?"
+},
+{
+"type": "url",
+"id": "link1",
+"label": {
+"de": "Link",
+"en": "Link"
+}
+},
+{
+"type": "header",
+"content": {
+"de": "Zweiter Akkordeon",
+"en": "Second Accordion"
+}
+},
+{
+"type": "text",
+"id": "heading2",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Technische Daten"
+},
+{
+"type": "text",
+"id": "subheading2",
+"label": {
+"de": "Technische Daten",
+"en": "Technical specifications"
+},
+"default": "iPhone 11 mini 64 Gb - Weiß - Ohne Vertrag"
+},
+{
+"type": "text",
+"id": "btntext2",
+"label": {
+"de": "Schaltflächentext",
+"en": "Button Text"
+},
+"default": "Modell vergleichen ?"
+},
+{
+"type": "url",
+"id": "link2",
+"label": {
+"de": "Link",
+"en": "Link"
+}
+},
+{
+"type": "header",
+"content": {
+"de": "Drittes Akkordeon",
+"en": "Third Accordion"
+}
+},
+{
+"type": "text",
+"id": "heading3",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Checkliste Wiederaufbereitung"
+},
+{
+"type": "text",
+"id": "subheading3",
+"label": {
+"de": "Technische Daten",
+"en": "Technical specifications"
+},
+"default": "iPhone 11 mini 64 Gb - Weiß - Ohne Vertrag"
+},
+{
+"type": "richtext",
+"id": "textbot",
+"label": {
+"de": "Fußzeile",
+"en": "Bottom Text"
+},
+"default": "<p>Wir sind Experten für wiederaufbereitete Elektronik. Jedes Produkt wird getestet und zertifiziert bevor es die Fabrik verlässt. Alle Produkte werden auf alle Funktionalitäten geprüft bevor sie verkauft werden. Profitiere bei Janado von 36 Monaten Garantie auf dein refurbished Gerät. Der Umwelt und deinem Geldbeutel zur Liebe.</p>"
+},
+{
+"type": "richtext",
+"id": "btntitle1",
+"label": {
+"de": "Schaltflächentext oben",
+"en": "Button Top Text"
+},
+"default": "<p>Hast du noch eine Frage?<br/></p>"
+},
+{
+"type": "richtext",
+"id": "btntitle2",
+"label": {
+"de": "Schaltflächentext oben",
+"en": "Button Top Text"
+},
+"default": "<p>Dann kontaktiere uns!<br/></p>"
+},
+{
+"type": "text",
+"id": "btntext3",
+"label": {
+"de": "Schaltflächentext",
+"en": "Button Text"
+},
+"default": "Hilfe & Support"
+},
+{
+"type": "url",
+"id": "link3",
+"label": {
+"de": "Link",
+"en": "Link"
+}
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

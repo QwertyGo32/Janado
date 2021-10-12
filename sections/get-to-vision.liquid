@@ -1,0 +1,50 @@
+<section class="vision">
+    <div class="vision__wrapper"><p class="vision__wrapper_text">{{ section.settings.text_top }}</p>
+        <h2 class="vision__wrapper_title">{{ section.settings.title }}</h2>
+        <div class="vision__wrapper_container vision-container">
+            {% for block in section.blocks %}
+            <div class="vision-container__item"><h2 class="vision-container__item_number">{{ block.settings.number }}</h2>
+            <p class="vision-container__item_text">{{ block.settings.text }}</p>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "Our Vision",
+"max_blocks": 6,
+"settings": [
+{
+"type": "text",
+"id": "text_top",
+"label": "Text Top"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Title"
+}
+],
+"blocks": [
+{
+"type": "Text",
+"name": "Text Block",
+"settings": [
+{
+"type": "text",
+"id": "number",
+"label": "Number"
+},
+{
+"type": "textarea",
+"id": "text",
+"label": "Text",
+"info": "45 characters maximum"
+}
+]
+}
+]
+}
+{% endschema %}

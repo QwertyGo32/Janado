@@ -1,0 +1,21 @@
+<div class="header__container_logo"><a href="{{ shop.url }}"><img src="{{ section.settings.logo | img_url: 'master' }}"></a></div>
+<nav class="header__container_nav nav">
+
+    {%- for link in main_menu.links -%}
+
+    {% if  forloop.index0 == 0 %}
+    <div class="nav__dropdown">
+        <label for="nav-checkbox" class="nav__btn nav__dropdown_btn">{{- link.title | escape -}}</label>
+        <input type="checkbox" class="nav__checkbox" id="nav-checkbox" hidden>
+        <div class="nav__dropdown_content">
+            {%- for sub_link in link.links -%}
+            <a href="{{ sub_link.url }}">{{- sub_link.title | escape -}}</a>
+            {%- endfor -%}
+        </div>
+    </div>
+        {%- else -%}
+    <div class="nav__btn"><a href="{{ link.url }}">{{- link.title | escape -}}</a></div>
+    {% endif %}
+    {%- endfor -%}
+</nav>
+

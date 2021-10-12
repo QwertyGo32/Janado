@@ -1,0 +1,145 @@
+<section class="mosaic">
+    <div class="mosaic__wrapper">
+        <div class="mosaic__wrapper_leftside mosaic__leftside">
+            <a href="#" class="mosaic__leftside_smartphones">
+                <img src="{{ section.settings.image_smart.src | img_url: 'master' }}" class="mosaic__leftside_smartphones-img" alt="">
+                <p class="mosaic__leftside_smartphones-text">
+                    {{ section.settings.heading1 }}
+                </p>
+            </a>
+            <div class="mosaic__leftside_lower">
+                <a href="#" class="mosaic__leftside_smartwatches">
+                    <img src="{{ section.settings.image_watch.src | img_url: 'master' }}" class="mosaic__leftside_smartwatches-img" alt="">
+                    <p class="mosaic__leftside_smartwatches-text">
+                        {{ section.settings.heading2 }}
+                    </p>
+                </a>
+                <a href="#" class="mosaic__leftside_laptops">
+                    <img src="{{ section.settings.image_laptop.src | img_url: 'master' }}" class="mosaic__leftside_laptops-img" alt="">
+                    <p class="mosaic__leftside_laptops-text">
+                        {{ section.settings.heading3 }}
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="mosaic__wrapper_rightside mosaic__rightside">
+            <div class="mosaic__rightside_upper">
+                <a href="#" class="mosaic__rightside_hifi">
+                    <img src="{{ section.settings.image_hi.src | img_url: 'master' }}" class="mosaic__rightside_hifi-img" alt="">
+                    <p class="mosaic__rightside_hifi-text">
+                        {{ section.settings.heading4 }}
+                    </p>
+                </a>
+                <a href="#" class="mosaic__rightside_gameconsoles">
+                    <img src="{{ section.settings.image_game.src | img_url: 'master' }}" class="mosaic__rightside_gameconsoles-img" alt="">
+                    <p class="mosaic__rightside_gameconsoles-text">
+                        {{ section.settings.heading5 }}
+                    </p>
+                </a>
+            </div>
+            <a href="#" class="mosaic__rightside_tablets">
+                <img src="{{ section.settings.image_tab.src | img_url: 'master' }}" class="mosaic__rightside_tablets-img" alt="">
+                <p class="mosaic__rightside_tablets-text">
+                    {{ section.settings.heading6 }}
+                </p>
+            </a>
+        </div>
+    </div>
+</section>
+{% schema %}
+  {
+    "name": "Mosaic",
+    "settings": [
+{
+"type": "text",
+"id": "heading1",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Smartphones"
+},
+{
+"type": "image_picker",
+"id": "image_smart",
+"label": "Image Smartphones"
+},
+{
+"type": "text",
+"id": "heading2",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Smartwatches"
+},
+{
+"type": "image_picker",
+"id": "image_watch",
+"label": "Image Smartwatches"
+},
+{
+"type": "text",
+"id": "heading3",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Laptops"
+},
+{
+"type": "image_picker",
+"id": "image_laptop",
+"label": "Image Laptops"
+},
+{
+"type": "text",
+"id": "heading4",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Hifi"
+},
+{
+"type": "image_picker",
+"id": "image_hi",
+"label": "Image Hifi"
+},
+{
+"type": "text",
+"id": "heading5",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Game consoles"
+},
+{
+"type": "image_picker",
+"id": "image_game",
+"label": "Image Consoles"
+},
+{
+"type": "text",
+"id": "heading6",
+"label": {
+"de": "Titel",
+"en": "Title"
+},
+"default": "Tablets"
+},
+{
+"type": "image_picker",
+"id": "image_tab",
+"label": "Image Tablets"
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,52 @@
+<section class="about-us">
+    <div class="about-us__wrapper">
+        <p class="about-us__wrapper_text">{{ section.settings.text_top }}</p>
+        <h2 class="about-us__wrapper_title">{{ section.settings.title }}</h2>
+        <div class="about-us__wrapper_letters about-us-letters">
+            {% for block in section.blocks %}
+                <div class="about-us-letters__block">
+                    <p class="about-us-letters__block_letter">{{ block.settings.letter }}</p>
+                    <p class="about-us-letters__block_text">{{ block.settings.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "About Us",
+"max_blocks": 4,
+"settings": [
+{
+"type": "text",
+"id": "text_top",
+"label": "Text Top"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Title"
+}
+],
+"blocks": [
+{
+"type": "Text",
+"name": "Text Block",
+"settings": [
+{
+"type": "text",
+"id": "letter",
+"label": "Letter"
+},
+{
+"type": "textarea",
+"id": "text",
+"label": "Text",
+"info": "45 characters maximum"
+}
+]
+}
+]
+}
+{% endschema %}

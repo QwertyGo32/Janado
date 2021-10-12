@@ -1,0 +1,204 @@
+<section class="banner">
+    {%- if section.settings.back_image != blank -%}
+    <img src="{{ section.settings.back_image | img_url: 'master' }}" class="banner__img" alt="">
+    {% endif %}
+        <div class="banner__container">
+            <div class="banner__container_apple-logo apple-logo">
+                <p class="apple-logo__text collection">{{ collection.title }}</p>
+                <div class="apple-logo__img">
+                    {% comment %}{%- if section.settings.logo != blank -%}
+                    <img src="{{ section.settings.logo | img_url: 'master' }}" alt="">
+                    {% endif %}{% endcomment %}
+                </div>
+            </div>
+            <p class="banner__container_text collection">{{ collection.description }}</p>
+        </div>
+</section>
+
+{% style %}
+    {% if section.settings.font_on_off %}
+        .apple-logo__text.collection
+        {
+        font-family:	{% if section.settings.select_fonts != blank %}
+                            {{ section.settings.select_fonts }}
+                        {% else %}
+                            {{ section.settings.title_font.family }}, {{ section.settings.title_font.fallback_families }}
+                        {% endif %};
+        font-weight: 	{{ section.settings.title_font.weight }};
+        font-style: 	{{ section.settings.title_font.style }};
+        font-size: {{  section.settings.header_size }}px;
+        line-height: {{ section.settings.header_line }};
+        color: {{ section.settings.title_color }}
+        }
+        .banner__container_text.collection
+        {
+        font-family:	{% if section.settings.select_fonts_body != blank %}
+                            {{ section.settings.select_fonts_body }}
+                        {% else %}
+                            {{ section.settings.text_font.family }}, {{ section.settings.text_font.fallback_families }}
+                        {% endif %};
+        font-weight: 	{{ section.settings.text_font.weight }};
+        font-style: 	{{ section.settings.text_font.style }};
+        font-size: {{  section.settings.text_size }}px;
+        line-height: {{ section.settings.text_line }};
+        color: {{ section.settings.text_color }}
+        }
+    {% endif %}
+{% endstyle %}
+
+{% schema %}
+{
+"name": {
+"de": "Banner",
+"en": "Banner"
+},
+"settings": [
+{
+"type": "image_picker",
+"id": "back_image",
+"label": {
+"de": "Background image",
+"en": "Background image2"
+}
+},
+{
+"type": "checkbox",
+"id": "font_on_off",
+"default": false,
+"label": "Use Custom Font"
+},
+{
+"type": "select",
+"id": "select_fonts",
+"label": "User Font Title",
+"options": [
+{
+"value": "",
+"label": "none"
+},
+{
+"value": "Sohne-Buch",
+"label": "Sohne-Buch"
+},
+{
+"value": "Sohne-Fett",
+"label": "Sohne-Fett"
+},
+{
+"value": "Sohne-Halbfett",
+"label": "Sohne-Halbfett"
+},
+{
+"value": "Sohne-Leicht",
+"label": "Sohne-Leicht"
+}
+],
+"default": ""
+},
+{
+"type": "font_picker",
+"id": "title_font",
+"label": "Font",
+"default": "work_sans_n6"
+},
+{
+"type": "color",
+"id": "title_color",
+"label": "Title Color",
+"default": "#FFE300"
+},
+{
+"type": "range",
+"id": "header_size",
+"label": "Heading base size",
+"default": 100,
+"min": 36,
+"max": 100,
+"step": 1,
+"unit": "px"
+},
+{
+"type": "range",
+"id": "header_line",
+"label": "Heading Line Height",
+"default": 1.2,
+"min": 1,
+"max": 3,
+"step": 0.1,
+"unit": "px"
+},
+{
+"type": "header",
+"content": "Body text"
+},
+{
+"type": "select",
+"id": "select_fonts_body",
+"label": "User Font Text",
+"options": [
+{
+"value": "",
+"label": "none"
+},
+{
+"value": "Sohne-Buch",
+"label": "Sohne-Buch"
+},
+{
+"value": "Sohne-Fett",
+"label": "Sohne-Fett"
+},
+{
+"value": "Sohne-Halbfett",
+"label": "Sohne-Halbfett"
+},
+{
+"value": "Sohne-Leicht",
+"label": "Sohne-Leicht"
+}
+],
+"default": ""
+},
+{
+"type": "font_picker",
+"id": "text_font",
+"label": "Font",
+"default": "work_sans_n6"
+},
+{
+"type": "color",
+"id": "text_color",
+"label": "Text Color",
+"default": "#FFF"
+},
+{
+"type": "range",
+"id": "text_size",
+"label": "Text base size",
+"default": 24,
+"min": 16,
+"max": 60,
+"step": 1,
+"unit": "px"
+},
+{
+"type": "range",
+"id": "text_line",
+"label": "Text Line Height",
+"default": 1.3,
+"min": 1,
+"max": 3,
+"step": 0.1,
+"unit": "px"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+
+{% endstylesheet %}
+
+{% javascript %}
+
+{% endjavascript %}

@@ -1,0 +1,38 @@
+<div class="FAQ-tabs__wrapper_box FAQ-box" data-index="2">
+    {%- for block in section.blocks -%}
+        <div class="FAQ-box__container">
+            <div class="FAQ-box__container_head"><p class="FAQ-box__container_head_text"> {{- block.settings.heading -}}</p>
+            </div>
+            <div class="FAQ-tabs__container_content"><p class="FAQ-tabs__container_content_text">{{- block.settings.text -}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+
+{
+"name": "Third Tab",
+"max_blocks": 10,
+"settings": [
+],
+"blocks": [
+{
+"type": "text",
+"name": "Tab Content",
+"settings": [
+{
+"type": "text",
+"id": "heading",
+"label": "Heading"
+},
+{
+"type": "textarea",
+"id": "text",
+"label": "Text"
+}
+]
+}
+]
+}
+{% endschema %}

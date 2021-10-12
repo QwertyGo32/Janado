@@ -1,0 +1,354 @@
+{
+  "sections": {
+    "slyder": {
+      "type": "home-slyder",
+      "blocks": {
+        "458707bd-c660-43b4-8b35-d449ff2a5f67": {
+          "type": "image",
+          "settings": {
+            "video": "",
+            "image": "shopify:\/\/shop_images\/homepage-banner.jpg",
+            "background": "#000000",
+            "heading1": "SEEK NEW",
+            "heading2": "MEMORIES,",
+            "heading3": "NOT NEW PHONES.",
+            "text": "",
+            "text_btn": "Finde dein Smartphone",
+            "btn_color": "#000000",
+            "btn_background": "#ffffff",
+            "btn_hover": "#ffe300",
+            "link": "",
+            "font_on_off": false,
+            "select_fonts": "",
+            "title_font": "work_sans_n6",
+            "title_color": "#ffe300",
+            "header_size": 100,
+            "header_line": 1.2,
+            "select_fonts_body": "",
+            "text_font": "work_sans_n6",
+            "text_color": "#ffffff",
+            "text_size": 24,
+            "text_line": 1.3
+          }
+        },
+        "0cc19d15-4ed0-4e5e-88f2-493a8e7db389": {
+          "type": "image",
+          "settings": {
+            "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0470\/7719\/5935\/files\/6080cda753239cade1d37ce7_pexels-tima-miroshnichenko-6754827-transcode.mp4?v=1626847544",
+            "image": "shopify:\/\/shop_images\/homepage-banner.jpg",
+            "background": "#000000",
+            "heading1": "SEEK NEW",
+            "heading2": "MEMORIES,",
+            "heading3": "NOT NEW PHONES",
+            "text": "Wähle aus unserem Angebot von über 2.000 generalüberholten Smartphones und spar dein\n                                    Geld für neue Erlebnisse.",
+            "text_btn": "Finde dein Smartphone",
+            "btn_color": "#000000",
+            "btn_background": "#ffffff",
+            "btn_hover": "#ffe300",
+            "link": "",
+            "font_on_off": true,
+            "select_fonts": "Sohne-Leicht",
+            "title_font": "mono",
+            "title_color": "#ffe300",
+            "header_size": 100,
+            "header_line": 1.2,
+            "select_fonts_body": "",
+            "text_font": "work_sans_n6",
+            "text_color": "#ffffff",
+            "text_size": 24,
+            "text_line": 1.3
+          }
+        },
+        "98514816-4cbb-46cd-bece-c55bbcb70f42": {
+          "type": "image",
+          "settings": {
+            "video": "",
+            "image": "shopify:\/\/shop_images\/iphone_banner.png",
+            "background": "#97cadb",
+            "heading1": "Apple IPhone",
+            "heading2": "12  Pro Max",
+            "heading3": "",
+            "text": "Mehr Kamera für deinen nächsten Urlaub. Das bisher schnellste und leistungsstärkste iPhone.",
+            "text_btn": "Jetzt entdecken",
+            "btn_color": "#000000",
+            "btn_background": "#ffffff",
+            "btn_hover": "#ffe300",
+            "link": "",
+            "font_on_off": false,
+            "select_fonts": "",
+            "title_font": "work_sans_n6",
+            "title_color": "#ffe300",
+            "header_size": 100,
+            "header_line": 1.2,
+            "select_fonts_body": "",
+            "text_font": "work_sans_n6",
+            "text_color": "#ffffff",
+            "text_size": 24,
+            "text_line": 1.3
+          }
+        },
+        "0f18429c-4a67-4e9d-a3f0-cf8b6b85164a": {
+          "type": "image",
+          "settings": {
+            "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0470\/7719\/5935\/files\/6080cda753239cade1d37ce7_pexels-tima-miroshnichenko-6754827-transcode.mp4?v=1626847544",
+            "image": "shopify:\/\/shop_images\/iphone_banner.png",
+            "background": "#e3ca00",
+            "heading1": "Samsung Galaxy ",
+            "heading2": "S21 Ultra",
+            "heading3": "",
+            "text": "Mehr Kamera für deinen nächsten Urlaub. Das bisher schnellste und leistungsstärkste iPhone.",
+            "text_btn": "Jetzt entdecken",
+            "btn_color": "#000000",
+            "btn_background": "#ffffff",
+            "btn_hover": "#ffe300",
+            "link": "",
+            "font_on_off": false,
+            "select_fonts": "",
+            "title_font": "work_sans_n6",
+            "title_color": "#ffe300",
+            "header_size": 100,
+            "header_line": 1.2,
+            "select_fonts_body": "",
+            "text_font": "work_sans_n6",
+            "text_color": "#ffffff",
+            "text_size": 24,
+            "text_line": 1.3
+          }
+        }
+      },
+      "block_order": [
+        "458707bd-c660-43b4-8b35-d449ff2a5f67",
+        "0cc19d15-4ed0-4e5e-88f2-493a8e7db389",
+        "98514816-4cbb-46cd-bece-c55bbcb70f42",
+        "0f18429c-4a67-4e9d-a3f0-cf8b6b85164a"
+      ],
+      "settings": {
+        "discount": "Spare bis zu 50%"
+      }
+    },
+    "cart": {
+      "type": "product-cart-home",
+      "blocks": {
+        "7aa072d9-5859-4457-a08e-8b78f44c5a69": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-iphone-xs-max"
+          }
+        },
+        "310653c8-e36d-45ac-9d8c-5fd41d7e7528": {
+          "type": "collection",
+          "settings": {
+            "product": "google-pixel-5-5g-dual-sim"
+          }
+        },
+        "99a80b64-42f0-44d6-9508-d72551bd487c": {
+          "type": "collection",
+          "settings": {
+            "product": "samsung-galaxy-tab-active-pro-lte"
+          }
+        },
+        "b2ccecbe-c2c0-47d5-b530-874da603b764": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-ipad-air-4-2020-lte"
+          }
+        },
+        "552a6fe8-2cab-46fe-a751-5023c773a031": {
+          "type": "collection",
+          "settings": {
+            "product": "cat-s62-pro-dual-sim"
+          }
+        },
+        "ba6b2441-8a8f-48ab-b6ba-517d9849773c": {
+          "type": "collection",
+          "settings": {
+            "product": "apple-ipad-air-2019-lte"
+          }
+        }
+      },
+      "block_order": [
+        "7aa072d9-5859-4457-a08e-8b78f44c5a69",
+        "310653c8-e36d-45ac-9d8c-5fd41d7e7528",
+        "99a80b64-42f0-44d6-9508-d72551bd487c",
+        "b2ccecbe-c2c0-47d5-b530-874da603b764",
+        "552a6fe8-2cab-46fe-a751-5023c773a031",
+        "ba6b2441-8a8f-48ab-b6ba-517d9849773c"
+      ],
+      "settings": {
+        "heading": "Janado Staff Picks",
+        "text": ""
+      }
+    },
+    "mosaic": {
+      "type": "home-mosaic",
+      "settings": {
+        "heading1": "Smartphones",
+        "image_smart": "shopify:\/\/shop_images\/mosaic_smartphones.jpg",
+        "heading2": "Smartwatches",
+        "image_watch": "shopify:\/\/shop_images\/mosaic_smartwatches.jpg",
+        "heading3": "Laptops",
+        "image_laptop": "shopify:\/\/shop_images\/mosaic_laptops.jpg",
+        "heading4": "Hifi",
+        "image_hi": "shopify:\/\/shop_images\/mosaic_hifi.png",
+        "heading5": "Game consoles",
+        "image_game": "shopify:\/\/shop_images\/mosaic_game-consoles.jpg",
+        "heading6": "Tablets",
+        "image_tab": "shopify:\/\/shop_images\/mosaic_tablets.jpg"
+      }
+    },
+    "spares": {
+      "type": "home-banner-spares",
+      "settings": {
+        "heading": "Mehr Teile als der Dealer im Berghain",
+        "text": "Wir bieten eine breite Auswahl verschiedenster Ersatzteile",
+        "text_btn": "Jetzt entdecken",
+        "btn_color": "#FFF",
+        "btn_background": "rgba(0,0,0,0)",
+        "btn_hover": "#ffe300",
+        "link": "",
+        "font_on_off": false,
+        "select_fonts": "",
+        "title_font": "work_sans_n6",
+        "title_color": "#ffe300",
+        "header_size": 100,
+        "header_line": 1.2,
+        "select_fonts_body": "",
+        "text_font": "work_sans_n6",
+        "text_color": "#ffffff",
+        "text_size": 24,
+        "text_line": 1.3
+      }
+    },
+    "insurance": {
+      "type": "home-insurance-rent",
+      "settings": {
+        "left_text_heading": "Janado Versicherung",
+        "left_heading": "Auch wir können nicht alles reparieren. Aber versichern",
+        "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0470\/7719\/5935\/files\/6080cda753239cade1d37ce7_pexels-tima-miroshnichenko-6754827-transcode.mp4?v=1626847544",
+        "left_text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n                beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n                versichert,\n                Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+        "left_text_btn": "Jetzt entdecken",
+        "left_link": "",
+        "btn_color_l": "#FFF",
+        "btn_background_l": "",
+        "btn_hover_l": "#e6d50e",
+        "image": "shopify:\/\/shop_images\/circles.png",
+        "font_on_off": false,
+        "select_fonts": "",
+        "title_font": "work_sans_n6",
+        "title_color": "#ffe300",
+        "header_size": 100,
+        "header_line": 1.2,
+        "select_fonts_body": "",
+        "text_font": "work_sans_n6",
+        "text_color": "#ffffff",
+        "text_size": 24,
+        "text_line": 1.3,
+        "right_text_heading": "Janado Versicherung",
+        "right_heading": "Auch wir können nicht alles reparieren. Aber versichern",
+        "right_text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n                beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n                versichert,\n                Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+        "right_text_btn": "Jetzt entdecken",
+        "right_link": "",
+        "btn_color_r": "#FFF",
+        "btn_background_r": "",
+        "btn_hover_r": "#e6d50e",
+        "font_on_off_rent": false,
+        "select_fonts_rent": "",
+        "title_font_rent": "work_sans_n6",
+        "title_color_rent": "#ffe300",
+        "header_size_rent": 100,
+        "header_line_rent": 1.2,
+        "select_fonts_body_rent": "",
+        "text_font_rent": "work_sans_n6",
+        "text_color_rent": "#ffffff",
+        "text_size_rent": 24,
+        "text_line_rent": 1.3
+      }
+    },
+    "recovery": {
+      "type": "home-recovery",
+      "settings": {
+        "text_heading": "Janado Versicherung",
+        "heading": "Auch wir können nicht alles reparieren. Aber versichern",
+        "text": "Wir versichern das Risiko, dass Geräte durch Kurzschluss, Bedienfehler oder Ungeschicklichkeit\n            beschädigt werden. Die beiden Letzteren sind in der Hausratversicherung grundsätzlich nicht\n            versichert, Kurzschluss nur bei Blitzschlag auf dem Grundstück.",
+        "text_btn": "Jetzt entdecken",
+        "btn_color": "#FFF",
+        "btn_background": "",
+        "btn_hover": "#e6d50e",
+        "video": "https:\/\/cdn.shopify.com\/s\/files\/1\/0470\/7719\/5935\/files\/608108c3845d8c7b9403905e_pexels-tima-miroshnichenko-6754829-transcode.mp4?v=1626847705",
+        "link": "",
+        "font_on_off": false,
+        "select_fonts": "",
+        "title_font": "work_sans_n6",
+        "title_color": "#ffe300",
+        "header_size": 100,
+        "header_line": 1.2,
+        "select_fonts_body": "",
+        "text_font": "work_sans_n6",
+        "text_color": "#ffffff",
+        "text_size": 24,
+        "text_line": 1.3
+      }
+    },
+    "subfooter": {
+      "type": "subfooter",
+      "blocks": {
+        "a30ddc4e-1559-45d8-ba4b-09ff1e717357": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-first-menu"
+          }
+        },
+        "3d25430d-e640-41b8-a23f-3e92b27dc06f": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfoter-second-menu"
+          }
+        },
+        "aa1346e2-6eb8-4f50-a0b8-1910a353ad38": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-third-menu"
+          }
+        },
+        "43a706bf-2dab-4e44-b7a3-7f7350270d63": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-four-menu"
+          }
+        },
+        "427b4c88-d9bd-41b0-bc0a-2cb4e75b13ee": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-five-menu"
+          }
+        },
+        "0e037c28-649d-401f-92f9-e11c5bb9e55b": {
+          "type": "mega_menu",
+          "settings": {
+            "navigation_menu": "subfooter-six-menu"
+          }
+        }
+      },
+      "block_order": [
+        "a30ddc4e-1559-45d8-ba4b-09ff1e717357",
+        "3d25430d-e640-41b8-a23f-3e92b27dc06f",
+        "aa1346e2-6eb8-4f50-a0b8-1910a353ad38",
+        "43a706bf-2dab-4e44-b7a3-7f7350270d63",
+        "427b4c88-d9bd-41b0-bc0a-2cb4e75b13ee",
+        "0e037c28-649d-401f-92f9-e11c5bb9e55b"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/janado_logo.png"
+      }
+    }
+  },
+  "order": [
+    "slyder",
+    "cart",
+    "mosaic",
+    "spares",
+    "insurance",
+    "recovery",
+    "subfooter"
+  ]
+}

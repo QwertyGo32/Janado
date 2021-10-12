@@ -1,0 +1,49 @@
+<div class="burger-menu"><a href="#" class="burger-menu_button"><span class="burger-menu_lines"></span> <span
+                class="burger-menu_line"></span></a>
+    <nav class="burger-menu_nav burger-nav">
+        <div class="burger-nav__head">
+            <picture>
+                <source srcset="{{ section.settings.mobile_logo | img_url: 'master' }}" type="image/webp">
+                <img src="{{ section.settings.mobile_logo | img_url: 'master' }}"></picture>
+            <div class="burger-nav__head_lang"><a href="#">ENG</a> <a href="#">DE</a></div>
+        </div>
+        <a href="#" class="burger-nav__btn">{{ 'user.png' | asset_url | img_tag: 'user' }}
+            <p class="burger-nav__btn_title">Enter/Out</p></a>
+
+        {%- for link in main_menu.links -%}
+
+        {% if  forloop.index0 == 0 %}
+
+        <div class="burger-nav__brands">
+            <div class="burger-nav__brands_head">{{ 'star.png' | asset_url | img_tag: 'star' }}
+                <p class="burger-nav__btn_title">{{- link.title | escape -}}</p>
+            </div>
+            <div class="burger-nav__brands_container">
+
+                {%- for sub_link in link.links -%}
+
+                <a href="{{ sub_link.url }}" class="burger-nav__brands_name">{{- sub_link.title | escape -}}</a>
+
+                {%- endfor -%}
+            </div>
+        </div>
+        {%- else -%}
+        <a href="{{ link.url }}" class="burger-nav__btn">
+            {{ 'tablet.png' | asset_url | img_tag: 'tablet' }}
+            <p class="burger-nav__btn_title">{{- link.title | escape -}}</p>
+        </a>
+        {% endif %}
+        {%- endfor -%}
+        <div class="burger-nav__back-btn">
+            {{ 'left-arrow.png' | asset_url | img_tag: 'left-arrow' }}
+            <p class="burger-nav__back-btn_text">Back</p>
+        </div>
+    </nav>
+
+    <div class="burger-menu_overlay"></div>
+</div>
+{% comment %}<a href="#" class="burger-nav__btn">
+    <img src="./img/tablet.svg">
+    <p class="burger-nav__btn_title">Smartphones</p>
+</a>
+    {% endcomment %}
